@@ -16,9 +16,14 @@ gem 'uglifier'
 gem 'unicorn'
 gem 'dotenv-rails'
 gem 'foreman'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'awesome_print'
   gem 'factory_girl_rails'
   gem 'pry-rails'
+end
+
+group :production do
+  gem 'pg'
 end

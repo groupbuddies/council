@@ -1,10 +1,12 @@
-development: &default
+common: &common
   adapter: sqlite3
-  database: two_cents_development
-  encoding: utf8
-  pool: 2
+  database: db/development.sqlite3
+  pool: 5
   timeout: 5000
+  encoding: utf8
 
 test:
-  <<: *default
-  database: two_cents_test
+  <<: *common
+
+development:
+  <<: *common
