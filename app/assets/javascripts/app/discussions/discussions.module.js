@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('twocents.discussions', [
+    .module('two_cents.discussions', [
       'two_cents.core'
     ])
     .config(setupRoutes);

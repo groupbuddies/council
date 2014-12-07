@@ -21,4 +21,10 @@
 //= require lodash/dist/lodash
 //= require jquery
 //= require jquery_ujs
-//= require_tree ./app
+//= require ./app/app
+//= require ./app/core/core.module
+//= require_tree ./app/core
+//= require ./app/comments/comments.module
+//= require_tree ./app/comments
+//= require ./app/discussions/discussions.module
+//= require_tree ./app/discussions
