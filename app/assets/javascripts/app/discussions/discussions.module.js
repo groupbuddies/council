@@ -7,7 +7,9 @@
     ])
     .config(setupRoutes);
 
-  function setupRoutes($stateProvider) {
+  function setupRoutes($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/discussions');
+
     $stateProvider
       .state('discussions', {
         url: '/discussions',
@@ -16,7 +18,7 @@
       })
       .state('discussions.index', {
         url: '',
-        templateUrl: 'index.html'
+        templateUrl: 'discussions/index.html'
       })
       .state('discussions.show', {
         url: '/:id',
