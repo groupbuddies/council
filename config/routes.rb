@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  constraints format: 'json' do
-    resources :discussions, only: [:index, :show]
+  defaults format: 'json' do
+    constraints format: 'json' do
+      resources :discussions, only: [:index, :show]
+    end
   end
 
   devise_for :users, controllers: { sessions: 'sessions' }

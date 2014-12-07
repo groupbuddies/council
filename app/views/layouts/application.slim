@@ -1,11 +1,12 @@
 doctype html
 html
   head
-    meta charset="utf-8"
-    meta name="ROBOTS" content="NOODP"
+    meta charset='utf-8'
+    meta name='ROBOTS' content='NOODP'
     title = title
     = stylesheet_link_tag :application, media: 'all'
     = csrf_meta_tags
   body ng-app='two_cents'
+    = link_to 'Sign Out', destroy_user_session_path, method: :delete
     = yield
     = javascript_include_tag :application
