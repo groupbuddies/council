@@ -1,0 +1,34 @@
+(function() {
+  'use strict';
+
+  angular
+    .module('twocents.discussions', [
+      'two_cents.core'
+    ])
+    .config(setupRoutes);
+
+  function setupRoutes($stateProvider) {
+    $stateProvider
+      .state('discussions', {
+        url: '/discussions',
+        abstract: true,
+        template: '<div ui-view></div>'
+      })
+      .state('discussions.index', {
+        url: '',
+        templateUrl: 'index.html'
+      })
+      .state('discussions.show', {
+        url: '/:id',
+        templateUrl: 'show.html'
+      })
+      .state('discussions.new', {
+        url: '/new',
+        templateUrl: 'new.html'
+      })
+      .state('discussions.edit', {
+        url: '/:id/edit',
+        templateUrl: 'edit.html'
+      });
+  }
+})();
