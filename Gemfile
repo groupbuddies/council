@@ -16,7 +16,7 @@ gem 'sass-rails'
 gem 'slim-rails'
 gem 'title'
 gem 'uglifier'
-gem 'unicorn'
+gem 'puma'
 
 group :development, :test do
   gem 'awesome_print'
