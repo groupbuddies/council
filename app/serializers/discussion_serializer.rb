@@ -5,6 +5,6 @@ class DiscussionSerializer < ActiveModel::Serializer
   has_many :comments, embed: :objects
 
   def authors
-    ([object.author] + Comment.find(object.comments.map(&:author_id).uniq)).sort_by(&:id)
+    User.find([object.author_id] + object.comments.map(&:author_id).uniq).sort_by(&:id)
   end
 end

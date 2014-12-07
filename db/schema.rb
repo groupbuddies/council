@@ -22,11 +22,12 @@ ActiveRecord::Schema.define(version: 20141207203058) do
   end
 
   create_table "discussions", force: true do |t|
-    t.string   "title",      null: false
-    t.string   "subtitle",   null: false
-    t.text     "body",       null: false
-    t.integer  "author_id",  null: false
+    t.string   "title",                     null: false
+    t.string   "subtitle",                  null: false
+    t.integer  "author_id",                 null: false
+    t.text     "body"
     t.string   "tags"
+    t.boolean  "open",       default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,8 +45,8 @@ ActiveRecord::Schema.define(version: 20141207203058) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",             default: "", null: false
+    t.string   "last_name",              default: "", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
