@@ -2,22 +2,12 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
+TwoCents::Application.load_tasks
 
-Rails.application.load_tasks
-if defined?(RSpec)
-  task(:spec).clear
+if %w(development test).include? Rails.env
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new
 
-  desc 'Run all specs'
-  RSpec::Core::RakeTask.new(:spec) do |t|
-    t.rspec_opts = '--tag ~factory'
-  end
-
-  desc 'Run factory specs.'
-  RSpec::Core::RakeTask.new(:factory_specs) do |t|
-    t.pattern = './spec/models/factories_spec.rb'
-  end
-
-  task spec: :factory_specs
+  task(:default).clear
+  task default: :rubocop
 end
-task(:default).clear
-task :default => [:spec]

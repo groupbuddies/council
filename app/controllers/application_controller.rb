@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   check_authorization
 
-  rescue_from CanCan::AccessDenied do |exception|
+  rescue_from CanCan::AccessDenied do |_exception|
     respond_to do |format|
       format.html { redirect_to new_user_session_path }
       format.json { render nothing: true, status: 403 }
