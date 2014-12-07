@@ -1,0 +1,9 @@
+h1
+  | {{ctrl.discussion.title}}
+
+h2
+  | {{ctrl.discussion.subtitle}}
+
+.discussion-body(ng-bind="ctrl.discussion.body")
+
+div(comments-list="ctrl.discussion.comments")

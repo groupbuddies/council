@@ -23,7 +23,13 @@
       })
       .state('discussions.show', {
         url: '/:id',
-        templateUrl: 'show.html'
+        templateUrl: 'discussions/show.html',
+        controller: 'DiscussionCtrl as ctrl',
+        resolve: {
+          discussionId: function($stateParams) {
+            return $stateParams.id;
+          }
+        }
       })
       .state('discussions.new', {
         url: '/new',
