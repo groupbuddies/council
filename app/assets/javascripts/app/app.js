@@ -10,5 +10,10 @@
       'two_cents.core',
       'two_cents.discussions',
       'two_cents.comments'
-    ]);
+    ])
+    .config(csrf);
+
+    function csrf($httpProvider) {
+      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+    }
 })();
