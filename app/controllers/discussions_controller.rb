@@ -1,4 +1,6 @@
 class DiscussionsController < ApplicationController
+  authorize_resource
+
   def index
     discussions = Discussion.all
 
