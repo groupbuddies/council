@@ -16,7 +16,6 @@ gem 'uglifier'
 gem 'unicorn'
 gem 'dotenv-rails'
 gem 'foreman'
-gem 'sqlite3'
 
 group :development, :test do
   gem 'awesome_print'
