@@ -1,5 +1,5 @@
 class DiscussionSerializer < ActiveModel::Serializer
-  attributes :id, :title, :subtitle, :body, :authors
+  attributes :id, :title, :subtitle, :body, :open, :authors
 
   has_one :author
   has_many :comments, embed: :objects
