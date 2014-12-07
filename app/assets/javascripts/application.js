@@ -10,6 +10,15 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require angular/angular
+//= require angular-material/angular-material
+//= require angular-animate/angular-animate
+//= require angular-aria/angular-aria
+//= require hammerjs/hammer
+//= require angular-rails-templates
+//= require angular-ui-router/release/angular-ui-router
+//= require angular-data/dist/angular-data
+//= require lodash/dist/lodash
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree ./app

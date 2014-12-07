@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0rc1'
 
+gem 'angular-rails-templates'
 gem 'bower-rails', '~> 0.9.1'
 gem 'devise'
 gem 'dotenv-rails'
