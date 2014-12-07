@@ -3,9 +3,12 @@
 
   angular
     .module('two_cents.core')
-    .controller('Discussion', Discussion);
+    .factory('Discussion', Discussion);
 
-  function Discussion() {
-
+  function Discussion(DS) {
+    return DS.defineResource({
+        name: 'discussion',
+        endpoint: 'discussions'
+      });
   }
 })();

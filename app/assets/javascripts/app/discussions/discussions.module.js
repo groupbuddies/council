@@ -18,7 +18,8 @@
       })
       .state('discussions.index', {
         url: '',
-        templateUrl: 'discussions/index.html'
+        templateUrl: 'discussions/index.html',
+        controller: 'DiscussionsCtrl as ctrl'
       })
       .state('discussions.show', {
         url: '/:id',
