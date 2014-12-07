@@ -1,0 +1,17 @@
+h1 Discussions
+
+.discussions-opened
+  h2 Opened
+  div(ng-repeat="discussion in ctrl.discussions | filter:{open: true}")
+    .discussion-title
+      | {{discussion.title}}
+    .discussion-subtitle
+      | {{discussion.subtitle}}
+
+.discussions-closed
+  h2 Closed
+  div(ng-repeat="discussion in ctrl.discussions | filter:{open: false}")
+    .discussion-title
+      | {{discussion.title}}
+    .discussion-subtitle
+      | {{discussion.subtitle}}
