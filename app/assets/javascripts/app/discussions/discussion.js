@@ -10,7 +10,7 @@
 
     ctrl.resetDiscussion = resetDiscussion;
 
-    Discussion.find(discussionId).then(ctrl.resetDiscussion);
+    Discussion.find(discussionId, { bypassCache: true }).then(ctrl.resetDiscussion);
 
     function resetDiscussion(discussion) {
       ctrl.discussion = discussion;

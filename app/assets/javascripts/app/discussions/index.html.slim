@@ -2,11 +2,12 @@ h1 Discussions
 
 .discussions-opened
   h2 Opened
-  div(ng-repeat="discussion in ctrl.discussions | filter:{open: true}")
-    .discussion-title
-      | {{discussion.title}}
-    .discussion-subtitle
-      | {{discussion.subtitle}}
+  div(ng-repeat="discussion in ctrl.discussions")
+    a(ui-sref="discussions.show({ id: discussion.id })")
+      .discussion-title
+        | {{discussion.title}}
+      .discussion-subtitle
+        | {{discussion.subtitle}}
 
 .discussions-closed
   h2 Closed
