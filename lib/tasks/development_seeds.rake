@@ -1,6 +1,6 @@
 if Rails.env.development?
 
-  namespace :db do
+  namespace :dev do
     desc 'Populates DB with fake data'
     task populate: :environment do
       require 'faker'
