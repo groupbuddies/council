@@ -19,7 +19,7 @@ class DiscussionsController < ApplicationController
     if discussion.persisted?
       render json: discussion
     else
-      render json: error_response(discussion), status: 500
+      render json: { errors: discussion.errors.full_messages }.to_json, status: 422
     end
   end
 
@@ -27,9 +27,5 @@ class DiscussionsController < ApplicationController
 
   def discussion_params
     params.require(:discussion).permit(:title, :subtitle, :body, :tags, :author_id)
-  end
-
-  def error_response(discussion)
-    DiscussionCompactSerializer.new(discussion).to_json.merge(errors: discussion.errors)
   end
 end
