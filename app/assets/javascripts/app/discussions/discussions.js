@@ -38,4 +38,17 @@
         })
     }
   }
+
+  function NewDiscussionCtrl(Discussion, $state) {
+    var ctrl = this;
+
+    ctrl.createDiscussion = createDiscussion;
+
+    function createDiscussion(discussion) {
+      Discussion.create(discussion)
+        .then(function (disc) {
+          $state.go('discussions.show', {id: disc.id})
+        })
+    }
+  }
 })();
