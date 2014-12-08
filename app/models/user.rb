@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     :validatable
 
   validates :first_name, :last_name, :email, presence: true
+  has_many :notifications
 
   def display_name
     "#{first_name} #{last_name[0]}"

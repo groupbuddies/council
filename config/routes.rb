@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   defaults format: 'json' do
     constraints format: 'json' do
       resources :discussions, only: [:index, :show, :create, :update] do
-        resources :comments, only: [:index, :show, :create, :update]
+        resources :comments, only: [:show, :create, :update]
       end
+      resources :notifications, only: [:index, :destroy]
     end
   end
 

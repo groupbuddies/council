@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 20141208042314) do
     t.integer  "comments_count", default: 0,    null: false
   end
 
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.integer  "comment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
