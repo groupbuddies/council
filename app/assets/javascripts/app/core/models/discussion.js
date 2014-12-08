@@ -5,7 +5,7 @@
     .module('two_cents.core')
     .factory('Discussion', Discussion);
 
-  function Discussion(DS) {
+  function Discussion(DS, $http) {
     var Discussion = DS.defineResource({
       name: 'discussion',
       endpoint: 'discussions',
@@ -19,6 +19,13 @@
     var DiscussionComment = DS.defineResource({
       name: 'discussionComment',
       endpoint: 'comments',
+      methods: {
+        update: function(body) {
+          return $http.put('discussions/' + this.discussionId + '/comments/' + this.id, { body: body }).then(function(response) {
+            return response.data;
+          });
+        }
+      },
       relations: {
         belongsTo: {
           discussion: {

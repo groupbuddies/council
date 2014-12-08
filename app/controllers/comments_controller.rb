@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   def update
     comment = discussion.comments.find(params[:id])
 
-    if commment.update(comment_params)
+    if comment.update(comment_params)
       render json: comment
     else
       render json: { errors: comment.errors.full_messages }.to_json, status: 422

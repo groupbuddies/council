@@ -5,7 +5,7 @@
     .module('two_cents.discussions')
     .controller('DiscussionCtrl', DiscussionCtrl);
 
-  function DiscussionCtrl(Discussion, discussionId) {
+  function DiscussionCtrl(Discussion, discussionId, _, DS) {
     var ctrl = this;
 
     ctrl.newComment = { discussionId: discussionId };
@@ -16,6 +16,11 @@
 
     function resetDiscussion(discussion) {
       ctrl.discussion = discussion;
+      _.each(ctrl.discussion.comments, addDiscussionId);
+
+      function addDiscussionId(comment) {
+        comment.discussionId = discussion.id;
+      }
     }
 
     function addComment(comment) {
