@@ -26,6 +26,9 @@ class DiscussionsController < ApplicationController
   private
 
   def discussion_params
-    params.require(:discussion).permit(:title, :subtitle, :body, :tags, :author_id)
+    params.
+      require(:discussion).
+      permit(:title, :subtitle, :body, :tags).
+      merge(author_id: current_user.id)
   end
 end
