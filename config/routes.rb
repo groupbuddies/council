@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   defaults format: 'json' do
     constraints format: 'json' do
-      resources :discussions, only: [:index, :show]
+      resources :discussions, only: [:index, :show, :create]
     end
   end
 
