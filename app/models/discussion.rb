@@ -4,4 +4,6 @@ class Discussion < ActiveRecord::Base
 
   validates_presence_of :title, :subtitle, :open, :author_id
   validates_inclusion_of :open, in: [true, false]
+
+  default_scope -> { order('updated_at DESC') }
 end
