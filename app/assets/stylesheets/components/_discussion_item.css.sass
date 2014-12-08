@@ -1,0 +1,39 @@
+.DiscussionItem
+  position: relative
+  display: flex
+  flex-direction: column
+  height: 62px
+  background-color: $white
+
+.DiscussionItem-title
+  @extend %deci
+  flex-grow: 1
+  color: $black
+
+.DiscussionItem-subtitle
+  @extend %milli
+  flex-grow: 1
+  color: $light-grey
+
+.DiscussionItem-commentsCount
+  @extend %milli
+  position: absolute
+  bottom: 0
+  right: 0
+  z-index: 55
+  height: 18px
+  padding-right: 5px
+  color: $white
+  text-align: right
+
+.DiscussionItem-commentsCount:before
+  content: ''
+  position: absolute
+  right: 0
+  bottom: 0
+  z-index: -1
+  width: 0
+  height: 0
+  border-style: solid
+  border-width: 0 0 40px 40px
+  border-color: transparent transparent $green transparent

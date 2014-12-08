@@ -1,31 +1,22 @@
-h1 Discussions
+.Page.Page--dark layout='column'
+  section
+    md-container.Page-item.u-upperCase Open Discussions
+    md-container layout='column' layout-margin=''
+      md-card.DiscussionItem ng-repeat="discussion in ctrl.discussions | filter:{open: true}" flex='' ng-click="ctrl.showDiscussion(discussion.id)"
+        .DiscussionItem-title
+          | {{discussion.title}}
+        .DiscussionItem-subtitle
+          | {{discussion.subtitle}}
+        .DiscussionItem-commentsCount
+          | {{discussion.comments_count}}
 
-md-toolbar.md-theme-light
-  h1.md-toolbar-tools
-    span Opened
-
-md-content.discussions-opened
-  md-list
-    md-item(ng-repeat="discussion in ctrl.discussions | filter:{open: true}")
-      md-item-content(ng-click="ctrl.showDiscussion(discussion.id)")
-        .md-tile-content
-          h3
-            | {{discussion.title}}
-          p
-            | {{discussion.subtitle}}
-      md-divider(ng-if="!$last")
-
-md-toolbar.md-theme-light
-  h1.md-toolbar-tools
-    span Closed
-
-md-content.discussions-closed
-  md-list
-    md-item(ng-repeat="discussion in ctrl.discussions | filter:{open: false}")
-      md-item-content(ng-click="ctrl.showDiscussion(discussion.id)")
-        .md-tile-content
-          h3
-            | {{discussion.title}}
-          p
-            | {{discussion.subtitle}}
-      md-divider(ng-if="!$last")
+  section
+    md-container.Page-item.u-upperCase Closed
+    md-container layout='column' layout-margin=''
+      md-card.DiscussionItem.DiscussionItem--closed ng-repeat="discussion in ctrl.discussions | filter:{open: false}" flex='' ng-click="ctrl.showDiscussion(discussion.id)"
+        .DiscussionItem-title
+          | {{discussion.title}}
+        .DiscussionItem-subtitle
+          | {{discussion.subtitle}}
+        .DiscussionItem-commentsCount
+          | {{discussion.comments_count}}
