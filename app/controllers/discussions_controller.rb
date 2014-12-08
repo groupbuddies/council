@@ -23,6 +23,16 @@ class DiscussionsController < ApplicationController
     end
   end
 
+  def update
+    discussion = Discussion.find(params[:id])
+
+    if discussion.update(discussion_params)
+      render json: discussion
+    else
+      render json: { errors: discussion.errors.full_messages }.to_json, status: 422
+    end
+  end
+
   private
 
   def discussion_params
