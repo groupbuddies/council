@@ -4,6 +4,8 @@ class DiscussionCompactSerializer < ActiveModel::Serializer
   has_one :author
 
   def url
+    return '' unless object.persisted?
+
     discussion_path(object)
   end
 end
