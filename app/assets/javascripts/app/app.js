@@ -7,6 +7,7 @@
       'templates',
       'ui.router',
       'angular-data.DS',
+      'angularMoment',
       'two_cents.core',
       'two_cents.components',
       'two_cents.discussions',

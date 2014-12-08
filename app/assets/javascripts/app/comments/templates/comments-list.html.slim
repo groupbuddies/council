@@ -6,4 +6,6 @@ md-content
           img.face(ng-src="{{comment.author.picture}}")
         .md-tile-content
           p(ng-bind="comment.body")
+        .md-tile-right
+          span(am-time-ago="comment.created_at")
       md-divider(ng-if="!$last")
