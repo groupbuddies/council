@@ -21,6 +21,11 @@
         templateUrl: 'discussions/index.html',
         controller: 'DiscussionsCtrl as ctrl'
       })
+      .state('discussions.new', {
+        url: '/new',
+        templateUrl: 'discussions/new.html',
+        controller: 'NewDiscussionCtrl as ctrl'
+      })
       .state('discussions.show', {
         url: '/:id',
         templateUrl: 'discussions/show.html',
@@ -31,13 +36,9 @@
           }
         }
       })
-      .state('discussions.new', {
-        url: '/new',
-        templateUrl: 'new.html'
-      })
       .state('discussions.edit', {
         url: '/:id/edit',
-        templateUrl: 'edit.html'
+        templateUrl: 'discussions/edit.html'
       });
   }
 })();

@@ -8,6 +8,7 @@
       'ui.router',
       'angular-data.DS',
       'two_cents.core',
+      'two_cents.components',
       'two_cents.discussions',
       'two_cents.comments'
     ])

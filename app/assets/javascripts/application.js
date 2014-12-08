@@ -22,6 +22,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require ./app/app
+//= require ./app/components/components.module
+//= require_tree ./app/components
 //= require ./app/core/core.module
 //= require_tree ./app/core
 //= require ./app/comments/comments.module
