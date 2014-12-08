@@ -8,10 +8,12 @@ html
     = stylesheet_link_tag :application, media: 'all'
     = csrf_meta_tags
   body ng-app='two_cents'
-    md-toolbar
-      = link_to 'LOGO', root_path
-      - if current_user
-        = link_to 'Sign Out', destroy_user_session_path, method: :delete
-        = "#{current_user.notifications_count} notifications (placeholder)"
+    md-toolbar.md-whiteframe-z2
+      .md-toolbar-tools
+        = link_to 'LOGO', root_path
+        span flex=""
+        - if current_user
+          = "[#{current_user.notifications_count}]"
+          = link_to 'Sign Out', destroy_user_session_path, method: :delete
     = yield
     = javascript_include_tag :application
