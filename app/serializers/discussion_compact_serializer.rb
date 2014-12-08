@@ -1,4 +1,4 @@
-class DiscussionCompactSerializer < ActiveModel::Serializer
+class DiscussionCompactSerializer < EditableSerializer
   attributes :id, :title, :subtitle, :body, :open, :url, :comments_count, :updated_at
 
   has_one :author

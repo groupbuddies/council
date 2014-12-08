@@ -1,5 +1,5 @@
-class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :body
+class CommentSerializer < EditableSerializer
+  attributes :id, :body, :editable
 
   has_one :author
 end
