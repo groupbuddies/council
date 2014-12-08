@@ -5,6 +5,7 @@
     "angular-ui-router": "latest",
     "angular-data": "latest",
     "angular-moment": "latest",
+    "angular-markdown-directive": "latest",
     "lodash": "latest"
   }
 }

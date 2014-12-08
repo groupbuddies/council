@@ -10,7 +10,8 @@ html
   body ng-app='two_cents'
     md-toolbar
       = link_to 'LOGO', root_path
-      = link_to 'Sign Out', destroy_user_session_path, method: :delete
-      = "#{current_user.notifications_count} notifications (placeholder)"
+      - if current_user
+        = link_to 'Sign Out', destroy_user_session_path, method: :delete
+        = "#{current_user.notifications_count} notifications (placeholder)"
     = yield
     = javascript_include_tag :application

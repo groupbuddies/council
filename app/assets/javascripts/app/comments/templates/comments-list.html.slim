@@ -5,7 +5,7 @@ md-content
         .md-tile-left
           img.face(ng-src="{{comment.author.picture}}")
         .md-tile-content
-          p(ng-bind="comment.body" ng-hide="ctrl.editing == comment")
+          p(btf-markdown="comment.body" ng-hide="ctrl.editing == comment")
           input(type="text" ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body")
         .md-tile-right
           span(am-time-ago="comment.created_at")

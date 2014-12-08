@@ -6,12 +6,13 @@ if Rails.env.development?
     task populate: :environment do
       user_ids = User.ids
 
-      1.upto(20) do
+      1.upto(10) do
         Discussion.new.tap do |discussion|
           discussion.title = Faker::Lorem.sentence
           discussion.subtitle = Faker::Lorem.sentence
           discussion.author_id = user_ids.sample
           discussion.body = Faker::Lorem.paragraph
+          discussion.body += "\n[a link](http://blog.groupbuddies.com)"
           discussion.tags = Faker::Lorem.words.join(',')
           discussion.save
 
@@ -21,9 +22,9 @@ if Rails.env.development?
     end
 
     def add_comments(discussion, user_id)
-      1.upto(rand(25)) do
+      1.upto(rand(5)) do
         discussion.comments.new do |comment|
-          comment.body = Faker::Lorem.paragraph
+          comment.body = "a **markdown** *comment*"
           comment.author_id = user_id
           comment.save
         end

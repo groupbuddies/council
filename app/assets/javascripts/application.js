@@ -3,6 +3,9 @@
 //= require angular-animate/angular-animate
 //= require moment/moment
 //= require angular-moment/angular-moment
+//= require angular-sanitize/angular-sanitize
+//= require showdown/src/showdown
+//= require angular-markdown-directive/markdown
 //= require angular-aria/angular-aria
 //= require hammerjs/hammer
 //= require angular-rails-templates
