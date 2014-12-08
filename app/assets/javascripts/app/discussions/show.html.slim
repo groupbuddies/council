@@ -7,6 +7,13 @@ h3
 
 md-toolbar.md-theme-light
   h1.md-toolbar-tools
+    span Add comment
+
+md-text-float(label="Comment here" ng-model="ctrl.newComment.body" multiline)
+md-button.md-raised.md-primary(ng-click="ctrl.addComment(ctrl.newComment)") Add commment
+
+md-toolbar.md-theme-light
+  h1.md-toolbar-tools
     span Comments
 
 div(comments-list="ctrl.discussion.comments")

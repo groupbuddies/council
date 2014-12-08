@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.
-      require(:comments).
+      require(:comment).
       permit(:body).
       merge(author_id: current_user.id)
   end
