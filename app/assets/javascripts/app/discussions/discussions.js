@@ -6,15 +6,20 @@
     .controller('DiscussionsCtrl', DiscussionsCtrl)
     .controller('NewDiscussionCtrl', NewDiscussionCtrl);
 
-  function DiscussionsCtrl(Discussion) {
+  function DiscussionsCtrl($state, Discussion) {
     var ctrl = this;
 
     ctrl.resetDiscussions = resetDiscussions;
+    ctrl.showDiscussion = showDiscussion;
 
     Discussion.findAll().then(ctrl.resetDiscussions);
 
     function resetDiscussions(discussions) {
       ctrl.discussions = discussions;
+    }
+
+    function showDiscussion(discussionId) {
+      $state.go('discussions.show', { id: discussionId });
     }
   }
 

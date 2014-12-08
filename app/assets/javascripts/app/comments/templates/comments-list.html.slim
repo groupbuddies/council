@@ -1,3 +1,9 @@
-.comments-list
-  .comment-item(ng-repeat="comment in comments")
-    .comment-body(ng-bind="comment.body")
+md-content
+  md-list.comments-list
+    md-item.comment-item(ng-repeat="comment in comments")
+      md-item-content
+        .md-tile-left
+          img.face(ng-src="{{comment.author.picture}}")
+        .md-tile-content
+          p(ng-bind="comment.body")
+      md-divider(ng-if="!$last")

@@ -5,6 +5,8 @@ h3
   | {{ctrl.discussion.subtitle}}
 .discussion-body(ng-bind="ctrl.discussion.body")
 
-h2
-  | Comments
+md-toolbar.md-theme-light
+  h1.md-toolbar-tools
+    span Comments
+
 div(comments-list="ctrl.discussion.comments")

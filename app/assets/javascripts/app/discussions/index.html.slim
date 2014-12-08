@@ -1,18 +1,31 @@
 h1 Discussions
 
-.discussions-opened
-  h2 Opened
-  div(ng-repeat="discussion in ctrl.discussions")
-    a(ui-sref="discussions.show({ id: discussion.id })")
-      .discussion-title
-        | {{discussion.title}}
-      .discussion-subtitle
-        | {{discussion.subtitle}}
+md-toolbar.md-theme-light
+  h1.md-toolbar-tools
+    span Opened
 
-.discussions-closed
-  h2 Closed
-  div(ng-repeat="discussion in ctrl.discussions | filter:{open: false}")
-    .discussion-title
-      | {{discussion.title}}
-    .discussion-subtitle
-      | {{discussion.subtitle}}
+md-content.discussions-opened
+  md-list
+    md-item(ng-repeat="discussion in ctrl.discussions | filter:{open: true}")
+      md-item-content(ng-click="ctrl.showDiscussion(discussion.id)")
+        .md-tile-content
+          h3
+            | {{discussion.title}}
+          p
+            | {{discussion.subtitle}}
+      md-divider(ng-if="!$last")
+
+md-toolbar.md-theme-light
+  h1.md-toolbar-tools
+    span Closed
+
+md-content.discussions-closed
+  md-list
+    md-item(ng-repeat="discussion in ctrl.discussions | filter:{open: false}")
+      md-item-content(ng-click="ctrl.showDiscussion(discussion.id)")
+        .md-tile-content
+          h3
+            | {{discussion.title}}
+          p
+            | {{discussion.subtitle}}
+      md-divider(ng-if="!$last")
