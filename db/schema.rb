@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207203058) do
+ActiveRecord::Schema.define(version: 20141208042314) do
 
   create_table "comments", force: true do |t|
     t.text     "body",          null: false
@@ -22,14 +22,15 @@ ActiveRecord::Schema.define(version: 20141207203058) do
   end
 
   create_table "discussions", force: true do |t|
-    t.string   "title",                     null: false
-    t.string   "subtitle",                  null: false
-    t.integer  "author_id",                 null: false
+    t.string   "title",                         null: false
+    t.string   "subtitle",                      null: false
+    t.integer  "author_id",                     null: false
     t.text     "body"
     t.string   "tags"
-    t.boolean  "open",       default: true, null: false
+    t.boolean  "open",           default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "comments_count", default: 0,    null: false
   end
 
   create_table "users", force: true do |t|
