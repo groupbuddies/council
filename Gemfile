@@ -24,6 +24,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rubocop'
   gem 'sqlite3'
+  gem 'faker'
 end
 
 group :production do
