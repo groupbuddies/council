@@ -4,6 +4,7 @@
     "angular-material": "latest",
     "angular-ui-router": "latest",
     "angular-data": "latest",
+    "angular-moment": "latest",
     "lodash": "latest"
   }
 }

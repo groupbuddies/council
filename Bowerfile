@@ -4,4 +4,5 @@
 asset 'angular-material'
 asset 'angular-ui-router'
 asset 'angular-data'
+asset 'angular-moment'
 asset 'lodash'
