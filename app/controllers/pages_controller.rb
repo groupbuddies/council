@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def index
-    authorize! :manage, :all
+    authorize! :read, :all
   end
 end
