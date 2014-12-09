@@ -1,3 +1,5 @@
+$triangle-size: 40px
+
 .DiscussionItem
   position: relative
   display: flex
@@ -5,6 +7,7 @@
   min-height: 62px
   background-color: $white
   cursor: pointer
+  padding-right: $triangle-size
 
 .DiscussionItem-title
   @extend %deci
@@ -37,5 +40,5 @@
   width: 0
   height: 0
   border-style: solid
-  border-width: 0 0 40px 40px
+  border-width: 0 0 $triangle-size $triangle-size
   border-color: transparent transparent $green transparent
