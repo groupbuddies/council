@@ -89,6 +89,9 @@ GEM
     mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
+    ngannotate-rails (0.14.1)
+      execjs
+      rails (>= 3.1)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -207,6 +210,7 @@ DEPENDENCIES
   faker
   foreman
   jquery-rails
+  ngannotate-rails
   pg
   pry-rails
   puma

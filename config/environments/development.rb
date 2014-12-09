@@ -39,4 +39,11 @@ Rails.application.configure do
   config.action_controller.action_on_unpermitted_parameters = :raise
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  if ENV['NG_FORCE'] == 'true'
+    config.assets.compress = true
+    config.assets.compile = false
+    config.assets.digest = true
+    config.assets.debug = false
+  end
 end
