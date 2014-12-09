@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('two_cents.components')
+    .module('council.components')
     .directive('multiline', multiline);
 
   function multiline($timeout) {

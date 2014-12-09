@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('two_cents.discussions')
+    .module('council.discussions')
     .controller('DiscussionCtrl', DiscussionCtrl);
 
   function DiscussionCtrl(Discussion, discussionId, _, DS) {

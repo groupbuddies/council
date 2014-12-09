@@ -2,16 +2,16 @@
   'use strict';
 
   angular
-    .module('two_cents', [
+    .module('council', [
       'ngMaterial',
       'templates',
       'ui.router',
       'angular-data.DS',
       'angularMoment',
-      'two_cents.core',
-      'two_cents.components',
-      'two_cents.discussions',
-      'two_cents.comments',
+      'council.core',
+      'council.components',
+      'council.discussions',
+      'council.comments',
       'btford.markdown'
     ])
     .config(csrf);

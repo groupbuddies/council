@@ -2,8 +2,8 @@
   'use strict';
 
   angular
-    .module('two_cents.discussions', [
-      'two_cents.core'
+    .module('council.discussions', [
+      'council.core'
     ])
     .config(setupRoutes);
 

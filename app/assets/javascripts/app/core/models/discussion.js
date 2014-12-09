@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('two_cents.core')
+    .module('council.core')
     .factory('Discussion', Discussion);
 
   function Discussion(DS, $http) {

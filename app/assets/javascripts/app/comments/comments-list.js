@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('two_cents.comments')
+    .module('council.comments')
     .directive('commentsList', CommentsList)
     .controller('CommentsListCtrl', CommentsListCtrl);
 

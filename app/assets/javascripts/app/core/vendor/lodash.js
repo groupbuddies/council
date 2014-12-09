@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('two_cents')
+    .module('council')
     .factory('_', lodash);
 
   function lodash() {
