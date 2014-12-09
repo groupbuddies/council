@@ -6,4 +6,12 @@ class Discussion < ActiveRecord::Base
   validates_inclusion_of :open, in: [true, false]
 
   default_scope -> { order('updated_at DESC') }
+
+  def status_for_user(user)
+    notification = user.notifications.where(discussion_id: id).first
+
+    return :read    if notification.nil?
+    return :new     if notification.new_discussion?
+    return :updated if notification.updated_discussion?
+  end
 end
