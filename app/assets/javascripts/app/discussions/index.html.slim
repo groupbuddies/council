@@ -10,10 +10,10 @@
         .DiscussionItem-commentsCount
           | {{discussion.comments_count}}
 
-  section
-    md-container.Page-item.u-upperCase Closed
+  section ng-show="closedDiscussions.length"
+    md-container.Page-item.u-upperCase Closed Discussions
     md-container layout='column' layout-margin=''
-      md-card.DiscussionItem.DiscussionItem--closed ng-repeat="discussion in ctrl.discussions | filter:{open: false}" flex='' ng-click="ctrl.showDiscussion(discussion.id)"
+      md-card.DiscussionItem.DiscussionItem--closed ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})" flex='' ng-click="ctrl.showDiscussion(discussion.id)"
         .DiscussionItem-title
           | {{discussion.title}}
         .DiscussionItem-subtitle
