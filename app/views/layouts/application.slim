@@ -8,15 +8,16 @@ html
     = stylesheet_link_tag :application, media: 'all'
     = csrf_meta_tags
 
-  body ng-app='council'
-    md-toolbar.md-whiteframe-z1
+  body.TopBarLayout ng-app='council'
+    md-toolbar.md-whiteframe-z1.TopBarLayout-TopBar
       .md-toolbar-tools
         = link_to 'LOGO', root_path
         span flex=""
         - if current_user
           = "[#{current_user.notifications_count}]"
           = link_to 'Sign Out', destroy_user_session_path, method: :delete
-    = yield
+    .TopBarLayout-Content
+      = yield
     = javascript_include_tag :application
 
     script src="//use.typekit.net/rnu4cas.js"
