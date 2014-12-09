@@ -22,7 +22,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'pry-rails'
   gem 'quiet_assets'
-  gem 'rubocop'
+  gem 'rubocop', require: false
   gem 'sqlite3'
   gem 'faker'
 end
