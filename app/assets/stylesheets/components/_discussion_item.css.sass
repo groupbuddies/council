@@ -1,8 +1,7 @@
 $discussion-item-triangle-size: 40px
 
 .DiscussionItem
-  position: relative
-  display: flex
+  position: relative display: flex
   flex-direction: column
   min-height: 62px
   background-color: theme-palette(neutral, white)
@@ -41,4 +40,17 @@ $discussion-item-triangle-size: 40px
   height: 0
   border-style: solid
   border-width: 0 0 $discussion-item-triangle-size $discussion-item-triangle-size
-  border-color: transparent transparent theme-palette(accent-secondary) transparent
+  border-color: transparent
+
+.DiscussionItem.DiscussionItem--read,
+.DiscussionItem.DiscussionItem--unwatched
+  .DiscussionItem-commentsCount:before
+    border-bottom-color: theme-palette(primary)
+
+.DiscussionItem.DiscussionItem--new
+  .DiscussionItem-commentsCount:before
+    border-bottom-color: theme-palette(accent, secondary)
+
+.DiscussionItem.DiscussionItem--unread
+  .DiscussionItem-commentsCount:before
+    border-bottom-color: theme-palette(accent, primary)
