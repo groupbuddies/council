@@ -1,15 +1,5 @@
 class Notification < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :discussion
-  belongs_to :comment
+  belongs_to :subscription
 
-  validates :discussion_id, uniqueness: { scope: [:user_id] }
-
-  def new_discussion?
-    comment_id.nil?
-  end
-
-  def updated_discussion?
-    comment_id.present?
-  end
+  validates :subscription_id, presence: true
 end

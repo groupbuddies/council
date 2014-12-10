@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209113702) do
+ActiveRecord::Schema.define(version: 20141210105248) do
 
   create_table "comments", force: true do |t|
     t.text     "body",          null: false
@@ -34,11 +34,18 @@ ActiveRecord::Schema.define(version: 20141209113702) do
   end
 
   create_table "notifications", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "discussion_id"
-    t.integer  "comment_id"
+    t.integer  "subscription_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "comment_id"
   end
 
   create_table "users", force: true do |t|
