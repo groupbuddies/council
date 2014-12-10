@@ -1,18 +1,19 @@
-md-content
-  md-list.comments-list
-    md-item.comment-item(ng-repeat="comment in comments")
-      md-item-content
-        .md-tile-left
-          img.face(ng-src="{{comment.author.picture}}")
-        .md-tile-content
-          p(btf-markdown="comment.body" ng-hide="ctrl.editing == comment")
-          input(type="text" ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body")
-        .md-tile-right
-          span(am-time-ago="comment.created_at")
-          md-button.md-primary(md-no-ink ng-click="ctrl.editComment(comment)" ng-hide="ctrl.editing == comment")
-            | Edit
-          md-button(ng-show="ctrl.editing == comment" ng-click="ctrl.cancelEdit()")
-            | Cancel
-          md-button.md-primary.md-raised(ng-click="ctrl.updateComment(comment)" ng-show="ctrl.editing == comment" ng-disabled="ctrl.newBody == comment.body")
-            | Save
-      md-divider(ng-if="!$last")
+md-card.Comment ng-repeat="comment in comments"
+  .Comment-header
+    .Comment-author
+      | author goes here{{comment.author.display_name}}
+
+    .Comment-time
+      span am-time-ago="comment.created_at"
+
+  .Comment-body
+    div btf-markdown="comment.body" ng-hide="ctrl.editing == comment"
+    input(type="text" ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body")
+
+  .Comment-buttons
+    md-button.md-primary(md-no-ink ng-click="ctrl.editComment(comment)" ng-hide="ctrl.editing == comment")
+      | Edit
+    md-button(ng-show="ctrl.editing == comment" ng-click="ctrl.cancelEdit()")
+      | Cancel
+    md-button.md-primary.md-raised(ng-click="ctrl.updateComment(comment)" ng-show="ctrl.editing == comment" ng-disabled="ctrl.newBody == comment.body")
+      | Save

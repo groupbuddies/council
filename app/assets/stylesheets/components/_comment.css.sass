@@ -1,0 +1,29 @@
+.Comment
+  display: flex
+  flex-direction: column
+  background-color: $white
+
+.Comment-header
+  display: flex
+
+.Comment-author
+  @extend %milli
+  color: $green
+  flex-grow: 1
+  align-self: center
+
+.Comment-time
+  @extend %micro
+  color: $light-grey
+  flex-grow: 1
+  text-align: right
+  align-self: center
+
+.Comment-body
+  @extend %deci
+  color: $black
+
+.Comment-buttons
+  .md-button.md-default-theme.md-primary
+    @extend %milli
+    color: $green
