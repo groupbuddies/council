@@ -38,4 +38,16 @@
   height: 0
   border-style: solid
   border-width: 0 0 40px 40px
-  border-color: transparent transparent $green transparent
+  border-color: transparent
+
+.DiscussionItem.DiscussionItem--read
+  .DiscussionItem-commentsCount:before
+    border-bottom-color: $dark-grey
+
+.DiscussionItem.DiscussionItem--new
+  .DiscussionItem-commentsCount:before
+    border-bottom-color: $green
+
+.DiscussionItem.DiscussionItem--updated
+  .DiscussionItem-commentsCount:before
+    border-bottom-color: $yellow

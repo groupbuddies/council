@@ -1,5 +1,5 @@
 class DiscussionCompactSerializer < EditableSerializer
-  attributes :id, :title, :subtitle, :body, :open, :url, :comments_count, :updated_at
+  attributes :id, :title, :subtitle, :body, :open, :url, :comments_count, :updated_at, :status
 
   has_one :author
 
@@ -7,5 +7,9 @@ class DiscussionCompactSerializer < EditableSerializer
     return '' unless object.persisted?
 
     discussion_path(object)
+  end
+
+  def status
+    object.status_for_user(scope)
   end
 end

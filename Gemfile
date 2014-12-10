@@ -14,13 +14,13 @@ gem 'jquery-rails'
 gem 'recipient_interceptor'
 gem 'sass-rails'
 gem 'slim-rails'
+gem 'state_machine'
 gem 'title'
 gem 'uglifier'
 gem 'puma'
 
 group :development, :test do
   gem 'awesome_print'
-  gem 'pry-rails'
   gem 'quiet_assets'
   gem 'rubocop', require: false
   gem 'sqlite3'
@@ -30,4 +30,14 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails', '~> 4.2'
 end
