@@ -1,4 +1,4 @@
-if Rails.env.development?
+# if Rails.env.development?
   require 'faker'
 
   namespace :dev do
@@ -31,4 +31,4 @@ if Rails.env.development?
       end
     end
   end
-end
+# end
