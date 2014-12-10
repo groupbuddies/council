@@ -10,6 +10,3 @@ test:
 
 development:
   <<: *common
-
-production:
-  <<: *common
