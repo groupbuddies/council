@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   authorize_resource
+  skip_authorize_resource only: [:update]
 
   def show
     comment = discussion.comments.find(params[:id])
@@ -15,6 +16,7 @@ class CommentsController < ApplicationController
 
   def update
     comment = discussion.comments.find(params[:id])
+    authorize! :update, comment
 
     if comment.update(comment_params)
       render json: comment
