@@ -37,13 +37,7 @@ class Subscription < ActiveRecord::Base
   def set_initial_state
     return if state
 
-    new_state = if discussion.author_id == user_id
-                  :read
-                else
-                  :new
-                end
-
-    update state: new_state
+    update state: initial_state
   end
 
   def commented_by_me?
@@ -56,5 +50,15 @@ class Subscription < ActiveRecord::Base
 
   def last_author
     (discussion.comments.last || discussion).author
+  end
+
+  private
+
+  def initial_state
+    if discussion.author_id == user_id
+      :read
+    else
+      :new
+    end
   end
 end
