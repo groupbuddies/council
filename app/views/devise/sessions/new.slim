@@ -5,13 +5,8 @@ div layout="column"
 
   md-content.md-padding
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.label :email
-        = f.text_field :email
-
-      .field
-        = f.label :password
-        = f.password_field :password
+      md-text-float label="label" name="user[email]" ng-model="username" type="email"
+      md-text-float label="label" name="user[password]" ng-model="password" type="password"
 
       .field
         = f.check_box :remember_me
