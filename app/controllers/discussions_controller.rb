@@ -1,5 +1,6 @@
 class DiscussionsController < ApplicationController
   authorize_resource
+  skip_authorize_resource only: [:update]
 
   def index
     discussions = Discussion.all
@@ -25,6 +26,7 @@ class DiscussionsController < ApplicationController
 
   def update
     discussion = Discussion.find(params[:id])
+    authorize! :update, discussion
 
     if discussion.update(discussion_params)
       render json: discussion
