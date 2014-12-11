@@ -28,9 +28,9 @@ class Subscription < ActiveRecord::Base
       transition [:unwatched] => :read
     end
 
-    event :commented do
-      transition [:unwatched] => :read, if: :commented_by_me?
-      transition [:read] => :unread, if: :commented_by_someone_else?
+    event :new_comment do
+      transition [:unwatched] => :read, if: :new_comment_by_me?
+      transition [:read] => :unread, if: :new_comment_by_someone_else?
     end
   end
 
@@ -40,12 +40,12 @@ class Subscription < ActiveRecord::Base
     update state: initial_state
   end
 
-  def commented_by_me?
+  def new_comment_by_me?
     last_author.id == user_id
   end
 
-  def commented_by_someone_else?
-    !commented_by_me?
+  def new_comment_by_someone_else?
+    !new_comment_by_me?
   end
 
   def last_author
