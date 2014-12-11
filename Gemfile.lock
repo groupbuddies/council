@@ -91,6 +91,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
+    newrelic_rpm (3.9.8.273)
     ngannotate-rails (0.14.1)
       execjs
       rails (>= 3.1)
@@ -213,6 +214,7 @@ DEPENDENCIES
   faker
   foreman
   jquery-rails
+  newrelic_rpm
   ngannotate-rails
   pg
   pry-rails
