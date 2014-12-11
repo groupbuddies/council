@@ -21,7 +21,7 @@ class Subscription < ActiveRecord::Base
     end
 
     event :unwatched do
-      transition (any - :unwatched) => :unwatched
+      transition((any - :unwatched) => :unwatched)
     end
 
     event :watched do
@@ -37,11 +37,13 @@ class Subscription < ActiveRecord::Base
   def set_initial_state
     return if state
 
-    update state: (if discussion.author_id == user_id
-      :read
-    else
-      :new
-    end)
+    new_state = if discussion.author_id == user_id
+                  :read
+                else
+                  :new
+                end
+
+    update state: new_state
   end
 
   def commented_by_me?

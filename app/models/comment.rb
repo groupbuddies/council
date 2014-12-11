@@ -11,8 +11,6 @@ class Comment < ActiveRecord::Base
   private
 
   def update_subscriptions
-    discussion.subscriptions.map do |subscription|
-      subscription.commented
-    end
+    discussion.subscriptions.map(&:commented)
   end
 end

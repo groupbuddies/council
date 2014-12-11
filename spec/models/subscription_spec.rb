@@ -41,8 +41,8 @@ describe Subscription, type: :model do
   end
 
   context '#opened' do
-    context "A new discussion" do
-      it "changes to unwatched" do
+    context 'A new discussion' do
+      it 'changes to unwatched' do
         subscription = create(:subscription, state: :new)
 
         subscription.opened
@@ -51,7 +51,7 @@ describe Subscription, type: :model do
       end
     end
 
-    context "A read discussion" do
+    context 'A read discussion' do
       it 'remains read' do
         subscription = create(:subscription, state: :read)
 
@@ -61,7 +61,7 @@ describe Subscription, type: :model do
       end
     end
 
-    context "An unread discussion" do
+    context 'An unread discussion' do
       it 'changes to read' do
         subscription = create(:subscription, state: :unread)
 
