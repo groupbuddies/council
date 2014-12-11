@@ -16,10 +16,11 @@
 
     function resetDiscussion(discussion) {
       ctrl.discussion = discussion;
-      _.each(ctrl.discussion.comments, addDiscussionId);
+      _.each(ctrl.discussion.comments, addDiscussionData);
 
-      function addDiscussionId(comment) {
+      function addDiscussionData(comment) {
         comment.discussionId = discussion.id;
+        comment.author = _(discussion.authors).findWhere({ id: comment.author_id });
       }
     }
 

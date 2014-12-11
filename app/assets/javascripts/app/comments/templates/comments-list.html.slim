@@ -1,7 +1,7 @@
 md-card.Comment ng-repeat="comment in comments"
   .Comment-header
     .Comment-author
-      | author goes here{{comment.author.display_name}}
+      | {{ comment.author.display_name }}
 
     .Comment-time
       span am-time-ago="comment.created_at"
