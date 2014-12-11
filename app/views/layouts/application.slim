@@ -8,7 +8,7 @@ html
     = stylesheet_link_tag :application, media: 'all'
     = csrf_meta_tags
 
-  body.TopBarLayout ng-app='council'
+  body.TopBarLayout ng-app='council' md-theme='council'
     md-toolbar.md-whiteframe-z1.TopBarLayout-topBar
       .md-toolbar-tools
         = link_to 'Council', root_path

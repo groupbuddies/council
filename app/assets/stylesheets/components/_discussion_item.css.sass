@@ -5,30 +5,30 @@ $discussion-item-triangle-size: 40px
   display: flex
   flex-direction: column
   min-height: 62px
-  background-color: $white
+  background-color: theme-palette(neutral, white)
   cursor: pointer
   padding-right: $discussion-item-triangle-size
 
 .DiscussionItem-title
-  @extend %deci
+  @include beta
   flex-grow: 1
-  color: $black
+  color: theme-palette(primary, dark)
   font-weight: bold
 
 .DiscussionItem-subtitle
-  @extend %milli
+  @include gamma
   flex-grow: 1
-  color: $dark-grey
+  color: theme-palette(primary)
 
 .DiscussionItem-commentsCount
-  @extend %micro
+  @include delta
   position: absolute
   bottom: 0
   right: 0
   z-index: 55
   height: 17px
   padding-right: 5px
-  color: $white
+  color: theme-palette(neutral, white)
   text-align: right
 
 .DiscussionItem-commentsCount:before
@@ -41,4 +41,4 @@ $discussion-item-triangle-size: 40px
   height: 0
   border-style: solid
   border-width: 0 0 $discussion-item-triangle-size $discussion-item-triangle-size
-  border-color: transparent transparent $green transparent
+  border-color: transparent transparent theme-palette(accent-secondary) transparent

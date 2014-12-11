@@ -1,0 +1,97 @@
+/** Colors **/
+
+$theme-color-material-amber-500: #ffc107;
+$theme-color-material-amber-600: #ffb300;
+$theme-color-material-blue-grey-100: #cfd8dc;
+$theme-color-material-blue-grey-500: #607d8b;
+$theme-color-material-blue-grey-900: #263238;
+$theme-color-material-teal-300: #4db6ac;
+$theme-color-material-teal-500: #009688;
+$theme-color-material-teal-600: #00897b;
+$theme-color-material-white: #fff;
+
+$theme-palettes: (
+  neutral: (
+    white: $theme-color-material-white
+  ),
+  primary: (
+    base: $theme-color-material-blue-grey-500,
+    light: $theme-color-material-blue-grey-100,
+    dark: $theme-color-material-blue-grey-900
+  ),
+  accent-primary: (
+    base:  $theme-color-material-amber-500,
+    dark: $theme-color-material-amber-600
+  ),
+  accent-secondary: (
+    base:  $theme-color-material-teal-500,
+    light: $theme-color-material-teal-300,
+    dark: $theme-color-material-teal-600
+  )
+);
+
+@function theme-palette($palette, $tone: 'base') {
+  @return map-get(map-get($theme-palettes, $palette), $tone);
+}
+
+
+/** Fonts **/
+$theme-base-font-size: 18px;
+
+$theme-alpha-font-size: 1.22rem; // 22px / 18px
+$theme-beta-font-size: 1rem;
+$theme-gamma-font-size: 0.77rem; // 14px / 18px
+$theme-delta-font-size: 0.55rem; // 10px / 18px
+
+@mixin alpha {
+  font-size: $theme-alpha-font-size;
+}
+
+@mixin beta {
+  font-size: $theme-beta-font-size;
+}
+
+@mixin gamma {
+  font-size: $theme-gamma-font-size;
+}
+
+@mixin delta {
+  font-size: $theme-delta-font-size;
+}
+
+$theme-font-family: "brandon-grotesque";
+
+/** Spacing **/
+$default-spacing: 1rem;
+
+
+/**
+  Theme styles
+**/
+
+html,
+body {
+  line-height:1.5;
+  font-size: $theme-base-font-size;
+  font-family: $theme-font-family;
+
+  h1 {
+    @include alpha;
+    line-height: 1.22;
+  }
+
+  h2 {
+    @include beta;
+    line-height: 1;
+  }
+
+  h3 {
+    @include gamma;
+    line-height: 0.77;
+  }
+
+  h4 {
+    @include delta;
+    line-height: 0.55;
+  }
+}

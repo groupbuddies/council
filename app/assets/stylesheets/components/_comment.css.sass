@@ -1,29 +1,27 @@
 .Comment
-  display: flex
   flex-direction: column
-  background-color: $white
+  display: flex
+  background-color: theme-palette(neutral, white)
 
 .Comment-header
   display: flex
 
 .Comment-author
-  @extend %milli
-  color: $green
+  @include gamma
   flex-grow: 1
   align-self: center
+  color: theme-palette(accent-secondary)
 
 .Comment-time
-  @extend %micro
-  color: $light-grey
+  @include delta
   flex-grow: 1
-  text-align: right
   align-self: center
+  color: theme-palette(primary, light)
+  text-align: right
 
 .Comment-body
-  @extend %deci
-  color: $black
+  @include beta
+  color: theme-palette(primary, dark)
 
 .Comment-buttons
-  .md-button.md-default-theme.md-primary
-    @extend %milli
-    color: $green
+  @include gamma
