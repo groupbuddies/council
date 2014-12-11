@@ -4,6 +4,7 @@ gem 'rails', '4.2.0rc1'
 
 gem 'active_model_serializers'
 gem 'angular-rails-templates'
+gem 'autoprefixer-rails'
 gem 'bower-rails', '~> 0.9.1'
 gem 'cancancan', '~> 1.9'
 gem 'devise'
