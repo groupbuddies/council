@@ -18,5 +18,5 @@ users = [
 ]
 
 users.each do |user_data|
-  User.where(user_data).first_or_create(password: 'defaultpassword')
+  User.where(user_data).first_or_create(password: user_data.email.split('@').first + 'password')
 end
