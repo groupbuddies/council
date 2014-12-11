@@ -43,6 +43,24 @@ $theme-beta-font-size: 1rem;
 $theme-gamma-font-size: 0.77rem; // 14px / 18px
 $theme-delta-font-size: 0.55rem; // 10px / 18px
 
+$theme-font-weight-bold: 700;
+$theme-font-weight-regular: 400;
+
+$theme-font-styles: (
+  regular: (
+    style: normal,
+    weight: $theme-font-weight-regular
+  ),
+  italic: (
+    style: italic,
+    weight: $theme-font-weight-regular
+  ),
+  bold: (
+    style: normal,
+    weight: $theme-font-weight-bold
+  )
+);
+
 @mixin alpha {
   font-size: $theme-alpha-font-size;
 }
@@ -57,6 +75,11 @@ $theme-delta-font-size: 0.55rem; // 10px / 18px
 
 @mixin delta {
   font-size: $theme-delta-font-size;
+}
+
+@mixin theme-font-variation($font-style) {
+  font-style: map-get(map-get($theme-font-styles, $font-style), style);
+  font-weight: map-get(map-get($theme-font-styles, $font-style), weight);
 }
 
 $theme-font-family: "brandon-grotesque";

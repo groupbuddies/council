@@ -1,15 +1,30 @@
-div layout="column"
-  md-toolbar md-theme="indigo"
-    .md-toolbar-tools
-      span.md-flex Log in
+.TopBarLayout
+  md-toolbar.md-whiteframe-z1.TopBarLayout-header.LogInPage-header
+    a.LogInPage-title href="/" Council
 
-  md-content.md-padding
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      md-text-float label="E-mail" name="user[email]" ng-model="username" type="email"
-      md-text-float label="Password" name="user[password]" ng-model="password" type="password"
+  .TopBarLayout-content
+    .LogInPage-welcomeText
+      span To enter the Council, please show off your credentials
 
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
+    .LogInPage-form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        md-text-float label="Your email" name="user[email]" ng-model="username" type="email"
+        md-text-float label="Your password" name="user[password]" ng-model="password" type="password"
 
-      md-button.md-raised.md-primary Sign in
+        .LogInPage-buttons
+          a href="#" Forgot your credentials?
+          council-raised-button Step In
+
+    .LogInPage-about
+      p.LogInPage-featured
+        | We felt the need to bring order to our chaotic internal discussions.
+
+      p
+        | The council is a place we created that allow us to collaborate and help each other to reach an educated outcome.
+
+      p
+        | If you'd like to talk, you can reach me at
+        a href="mailto:roberto@groupbuddies.com"  roberto@groupbuddies.com
+
+    .LogInPage-footer
+      p Handcrafted by Group Buddies

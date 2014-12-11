@@ -1,0 +1,80 @@
+$login-buttons-width: 100px
+$login-buttons-height: 40px
+
+.LogInPage-header
+  background: theme-palette(primary, base)
+  text-align: center
+
+.LogInPage-title
+  color: theme-palette(neutral, white)
+  text-decoration: none
+
+.LogInPage-welcomeText
+  @include alpha
+  margin: $default-spacing $default-spacing 0
+  color: theme-palette(primary, dark)
+  text-align: center
+
+.LogInPage-form
+  @include beta
+  margin: 0 $default-spacing
+
+  label
+    color: theme-palette(primary, light)
+
+  input
+    width: 100%
+    border-color: theme-palette(primary, base)
+
+  .md-input-focused
+    input
+      border-width: 0 0 2px 0
+      padding: 0 0 10px 0
+      border-color: theme-palette(accent-primary, dark)
+
+    label
+      color: theme-palette(accent-secondary, dark)
+
+  .md-input-has-value
+    label
+      color: theme-palette(accent-secondary, dark)
+
+.LogInPage-buttons
+  @include gamma
+  display: flex
+  justify-content: space-between
+  margin-top: $default-spacing
+
+  a
+    display: inline-block
+    max-width: $login-buttons-width
+    color: theme-palette(accent-secondary, dark)
+    text-decoration: none
+    text-transform: uppercase
+
+  button
+    width: $login-buttons-width
+    height: $login-buttons-height
+    background: theme-palette(accent-secondary, base)
+    color: theme-palette(neutral, white)
+
+.LogInPage-about
+  @include beta
+  margin: $default-spacing $default-spacing 0
+  color: theme-palette(primary, dark)
+
+  .LogInPage-featured
+    @include alpha
+    @include theme-font-variation('bold')
+
+  p
+    line-height: 1.4
+
+  a
+    color: theme-palette(accent-secondary, dark)
+
+.LogInPage-footer
+  @include gamma
+  margin-top: $default-spacing
+  color: theme-palette(accent-secondary)
+  text-align: center

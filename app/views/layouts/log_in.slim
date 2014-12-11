@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    = render 'layouts/head'
+    = stylesheet_link_tag :log_in, media: 'all'
+
+  body ng-app='council' md-theme='council'
+    = yield
+
+    = render 'layouts/scripts'
