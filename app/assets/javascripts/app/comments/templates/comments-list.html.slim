@@ -11,7 +11,7 @@ md-card.Comment ng-repeat="comment in comments"
     input(type="text" ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body")
 
   .Comment-buttons
-    md-button.md-primary(md-no-ink ng-click="ctrl.editComment(comment)" ng-hide="ctrl.editing == comment")
+    md-button.md-primary(md-no-ink ng-click="ctrl.editComment(comment)" ng-hide="ctrl.editing == comment" ng-if="comment.editable")
       | Edit
     md-button(ng-show="ctrl.editing == comment" ng-click="ctrl.cancelEdit()")
       | Cancel
