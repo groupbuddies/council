@@ -94,34 +94,34 @@ describe Subscription, type: :model do
     end
   end
 
-  context '#new_comment' do
+  context '#updated' do
     context 'A new discussion' do
       it 'remains new' do
         subscription = create(:subscription, state: :new)
 
-        subscription.new_comment
+        subscription.updated
 
         expect(subscription).to be_new
       end
     end
 
     context 'A read discussion' do
-      context 'new_comment by me' do
+      context 'updated by me' do
         it 'remains read' do
           subscription = create(:subscription, state: :read)
           create(:comment, discussion: subscription.discussion, author: subscription.user)
 
-          subscription.new_comment
+          subscription.updated
 
           expect(subscription).to be_read
         end
       end
 
-      context 'new_comment by someone else' do
+      context 'updated by someone else' do
         it 'changes to unread' do
           subscription = create(:subscription, state: :read)
 
-          subscription.new_comment
+          subscription.updated
 
           expect(subscription).to be_unread
         end

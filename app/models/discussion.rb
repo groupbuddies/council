@@ -13,6 +13,6 @@ class Discussion < ActiveRecord::Base
   private
 
   def update_subscriptions
-    subscriptions.map(&:update_status)
+    subscriptions.map(&:updated)
   end
 end

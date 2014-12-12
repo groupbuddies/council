@@ -28,7 +28,7 @@ class Subscription < ActiveRecord::Base
       transition [:unwatched] => :read
     end
 
-    event :new_comment do
+    event :updated do
       transition [:unwatched] => :read, if: :new_comment_by_me?
       transition [:read] => :unread, if: :new_comment_by_someone_else?
     end
