@@ -13,6 +13,6 @@ class Discussion < ActiveRecord::Base
   private
 
   def update_subscriptions
-    subscriptions.map(&:updated)
+    subscriptions.map(&:new_comment)
   end
 end

@@ -15,20 +15,20 @@ class Subscription < ActiveRecord::Base
     state :read
     state :unwatched
 
-    event :opened do
+    event :view do
       transition [:new] => :unwatched
       transition [:unread] => :read
     end
 
-    event :unwatched do
+    event :unwatch do
       transition((any - :unwatched) => :unwatched)
     end
 
-    event :watched do
+    event :watch do
       transition [:unwatched] => :read
     end
 
-    event :updated do
+    event :new_comment do
       transition [:unwatched] => :read, if: :new_comment_by_me?
       transition [:read] => :unread, if: :new_comment_by_someone_else?
     end
