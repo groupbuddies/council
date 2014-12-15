@@ -1,2 +1,2 @@
-module HQ
+module Hq
 end

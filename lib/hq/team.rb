@@ -1,4 +1,6 @@
-class HQ::Team
+require 'hq'
+
+class Hq::Team
   include HTTParty
   base_uri 'hq.groupbuddies.com'
 
