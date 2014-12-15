@@ -16,6 +16,7 @@
 
     function resetDiscussion(discussion) {
       ctrl.discussion = discussion;
+      discussion.author = _(discussion.authors).findWhere({ id: discussion.author_id });
       _.each(ctrl.discussion.comments, addDiscussionData);
 
       function addDiscussionData(comment) {

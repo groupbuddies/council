@@ -1,11 +1,21 @@
-h1
-  | {{ctrl.discussion.title}}
+.Discussion
+  .Discussion-description
+    a.Discussion-editButton href="#"
+      | edit discussion
 
-h3
-  | {{ctrl.discussion.subtitle}}
-discussion-body(btf-markdown="ctrl.discussion.body")
+    h1.Discussion-title
+      | {{ctrl.discussion.title}}
 
-md-text-float(label="Comment here" ng-model="ctrl.newComment.body" multiline)
-md-button.md-raised.md-primary(ng-click="ctrl.addComment(ctrl.newComment)") Add commment
+    .Discussion-body(btf-markdown="ctrl.discussion.body")
 
-div(comments-list="ctrl.discussion.comments")
+    .Discussion-author
+      | {{ctrl.discussion.author.display_name}}
+
+    .Discussion-date
+      span am-time-ago="ctrl.discussion.created_at"
+
+  .Discussion-comments
+    p.Discussion-commentsCount
+      | {{ctrl.discussion.comments_count}} Comments
+
+    .Discussion-commentsList comments-list="ctrl.discussion.comments"
