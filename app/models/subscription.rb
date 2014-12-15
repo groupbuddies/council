@@ -1,7 +1,7 @@
 class Subscription < ActiveRecord::Base
   belongs_to :user
   belongs_to :discussion
-  belongs_to :comment
+  belongs_to :first_unread_comment, class_name: 'Comment'
 
   def self.for(discussion: discussion, user: user)
     where(discussion: discussion, user: user).first_or_create
