@@ -1,7 +1,8 @@
 $discussion-item-triangle-size: 40px
 
 .DiscussionItem
-  position: relative display: flex
+  position: relative
+  display: flex
   flex-direction: column
   min-height: 62px
   background-color: theme-palette(neutral, white)
@@ -49,8 +50,8 @@ $discussion-item-triangle-size: 40px
 
 .DiscussionItem.DiscussionItem--new
   .DiscussionItem-commentsCount:before
-    border-bottom-color: theme-palette(accent, secondary)
+    border-bottom-color: theme-palette(accent-secondary)
 
 .DiscussionItem.DiscussionItem--unread
   .DiscussionItem-commentsCount:before
-    border-bottom-color: theme-palette(accent, primary)
+    border-bottom-color: theme-palette(accent-primary)
