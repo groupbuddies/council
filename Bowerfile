@@ -2,7 +2,6 @@
 # Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
 
 # angular-material.js is overriden in vendor/assets/javascripts
-asset 'angular-material'
 asset 'angular-ui-router'
 asset 'angular-data'
 asset 'angular-moment'

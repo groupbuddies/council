@@ -7,15 +7,17 @@
     .controller('NewDiscussionCtrl', NewDiscussionCtrl);
 
   function DiscussionsCtrl($state, Discussion) {
+
     var ctrl = this;
 
-    ctrl.resetDiscussions = resetDiscussions;
+    ctrl.pageReady = false;
     ctrl.showDiscussion = showDiscussion;
 
-    Discussion.findAll().then(ctrl.resetDiscussions);
+    Discussion.findAll().then(resetDiscussions);
 
     function resetDiscussions(discussions) {
       ctrl.discussions = discussions;
+      ctrl.pageReady = true;
     }
 
     function showDiscussion(discussionId) {

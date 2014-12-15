@@ -8,6 +8,7 @@
   function DiscussionCtrl(Discussion, discussionId, _, DS) {
     var ctrl = this;
 
+    ctrl.pageReady = false;
     ctrl.newComment = { discussionId: discussionId };
     ctrl.resetDiscussion = resetDiscussion;
     ctrl.addComment = addComment;
@@ -17,6 +18,7 @@
     function resetDiscussion(discussion) {
       ctrl.discussion = discussion;
       _.each(ctrl.discussion.comments, addDiscussionData);
+      ctrl.pageReady = true;
 
       function addDiscussionData(comment) {
         comment.discussionId = discussion.id;
