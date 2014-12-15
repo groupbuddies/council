@@ -18,20 +18,12 @@ class UsersController < ApplicationController
   private
 
   def respond_with_success
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { render json: @user }
-    end
+    format.html { redirect_to root_path }
   end
 
   def respond_with_error
-    respond_to do |format|
-      format.html do
-        flash[:error] = @user.errors.full_messages.to_sentence
-        render :edit
-      end
-      format.json { render json: { error: @user.errors.full_messages }.to_json, status: 422 }
-    end
+    flash[:error] = @user.errors.full_messages.to_sentence
+    render :edit
   end
 
   def user_params
