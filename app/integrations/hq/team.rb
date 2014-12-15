@@ -6,9 +6,7 @@ class HQ::Team
     get_json('/')
   end
 
-  private
-
   def self.get_json(path)
-    self.get(path).to_json
+    get(path).to_json
   end
 end
