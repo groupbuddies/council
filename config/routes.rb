@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       resources :discussions, only: [:index, :show, :create, :update] do
         resources :comments, only: [:show, :create, :update]
       end
+      resources :notifications, only: [:index, :destroy]
+      resource :team, only: [:show]
     end
   end
 
