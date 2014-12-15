@@ -6,7 +6,9 @@ describe Subscription, type: :model do
     it 'fetches an existing subscription' do
       subscription = create(:subscription)
 
-      expect(Subscription.for(discussion: subscription.discussion, user: subscription.user)).to eq subscription
+      fetched_subscription = Subscription.for(discussion: subscription.discussion, user: subscription.user)
+
+      expect(fetched_subscription).to eq subscription
     end
 
     it "creates a subscription when one doesn't exist" do
