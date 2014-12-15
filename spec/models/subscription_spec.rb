@@ -87,7 +87,7 @@ describe Subscription, type: :model do
 
     context 'An unread discussion' do
       it 'changes to unwatch' do
-        subscription = create(:subscription, state: :unread) 
+        subscription = create(:subscription, state: :unread)
         subscription.unwatch
 
         expect(subscription).to be_unwatched
