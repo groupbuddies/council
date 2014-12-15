@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'sessions' }
 
+  resource :team, only: [:show]
+
   root to: 'pages#index'
 end

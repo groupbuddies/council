@@ -1,0 +1,9 @@
+.Page.Page--dark layout='column'
+  section
+    md-container.Page-item.u-upperCase Team Members
+    md-container layout='column' layout-margin=''
+      md-card.TeamMember ng-repeat="member in ctrl.team"
+        .TeamMember-name
+          | {{ member.name }}
+        .TeamMember-email
+          | {{ member.email }}

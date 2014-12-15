@@ -23,3 +23,5 @@
 //= require_tree ./app/comments
 //= require ./app/discussions/discussions.module
 //= require_tree ./app/discussions
+//= require ./app/team/team.module
+//= require_tree ./app/team
