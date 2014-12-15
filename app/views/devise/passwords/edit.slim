@@ -1,0 +1,11 @@
+div layout="column"
+  md-toolbar md-theme="indigo"
+    .md-toolbar-tools
+      span.md-flex Change your password
+
+  md-content.mp-padding
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      md-text-float label="New password" name="user[password]" ng-model="password" type="password"
+      md-text-float label="Confirm new password" name="user[password_confirmation]" ng-model="password_confirmation" type="password"
+
+      md-button.md-raised.md-primary Change my password

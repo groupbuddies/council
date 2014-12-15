@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, controllers: { sessions: 'sessions' }
+  devise_for :users, controllers: { sessions: 'sessions' , passwords: 'passwords' }
+
+  resources :users, only: [:edit, :update]
 
   root to: 'pages#index'
 end

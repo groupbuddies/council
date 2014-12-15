@@ -14,8 +14,11 @@ html
         span flex=""
         - if current_user
           = link_to 'Members', '#/members'
+          = link_to 'Change password', edit_user_path(current_user)
           = link_to 'Sign Out', destroy_user_session_path, method: :delete
     .TopBarLayout-content
+      - flash.each do |type, msg|
+        .flash class=(type) = msg
       = yield
 
     = render 'layouts/scripts'
