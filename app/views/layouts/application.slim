@@ -7,18 +7,9 @@ html
     script src="//use.typekit.net/rnu4cas.js"
     script try{Typekit.load();}catch(e){}
 
-  body.TopBarLayout ng-app='council' md-theme='council'
-    md-toolbar.md-whiteframe-z1.TopBarLayout-header
-      .md-toolbar-tools
-        = link_to 'Council', root_path
-        span flex=""
-        - if current_user
-          = link_to 'Members', '#/members'
-          = link_to 'Change password', edit_user_path(current_user)
-          = link_to 'Sign Out', destroy_user_session_path, method: :delete
-    .TopBarLayout-content
-      - flash.each do |type, msg|
-        .flash class=(type) = msg
-      = yield
+  body ng-app='council' md-theme='council'
+    = yield
+
+    = javascript_include_tag :application
 
     = render 'layouts/scripts'

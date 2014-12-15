@@ -1,12 +1,30 @@
-div wait-for='ctrl.pageReady'
-h1
-  | {{ctrl.discussion.title}}
+.DiscussionPage
+  .DiscussionPage-topBar
+    a.Button.Button--flat href="#/discussions"
+      | < homepage
 
-h3
-  | {{ctrl.discussion.subtitle}}
-discussion-body(btf-markdown="ctrl.discussion.body")
+    council-raised-button.Button.Button--secondary
+      | pitch in
 
-md-text-float(label="Comment here" ng-model="ctrl.newComment.body" multiline)
-md-button.md-raised.md-primary(ng-click="ctrl.addComment(ctrl.newComment)") Add commment
+  .DiscussionPage-description
+    .Button.Button--flat
+      | edit discussion
 
-div(comments-list="ctrl.discussion.comments")
+    div wait-for='ctrl.pageReady'
+
+    h1.DiscussionPage-title
+      | {{ctrl.discussion.title}}
+
+    .DiscussionPage-body(btf-markdown="ctrl.discussion.body")
+
+    .DiscussionPage-author
+      | {{ctrl.discussion.author.display_name}}
+
+    .DiscussionPage-date
+      span am-time-ago="ctrl.discussion.created_at"
+
+  .DiscussionPage-comments
+    p.DiscussionPage-commentsCount
+      | {{ctrl.discussion.comments_count}} Comments
+
+    div(comments-list="ctrl.discussion.comments")

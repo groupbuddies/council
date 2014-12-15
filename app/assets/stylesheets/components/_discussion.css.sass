@@ -1,6 +1,6 @@
 $discussion-item-triangle-size: 40px
 
-.DiscussionItem
+.Discussion
   position: relative
   display: flex
   flex-direction: column
@@ -9,18 +9,18 @@ $discussion-item-triangle-size: 40px
   cursor: pointer
   padding-right: $discussion-item-triangle-size
 
-.DiscussionItem-title
+.Discussion-title
   @include beta
   flex-grow: 1
   color: theme-palette(primary, dark)
   font-weight: bold
 
-.DiscussionItem-subtitle
+.Discussion-subtitle
   @include gamma
   flex-grow: 1
   color: theme-palette(primary)
 
-.DiscussionItem-commentsCount
+.Discussion-commentsCount
   @include delta
   position: absolute
   bottom: 0
@@ -31,7 +31,7 @@ $discussion-item-triangle-size: 40px
   color: theme-palette(neutral, white)
   text-align: right
 
-.DiscussionItem-commentsCount:before
+.Discussion-commentsCount:before
   content: ''
   position: absolute
   right: 0
@@ -43,15 +43,15 @@ $discussion-item-triangle-size: 40px
   border-width: 0 0 $discussion-item-triangle-size $discussion-item-triangle-size
   border-color: transparent
 
-.DiscussionItem.DiscussionItem--read,
-.DiscussionItem.DiscussionItem--unwatched
-  .DiscussionItem-commentsCount:before
+.Discussion.Discussion--read,
+.Discussion.Discussion--unwatched
+  .Discussion-commentsCount:before
     border-bottom-color: theme-palette(primary)
 
-.DiscussionItem.DiscussionItem--new
-  .DiscussionItem-commentsCount:before
+.Discussion.Discussion--new
+  .Discussion-commentsCount:before
     border-bottom-color: theme-palette(accent-secondary)
 
-.DiscussionItem.DiscussionItem--unread
-  .DiscussionItem-commentsCount:before
+.Discussion.Discussion--unread
+  .Discussion-commentsCount:before
     border-bottom-color: theme-palette(accent-primary)
