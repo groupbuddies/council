@@ -15,7 +15,6 @@ html
         span flex=""
         - if current_user
           = link_to 'Members', '#/members'
-          = "[#{current_user.notifications_count}]"
           = link_to 'Sign Out', destroy_user_session_path, method: :delete
     .TopBarLayout-content
       = yield
