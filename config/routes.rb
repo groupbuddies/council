@@ -8,9 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+      resource :team, only: [:show]
   devise_for :users, controllers: { sessions: 'sessions' }
-
-  resource :team, only: [:show]
 
   root to: 'pages#index'
 end
