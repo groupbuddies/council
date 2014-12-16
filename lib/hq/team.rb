@@ -1,15 +1,7 @@
 module Hq
-  class Team
-    include HTTParty
-    base_uri 'hq.groupbuddies.com'
-
+  class Members
     def self.all
-      get_json('/members')
+      Requests.get_json('/members')
     end
-
-    def self.get_json(path)
-      get(path).to_json
-    end
-    private_class_method :get_json
   end
 end
