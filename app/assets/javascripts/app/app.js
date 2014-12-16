@@ -12,7 +12,7 @@
       'council.components',
       'council.discussions',
       'council.comments',
-      'council.team',
+      'council.members',
       'btford.markdown'
     ])
     .config(csrf);

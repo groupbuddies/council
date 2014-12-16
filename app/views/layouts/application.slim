@@ -14,7 +14,7 @@ html
         = link_to 'Council', root_path
         span flex=""
         - if current_user
-          = link_to 'Team', '#/team'
+          = link_to 'Members', '#/members'
           = "[#{current_user.notifications_count}]"
           = link_to 'Sign Out', destroy_user_session_path, method: :delete
     .TopBarLayout-content
