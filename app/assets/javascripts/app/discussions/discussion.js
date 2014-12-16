@@ -9,14 +9,21 @@
     var ctrl = this;
 
     ctrl.pageReady = false;
-    ctrl.newComment = { discussionId: discussionId };
+    ctrl.newComment = {
+      discussionId: discussionId
+    };
     ctrl.resetDiscussion = resetDiscussion;
-    ctrl.addComment = addComment;
+    ctrl.toggleNewComment = toggleNewComment;
 
-    Discussion.find(discussionId, { bypassCache: true }).then(ctrl.resetDiscussion);
+    Discussion.find(discussionId, {
+      bypassCache: true
+    }).then(ctrl.resetDiscussion);
 
     function resetDiscussion(discussion) {
       ctrl.discussion = discussion;
+      User.find(ctrl.discussion.author_id).then(function(user) {
+        ctrl.discussion.author = user;
+      });
       _.each(ctrl.discussion.comments, addDiscussionData);
       ctrl.discussion.markAsRead();
       ctrl.pageReady = true;
@@ -30,12 +37,8 @@
       }
     }
 
-    function addComment(comment) {
-      ctrl.discussion.addComment(comment).then(addToComments);
-
-      function addToComments(comment) {
-        ctrl.discussion.comments.push(comment);
-      }
+    function toggleNewComment() {
+      ctrl.showNewComment = !ctrl.showNewComment;
     }
   }
 })();

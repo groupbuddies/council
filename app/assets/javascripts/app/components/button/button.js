@@ -13,7 +13,7 @@
       scope: {},
       link: councilFaButtonPostLink,
       templateUrl: 'components/button/templates/floating_action.html'
-    }
+    };
   }
 
   function councilFaButtonPostLink(scope, element, attrs) {
@@ -31,7 +31,7 @@
       transclude: true,
       link: councilRaisedButtonPostLink,
       templateUrl: 'components/button/templates/raised.html'
-    }
+    };
   }
 
   function councilRaisedButtonPostLink(scope, element, attrs) {
@@ -45,6 +45,6 @@
       scope: {},
       transclude: true,
       templateUrl: 'components/button/templates/flat.html'
-    }
+    };
   }
 })();

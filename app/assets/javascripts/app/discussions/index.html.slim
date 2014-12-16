@@ -5,11 +5,21 @@
       a href="#/members" Members
       a data-method="delete" href="/users/sign_out" Log Out
 
-.TopBarLayout-content
-  .Page.Page--dark.u-fullSize wait-for='ctrl.pageReady'
-    section layout='column' layout-margin=''
-      md-container.u-upperCase flex='' Open Discussions
-      md-card.Discussion ng-repeat="discussion in ctrl.discussions | filter:{open: true}" flex='' ng-click="ctrl.showDiscussion(discussion.id)" class="Discussion--{{ discussion.status }}"
+.TopBarLayout-content.Page
+  section layout='column' layout-margin=''
+    md-container.u-upperCase flex='' Open Discussions
+    md-container layout='column' layout-margin='' wait-for='ctrl.pageReady'
+    md-card.Discussion ng-repeat="discussion in ctrl.discussions | filter:{open: true}" flex='' ng-click="ctrl.showDiscussion(discussion.id)" class="Discussion--{{ discussion.status }}"
+      .Discussion-title
+        | {{discussion.title}}
+      .Discussion-subtitle
+        | {{discussion.subtitle}}
+      .Discussion-commentsCount
+        | {{discussion.comments_count}}
+
+  section layout='column' layout-margin='' ng-show="closedDiscussions.length"
+    md-container.u-upperCase flex='' Closed Discussions
+    md-card.Discussion.Discussion--closed ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})" flex='' ng-click="ctrl.showDiscussion(discussion.id)"
         .Discussion-title
           | {{discussion.title}}
         .Discussion-subtitle
@@ -17,14 +27,4 @@
         .Discussion-commentsCount
           | {{discussion.comments_count}}
 
-    section layout='column' layout-margin='' ng-show="closedDiscussions.length"
-      md-container.u-upperCase flex='' Closed Discussions
-      md-card.Discussion.Discussion--closed ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})" flex='' ng-click="ctrl.showDiscussion(discussion.id)"
-          .Discussion-title
-            | {{discussion.title}}
-          .Discussion-subtitle
-            | {{discussion.subtitle}}
-          .Discussion-commentsCount
-            | {{discussion.comments_count}}
-
-    council-fa-button.Page-mainAction ui-sref="discussions.new"
+  council-fa-button.Page-mainAction ui-sref="discussions.new"

@@ -14,6 +14,6 @@
       },
       templateUrl: 'components/waitFor/templates/wait_for.html',
       bindToController: true
-    }
+    };
   }
-})()
+})();

@@ -24,8 +24,8 @@
           element.querySelector('textarea').addEventListener('focus', function() {
             element.classList.add('md-input-focused');
           });
-        }, 0)
+        }, 0);
       }
-    }
+    };
   }
 })();

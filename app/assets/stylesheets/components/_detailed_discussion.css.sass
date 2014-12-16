@@ -1,0 +1,23 @@
+.DetailedDiscussion
+  background: theme-palette(neutral, white)
+
+.DetailedDiscussion-title
+  @include alpha
+
+.DetailedDiscussion-body
+  @include beta
+
+  p
+    line-height: 1.4
+
+  a
+    color: theme-palette(accent-secondary)
+
+.DetailedDiscussion-author
+  @include beta
+  color: theme-palette(accent-secondary)
+
+.DetailedDiscussion-date
+  @include delta
+  color: theme-palette(primary, light)
+  text-transform: uppercase
