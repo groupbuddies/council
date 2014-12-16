@@ -3,12 +3,12 @@
 
   angular
     .module('council.animations')
-    .factory('Animations', Animations);
+    .factory('Animation', Animation);
 
-  function Animations($q) {
+  function Animation($q) {
     return {
       addClass: function(el, className) {
-        return $q(function(resolve, reject) {
+        return $q(function(resolve) {
           el.addClass(className);
 
           el.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
