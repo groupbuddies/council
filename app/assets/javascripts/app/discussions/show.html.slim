@@ -3,7 +3,7 @@
     a.Button.Button--flat href="#/discussions"
       | < homepage
 
-    council-raised-button.Button.Button--secondary
+    council-raised-button.Button.Button--secondary ng-click="ctrl.showNewComment = !ctrl.showNewComment"
       | pitch in
 
   .Discussion-description
@@ -26,3 +26,13 @@
       | {{ctrl.discussion.comments_count}} Comments
 
     div(comments-list="ctrl.discussion.comments")
+
+  .Discussion-newComment.md-whiteframe-z2 ng-class="{'Discussion-newComment--active': ctrl.showNewComment}"
+    .Discussion-topBar
+      .Button.Button--flat ng-click="ctrl.showNewComment = !ctrl.showNewComment"
+        | Hide
+
+      council-raised-button.Button.Button--secondary ng-click="ctrl.addComment(ctrl.newComment)"
+        | Add Comment
+
+    md-text-float(label="Comment here" ng-model="ctrl.newComment.body" multiline)

@@ -16,7 +16,7 @@
 
     function resetDiscussion(discussion) {
       ctrl.discussion = discussion;
-      discussion.author = _(discussion.authors).findWhere({ id: discussion.author_id });
+      discussion.author = discussion.getAuthor();
       _.each(ctrl.discussion.comments, addDiscussionData);
 
       function addDiscussionData(comment) {
@@ -26,11 +26,8 @@
     }
 
     function addComment(comment) {
-      ctrl.discussion.addComment(comment).then(addToComments);
-
-      function addToComments(comment) {
-        ctrl.discussion.comments.push(comment);
-      }
+      ctrl.discussion.addComment(comment);
+      ctrl.showNewComment = !ctrl.showNewComment;
     }
   }
 })();

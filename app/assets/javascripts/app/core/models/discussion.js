@@ -5,13 +5,21 @@
     .module('council.core')
     .factory('Discussion', Discussion);
 
-  function Discussion(DS, $http) {
+  function Discussion(DS, $http, _) {
     var Discussion = DS.defineResource({
       name: 'discussion',
       endpoint: 'discussions',
       methods: {
         addComment: function(comment) {
-          return DS.create('discussionComment', comment);
+          var discussion = this;
+
+          return DS.create('discussionComment', comment)
+            .then(function(comment) {
+              discussion.comments.push(comment);
+            });
+        },
+        getAuthor: function() {
+          return _(this.authors).findWhere({ id: this.author_id });
         }
       }
     });
