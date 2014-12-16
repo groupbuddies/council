@@ -8,6 +8,9 @@ html
     = stylesheet_link_tag :application, media: 'all'
     = csrf_meta_tags
 
+    script src="//use.typekit.net/rnu4cas.js"
+    script try{Typekit.load();}catch(e){}
+
   body.TopBarLayout ng-app='council' md-theme='council'
     md-toolbar.md-whiteframe-z1.TopBarLayout-topBar
       .md-toolbar-tools
@@ -20,5 +23,3 @@ html
       = yield
     = javascript_include_tag :application
 
-    script src="//use.typekit.net/rnu4cas.js"
-    script try{Typekit.load();}catch(e){}
