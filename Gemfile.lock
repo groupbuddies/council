@@ -82,6 +82,8 @@ GEM
       thor (~> 0.19.1)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
+    headquarters (0.0.5)
+      httparty (>= 0.13.3)
     hike (1.2.3)
     httparty (0.13.3)
       json (~> 1.8)
@@ -243,7 +245,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.2)
   faker
   foreman
-  httparty
+  headquarters (= 0.0.5)
   jquery-rails
   newrelic_rpm
   ngannotate-rails

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
         resources :comments, only: [:show, :create, :update]
       end
       resources :notifications, only: [:index, :destroy]
-      resource :team, only: [:show]
+      resources :members, only: [:index]
     end
   end
 
