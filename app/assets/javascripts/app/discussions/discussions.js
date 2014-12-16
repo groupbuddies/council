@@ -6,8 +6,7 @@
     .controller('DiscussionsCtrl', DiscussionsCtrl)
     .controller('NewDiscussionCtrl', NewDiscussionCtrl);
 
-  function DiscussionsCtrl($state, Discussion) {
-
+  function DiscussionsCtrl($state, Discussion, Animations) {
     var ctrl = this;
 
     ctrl.pageReady = false;
@@ -20,8 +19,10 @@
       ctrl.pageReady = true;
     }
 
-    function showDiscussion(discussionId) {
-      $state.go('discussions.show', { id: discussionId });
+    function showDiscussion($event, discussionId) {
+      Animations.addClass($($event.currentTarget), 'is-expanded').then(function() {
+        $state.go('discussions.show', { id: discussionId });
+      });
     }
   }
 
