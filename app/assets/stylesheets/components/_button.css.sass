@@ -3,8 +3,10 @@ $button-icon-height: 24px
 $button-icon-font-size: 30px
 
 .Button
+  @include gamma
   position: relative
   display: inline-block
+  text-transform: uppercase
 
 .Button-icon
   position: absolute
@@ -24,6 +26,7 @@ $button-icon-font-size: 30px
 
 .Button.Button--secondary
   background-color: theme-palette(accent-secondary)
+  color: theme-palette(neutral, white)
 
   &:hover
     background-color: theme-palette(accent-secondary, dark)
@@ -35,3 +38,5 @@ $button-icon-font-size: 30px
 
 .Button.Button--flat
   color: theme-palette(accent-secondary)
+  cursor: pointer
+  text-decoration: none

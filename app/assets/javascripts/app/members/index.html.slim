@@ -1,9 +1,17 @@
-.Page.Page--dark layout='column'
-  section
-    md-container.Page-item.u-upperCase Team Members
-    md-container layout='column' layout-margin=''
-      md-card.TeamMember ng-repeat="member in ctrl.members"
-        .TeamMember-name
-          | {{ member.name }}
-        .TeamMember-email
-          | {{ member.email }}
+.TopBarLayout
+  md-toolbar.md-whiteframe-z1.TopBarLayout-topBar
+    .md-toolbar-tools
+      a href="#/discussions" Council
+      a href="#/members" Members
+      a data-method="delete" href="/users/sign_out" Log Out
+
+.TopBarLayout-content
+  .Page.Page--dark layout='column'
+    section
+      md-container.Page-item.u-upperCase Team Members
+      md-container layout='column' layout-margin=''
+        md-card.TeamMember ng-repeat="member in ctrl.members"
+          .TeamMember-name
+            | {{ member.name }}
+          .TeamMember-email
+            | {{ member.email }}

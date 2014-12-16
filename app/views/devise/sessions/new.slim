@@ -1,15 +1,25 @@
-div layout="column"
-  md-toolbar md-theme="indigo"
+.TopBarLayout
+  md-toolbar.md-whiteframe-z1.TopBarLayout-topBar
     .md-toolbar-tools
-      span.md-flex Log in
+      = link_to 'Council', root_path
+      span flex=""
+      - if current_user
+        = link_to 'Members', '#/members'
+        = link_to 'Sign Out', destroy_user_session_path, method: :delete
 
-  md-content.md-padding
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      md-text-float label="E-mail" name="user[email]" ng-model="username" type="email"
-      md-text-float label="Password" name="user[password]" ng-model="password" type="password"
+.TopBarLayout-content
+  div layout="column"
+    md-toolbar md-theme="indigo"
+      .md-toolbar-tools
+        span.md-flex Log in
 
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
+    md-content.md-padding
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        md-text-float label="E-mail" name="user[email]" ng-model="username" type="email"
+        md-text-float label="Password" name="user[password]" ng-model="password" type="password"
 
-      md-button.md-raised.md-primary Sign in
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+
+        md-button.md-raised.md-primary Sign in
