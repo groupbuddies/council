@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   authorize_resource
 
+  def show
+    render json: User.find(params[:id])
+  end
+
   def edit
     @user = User.find(params[:id])
   end
