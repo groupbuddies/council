@@ -1,6 +1,22 @@
 $login-buttons-width: 100px
 $login-buttons-height: 40px
 
+.LogInPage
+  .LogInPage-welcomeText
+    margin: $default-spacing $default-spacing 0
+
+  .LogInPage-form
+    margin: $default-spacing
+
+  .LogInPage-buttons
+    margin-top: $default-spacing
+
+  .LogInPage-about
+    margin: $default-spacing $default-spacing 0
+
+  .LogInPage-footer
+    margin-top: $default-spacing
+
 .LogInPage-header
   background: theme-palette(primary, base)
   text-align: center
@@ -11,13 +27,11 @@ $login-buttons-height: 40px
 
 .LogInPage-welcomeText
   @include alpha
-  margin: $default-spacing $default-spacing 0
   color: theme-palette(primary, dark)
   text-align: center
 
 .LogInPage-form
   @include beta
-  margin: 0 $default-spacing
 
   label
     color: theme-palette(primary, light)
@@ -43,7 +57,6 @@ $login-buttons-height: 40px
   @include gamma
   display: flex
   justify-content: space-between
-  margin-top: $default-spacing
 
   a
     display: inline-block
@@ -60,7 +73,6 @@ $login-buttons-height: 40px
 
 .LogInPage-about
   @include beta
-  margin: $default-spacing $default-spacing 0
   color: theme-palette(primary, dark)
 
   .LogInPage-featured
@@ -70,11 +82,15 @@ $login-buttons-height: 40px
   p
     line-height: 1.4
 
-  a
-    color: theme-palette(accent-secondary, dark)
+.LogInPage-link
+  color: theme-palette(accent-secondary, dark)
 
 .LogInPage-footer
   @include gamma
-  margin-top: $default-spacing
   color: theme-palette(accent-secondary)
   text-align: center
+
+@media screen and (min-width: $theme-breakpoint-desktop)
+  .LogInPage
+    .LogInPage-form
+      margin-top: 4 * $default-spacing
