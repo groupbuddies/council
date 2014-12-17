@@ -25,3 +25,5 @@
 //= require_tree ./app/discussions
 //= require ./app/members/members.module
 //= require_tree ./app/members
+//= require ./app/animation/animation.module
+//= require_tree ./app/animation
