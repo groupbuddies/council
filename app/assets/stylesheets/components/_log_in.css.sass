@@ -92,5 +92,11 @@ $login-buttons-height: 40px
 
 @media screen and (min-width: $theme-breakpoint-desktop)
   .LogInPage
+    max-width: $theme-breakpoint-desktop
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    left: 50%
+    transform: translateX(-50%)
     .LogInPage-form
       margin-top: 4 * $default-spacing
