@@ -2,11 +2,11 @@
   md-toolbar.md-whiteframe-z1.TopBarLayout-header.LogInPage-header
     a.LogInPage-title href="/" Council
 
-  .TopBarLayout-content
-    .LogInPage-welcomeText
-      span To enter the Council, please show off your credentials
-
+  .TopBarLayout-content.LogInPage
     .LogInPage-form
+      .LogInPage-welcomeText
+        span To enter the Council, please show off your credentials
+
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         md-text-float label="Your email" name="user[email]" ng-model="username" type="email"
         md-text-float label="Your password" name="user[password]" ng-model="password" type="password"
@@ -23,8 +23,7 @@
         | The council is a place we created that allow us to collaborate and help each other to reach an educated outcome.
 
       p
-        | If you'd like to talk, you can reach me at
-        a href="mailto:roberto@groupbuddies.com"  roberto@groupbuddies.com
+        | If you'd like to talk, you can reach me at <a class="LogInPage-link" href="mailto:roberto@groupbuddies.com">roberto@groupbuddies.com</a>
 
     .LogInPage-footer
-      p Handcrafted by Group Buddies
+      p Handcrafted by <a class="LogInPage-link" target="new" href="http://www.groupbuddies.com">Group Buddies</a>
