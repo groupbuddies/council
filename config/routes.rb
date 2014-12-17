@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: 'sessions', passwords: 'passwords' }
+
   defaults format: 'json' do
     constraints format: 'json' do
       resources :discussions, only: [:index, :show, :create, :update] do
@@ -9,8 +11,6 @@ Rails.application.routes.draw do
       resources :users, only: [:show]
     end
   end
-
-  devise_for :users, controllers: { sessions: 'sessions' , passwords: 'passwords' }
 
   resources :users, only: [:edit, :update]
 
