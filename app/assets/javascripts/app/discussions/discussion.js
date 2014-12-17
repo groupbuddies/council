@@ -5,7 +5,7 @@
     .module('council.discussions')
     .controller('DiscussionCtrl', DiscussionCtrl);
 
-  function DiscussionCtrl(Discussion, User, discussionId, _, DS) {
+  function DiscussionCtrl(Discussion, discussionId, _, DS) {
     var ctrl = this;
 
     ctrl.pageReady = false;
@@ -22,10 +22,7 @@
 
       function addDiscussionData(comment) {
         comment.discussionId = discussion.id;
-
-        User.find(comment.author_id).then(function(user) {
-          comment.author = user;
-        });
+        comment.author = _(discussion.authors).findWhere({ id: comment.author_id });
       }
     }
 
