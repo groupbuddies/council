@@ -8,7 +8,17 @@
   function User(DS, $http) {
     var User = DS.defineResource({
       name: 'user',
-      endpoint: 'users'
+      endpoint: 'users',
+      methods: {
+        updatePassword: function(password, passwordConfirmation) {
+          return DS.update('user', this.id, {
+            user: {
+              password: password,
+              password_confirmation: passwordConfirmation
+            }
+          });
+        }
+      }
     });
 
     return User;

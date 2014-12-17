@@ -25,3 +25,5 @@
 //= require_tree ./app/discussions
 //= require ./app/members/members.module
 //= require_tree ./app/members
+//= require ./app/users/users.module
+//= require_tree ./app/users

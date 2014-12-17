@@ -13,6 +13,7 @@
       'council.discussions',
       'council.comments',
       'council.members',
+      'council.users',
       'btford.markdown'
     ])
     .config(csrf)

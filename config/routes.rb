@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       end
       resources :notifications, only: [:index, :destroy]
       resources :members, only: [:index]
-      resources :users, only: [:show]
+      resources :users, only: [:show, :update]
     end
   end
 
