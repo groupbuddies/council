@@ -9,6 +9,14 @@ $top-bar-layout-height: 62px
   z-index: 9999
   height: $top-bar-layout-height
   line-height: $top-bar-layout-height
+  background-color: theme-palette(primary)
+
+  &.TopBarLayout-header--highlight
+    background-color: theme-palette(accent-primary)
+
+  &.TopBarLayout-header--clean
+    background-color: white
+
 
 .TopBarLayout-content
   position: absolute
