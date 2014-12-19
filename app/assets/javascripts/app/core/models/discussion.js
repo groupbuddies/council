@@ -12,6 +12,9 @@
       methods: {
         addComment: function(comment) {
           return DS.create('discussionComment', comment);
+        },
+        markAsRead: function() {
+          return $http.put('discussions/' + this.id + '/subscription');
         }
       }
     });
