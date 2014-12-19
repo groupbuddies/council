@@ -42,12 +42,12 @@ describe Subscription, type: :model do
     end
   end
 
-  context '#view' do
+  context '#make_viewed' do
     context 'A new discussion' do
       it 'changes to unwatch' do
         subscription = create(:subscription, state: :new)
 
-        subscription.view
+        subscription.make_viewed
 
         expect(subscription).to be_unwatched
       end
@@ -57,7 +57,7 @@ describe Subscription, type: :model do
       it 'remains read' do
         subscription = create(:subscription, state: :read)
 
-        subscription.view
+        subscription.make_viewed
 
         expect(subscription).to be_read
       end
@@ -67,7 +67,7 @@ describe Subscription, type: :model do
       it 'changes to read' do
         subscription = create(:subscription, state: :unread)
 
-        subscription.view
+        subscription.make_viewed
 
         expect(subscription).to be_read
       end

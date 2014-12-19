@@ -3,8 +3,8 @@ class SubscriptionsController < ApplicationController
     subscription = Subscription.for(discussion_id: params[:discussion_id], user_id: current_user.id)
     authorize! :update, subscription
 
-    subscription.view
+    subscription.make_viewed
 
-    render nothing: true, status: 200
+    render head: 200
   end
 end

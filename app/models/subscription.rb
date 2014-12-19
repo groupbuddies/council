@@ -15,7 +15,7 @@ class Subscription < ActiveRecord::Base
     state :read
     state :unwatched
 
-    event :view do
+    event :make_viewed do
       transition [:new] => :unwatched
       transition [:unread] => :read
     end
