@@ -18,6 +18,7 @@
     function resetDiscussion(discussion) {
       ctrl.discussion = discussion;
       _.each(ctrl.discussion.comments, addDiscussionData);
+      ctrl.discussion.markAsRead();
       ctrl.pageReady = true;
 
       function addDiscussionData(comment) {

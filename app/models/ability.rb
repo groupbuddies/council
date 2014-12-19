@@ -13,6 +13,7 @@ class Ability
     can :manage, Discussion, author_id: user.id
     can :manage, Comment, author_id: user.id
     can :manage, User, id: user.id
+    can :manage, Subscription, user_id: user.id
   end
 
   private

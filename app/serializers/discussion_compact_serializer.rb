@@ -10,6 +10,6 @@ class DiscussionCompactSerializer < EditableSerializer
   end
 
   def status
-    Subscription.for(discussion: object, user: scope).state
+    Subscription.for(discussion_id: object.id, user_id: scope.id).state
   end
 end

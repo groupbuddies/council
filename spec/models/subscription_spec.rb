@@ -6,7 +6,7 @@ describe Subscription, type: :model do
     it 'fetches an existing subscription' do
       subscription = create(:subscription)
 
-      fetched_subscription = Subscription.for(discussion: subscription.discussion, user: subscription.user)
+      fetched_subscription = Subscription.for(discussion_id: subscription.discussion_id, user_id: subscription.user_id)
 
       expect(fetched_subscription).to eq subscription
     end
@@ -15,7 +15,7 @@ describe Subscription, type: :model do
       user = create(:user)
       discussion = create(:discussion)
 
-      Subscription.for(user: user, discussion: discussion)
+      Subscription.for(user_id: user.id, discussion_id: discussion.id)
 
       expect(Subscription.count).to be(1)
     end
@@ -42,12 +42,12 @@ describe Subscription, type: :model do
     end
   end
 
-  context '#view' do
+  context '#make_viewed' do
     context 'A new discussion' do
       it 'changes to unwatch' do
         subscription = create(:subscription, state: :new)
 
-        subscription.view
+        subscription.make_viewed
 
         expect(subscription).to be_unwatched
       end
@@ -57,7 +57,7 @@ describe Subscription, type: :model do
       it 'remains read' do
         subscription = create(:subscription, state: :read)
 
-        subscription.view
+        subscription.make_viewed
 
         expect(subscription).to be_read
       end
@@ -67,7 +67,7 @@ describe Subscription, type: :model do
       it 'changes to read' do
         subscription = create(:subscription, state: :unread)
 
-        subscription.view
+        subscription.make_viewed
 
         expect(subscription).to be_read
       end
