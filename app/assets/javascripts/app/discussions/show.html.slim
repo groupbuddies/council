@@ -7,8 +7,8 @@
       | pitch in
 
   .DiscussionPage-description
-    .Button.Button--flat
-      | edit discussion
+    .Button.Button--flat ng-if="ctrl.discussion.editable"
+      a ui-sref="discussions.edit({ id: ctrl.discussion.id })" edit discussion
 
     div wait-for='ctrl.pageReady'
 

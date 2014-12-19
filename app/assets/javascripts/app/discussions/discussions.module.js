@@ -23,8 +23,7 @@
       })
       .state('discussions.new', {
         url: '/new',
-        templateUrl: 'discussions/new.html',
-        controller: 'NewDiscussionCtrl as ctrl'
+        templateUrl: 'discussions/new.html'
       })
       .state('discussions.show', {
         url: '/:id',
@@ -38,7 +37,13 @@
       })
       .state('discussions.edit', {
         url: '/:id/edit',
-        templateUrl: 'discussions/edit.html'
+        templateUrl: 'discussions/edit.html',
+        controller: 'DiscussionCtrl as ctrl',
+        resolve: {
+          discussionId: function($stateParams) {
+            return $stateParams.id;
+          }
+        }
       });
   }
 })();

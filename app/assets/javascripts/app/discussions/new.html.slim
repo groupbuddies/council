@@ -1,13 +1,3 @@
 h1 New Discussion
 
-form name="form" novalidate=""
-  md-text-float label="Title" name="title" ng-model="discussion.title" required="" type="text"
-  div ng-show=("form.$submitted || form.title.$touched")
-    div ng-show="form.title.$error.required" Fill the title.
-  md-text-float label="Subtitle" name="subtitle" ng-model="discussion.subtitle" required="" type="text"
-  div ng-show=("form.$submitted || form.subtitle.$touched")
-    div ng-show="form.subtitle.$error.required" Fill the subtitle.
-  md-text-float label="Body" name="body" ng-model="discussion.body" multiline="" type="text"
-  md-text-float label="Tags" ng-model="discussion.tags" type="text"
-  md-button ng-click="ctrl.createDiscussion(discussion)" ng-disabled="!form.$valid"
-    | +
+div(discussion-form)
