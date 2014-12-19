@@ -3,7 +3,8 @@
 
   angular
     .module('council.discussions', [
-      'council.core'
+      'council.core',
+      'ngAnimate'
     ])
     .config(setupRoutes);
 

@@ -6,7 +6,7 @@
       a data-method="delete" href="/users/sign_out" Log Out
 
 .TopBarLayout-content.Page
-  section layout='column' layout-margin=''
+  section.DiscussionList layout='column' layout-margin=''
     md-container.u-upperCase flex='' Open Discussions
     md-container layout='column' layout-margin='' wait-for='ctrl.pageReady'
     md-card.Discussion ng-repeat="discussion in ctrl.discussions | filter:{open: true}" flex='' ng-click="ctrl.showDiscussion(discussion.id)" class="Discussion--{{ discussion.status }}"
@@ -17,7 +17,7 @@
       .Discussion-commentsCount
         | {{discussion.comments_count}}
 
-  section layout='column' layout-margin='' ng-show="closedDiscussions.length"
+  section.DiscussionList layout='column' layout-margin='' ng-show="closedDiscussions.length"
     md-container.u-upperCase flex='' Closed Discussions
     md-card.Discussion.Discussion--closed ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})" flex='' ng-click="ctrl.showDiscussion(discussion.id)"
         .Discussion-title

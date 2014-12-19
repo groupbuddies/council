@@ -1,0 +1,19 @@
+.DiscussionList
+  $animated-discussions: 30
+
+  @for $i from 1 through $animated-discussions
+    .Discussion:nth-child(#{$i})
+      transform: translateX(0)
+      backface-visibility: hidden
+      perspective: 0
+
+      animation-delay: $i * 0.05s
+      animation-duration: 0.7s
+      animation-fill-mode: both
+      animation-timing-function: ease-out
+
+      &.ng-enter
+        transform: translateX(-1000px)
+
+      &.ng-enter-active
+        animation-name: bounceInLeft
