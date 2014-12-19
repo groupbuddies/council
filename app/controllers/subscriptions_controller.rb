@@ -5,6 +5,6 @@ class SubscriptionsController < ApplicationController
 
     subscription.make_viewed
 
-    render head: 200
+    head :ok
   end
 end
