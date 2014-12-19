@@ -6,7 +6,7 @@ describe Subscription, type: :model do
     it 'fetches an existing subscription' do
       subscription = create(:subscription)
 
-      fetched_subscription = Subscription.for(discussion: subscription.discussion, user: subscription.user)
+      fetched_subscription = Subscription.for(discussion_id: subscription.discussion_id, user_id: subscription.user_id)
 
       expect(fetched_subscription).to eq subscription
     end
@@ -15,7 +15,7 @@ describe Subscription, type: :model do
       user = create(:user)
       discussion = create(:discussion)
 
-      Subscription.for(user: user, discussion: discussion)
+      Subscription.for(user_id: user.id, discussion_id: discussion.id)
 
       expect(Subscription.count).to be(1)
     end

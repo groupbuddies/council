@@ -1,11 +1,10 @@
 class SubscriptionsController < ApplicationController
   def update
-    discussion = Discussion.find(params[:discussion_id])
-    subscription = Subscription.for(discussion: discussion, user: current_user)
+    subscription = Subscription.for(discussion_id: params[:discussion_id], user_id: current_user.id)
     authorize! :update, subscription
 
     subscription.view
 
-    render json: discussion
+    render nothing: true, status: 200
   end
 end

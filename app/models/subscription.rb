@@ -3,8 +3,8 @@ class Subscription < ActiveRecord::Base
   belongs_to :discussion
   belongs_to :first_unread_comment, class_name: 'Comment'
 
-  def self.for(discussion: discussion, user: user)
-    where(discussion: discussion, user: user).first_or_create
+  def self.for(discussion_id: discussion_id, user_id: user_id)
+    where(discussion_id: discussion_id, user_id: user_id).first_or_create
   end
 
   after_create :set_initial_state
