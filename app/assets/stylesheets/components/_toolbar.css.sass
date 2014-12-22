@@ -1,10 +1,15 @@
 .Toolbar
   background-color: theme-palette(primary)
-  color: white
+  color: theme-palette(neutral, white)
+  cursor: pointer
 
   &.Toolbar--highlight
     background-color: theme-palette(accent-primary)
     color: theme-palette(primary, dark)
+
+  &.Toolbar--secondaryHighlight
+    background-color: theme-palette(accent-secondary)
+    color: theme-palette(neutral, white)
 
   &.Toolbar--clean
     background-color: white

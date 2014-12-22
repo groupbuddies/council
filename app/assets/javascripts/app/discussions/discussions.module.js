@@ -19,8 +19,15 @@
       })
       .state('discussions.index', {
         url: '',
-        templateUrl: 'discussions/index.html',
-        controller: 'DiscussionsCtrl as ctrl'
+        views: {
+          '': {
+            controller: 'DiscussionsCtrl as ctrl',
+            templateUrl: 'discussions/index.html'
+          },
+          'sidebar@discussions.index': {
+            templateUrl: 'discussions/sidebar.html'
+          }
+        }
       })
       .state('discussions.new', {
         url: '/new',
