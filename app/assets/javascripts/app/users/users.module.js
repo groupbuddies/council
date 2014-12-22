@@ -8,8 +8,6 @@
     .config(setupRoutes);
 
   function setupRoutes($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
-
     $stateProvider
       .state('users', {
         url: '/users',
