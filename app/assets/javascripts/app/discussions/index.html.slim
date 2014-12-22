@@ -6,22 +6,20 @@
       a data-method="delete" href="/users/sign_out" Log Out
 
 .TopBarLayout-content
-  .Page.Page--dark.u-fullSize layout='column' wait-for='ctrl.pageReady'
-    section
-      md-container.Page-item.u-upperCase Open Discussions
-      md-container layout='column' layout-margin=''
-        md-card.Discussion ng-repeat="discussion in ctrl.discussions | filter:{open: true}" flex='' ng-click="ctrl.showDiscussion(discussion.id)" class="Discussion--{{ discussion.status }}"
-          .Discussion-title
-            | {{discussion.title}}
-          .Discussion-subtitle
-            | {{discussion.subtitle}}
-          .Discussion-commentsCount
-            | {{discussion.comments_count}}
+  .Page.Page--dark.u-fullSize wait-for='ctrl.pageReady'
+    section layout='column' layout-margin=''
+      md-container.u-upperCase flex='' Open Discussions
+      md-card.Discussion ng-repeat="discussion in ctrl.discussions | filter:{open: true}" flex='' ng-click="ctrl.showDiscussion(discussion.id)" class="Discussion--{{ discussion.status }}"
+        .Discussion-title
+          | {{discussion.title}}
+        .Discussion-subtitle
+          | {{discussion.subtitle}}
+        .Discussion-commentsCount
+          | {{discussion.comments_count}}
 
-    section ng-show="closedDiscussions.length"
-      md-container.Page-item.u-upperCase Closed Discussions
-      md-container layout='column' layout-margin=''
-        md-card.Discussion.Discussion--closed ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})" flex='' ng-click="ctrl.showDiscussion(discussion.id)"
+    section layout='column' layout-margin='' ng-show="closedDiscussions.length"
+      md-container.u-upperCase flex='' Closed Discussions
+      md-card.Discussion.Discussion--closed ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})" flex='' ng-click="ctrl.showDiscussion(discussion.id)"
           .Discussion-title
             | {{discussion.title}}
           .Discussion-subtitle

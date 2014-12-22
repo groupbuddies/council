@@ -120,4 +120,13 @@ body {
 }
 
 /** Break Points **/
-$theme-breakpoint-desktop: 600px
+$theme-breakpoint-desktop: 600px;
+
+/** Layout **/
+$layout-max-width: 960px;
+
+[layout=column] {
+  max-width: $layout-max-width;
+  margin-left: auto;
+  margin-right: auto;
+}

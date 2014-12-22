@@ -7,23 +7,24 @@
       | pitch in
 
   .DiscussionPage-description
-    .Button.Button--flat ng-if="ctrl.discussion.editable"
-      a ui-sref="discussions.edit({ id: ctrl.discussion.id })" edit discussion
+    div layout='column'
+      .Button.Button--flat ng-if="ctrl.discussion.editable"
+        a ui-sref="discussions.edit({ id: ctrl.discussion.id })" edit discussion
 
-    div wait-for='ctrl.pageReady'
+      div wait-for='ctrl.pageReady'
 
-    h1.DiscussionPage-title
-      | {{ctrl.discussion.title}}
+      h1.DiscussionPage-title
+        | {{ctrl.discussion.title}}
 
-    .DiscussionPage-body(btf-markdown="ctrl.discussion.body")
+      .DiscussionPage-body(btf-markdown="ctrl.discussion.body")
 
-    .DiscussionPage-author
-      | {{ctrl.discussion.author.display_name}}
+      .DiscussionPage-author
+        | {{ctrl.discussion.author.display_name}}
 
-    .DiscussionPage-date
-      span am-time-ago="ctrl.discussion.created_at"
+      .DiscussionPage-date
+        span am-time-ago="ctrl.discussion.created_at"
 
-  .DiscussionPage-comments
+  .DiscussionPage-comments layout='column'
     p.DiscussionPage-commentsCount
       | {{ctrl.discussion.comments_count}} Comments
 
