@@ -1,9 +1,10 @@
 .TopBarLayout
-  md-toolbar.md-whiteframe-z1.TopBarLayout-header
-    .md-toolbar-tools
-      a href="#/discussions" Council
-      a href="#/members" Members
-      a data-method="delete" href="/users/sign_out" Log Out
+  .TopBarLayout-header
+    md-toolbar.md-whiteframe-z1.Toolbar
+      .md-toolbar-tools layout="row" layout-align="space-around center"
+        a href="#/discussions" Council
+        a href="#/members" Members
+        a data-method="delete" href="/users/sign_out" Log Out
 
 .TopBarLayout-content.Page
   section.DiscussionList layout='column' layout-margin=''

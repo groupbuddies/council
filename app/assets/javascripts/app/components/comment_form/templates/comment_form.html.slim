@@ -1,11 +1,12 @@
-.TopBarLayout.md-whiteframe-z2
-  md-toolbar.TopBarLayout-header.TopBarLayout-header--clean
-    md-content.md-padding layout="row" layout-align="space-between center"
-      .Button.Button--flat ng-click="toggle()"
-        | Hide
+.TopBarLayout
+  .TopBarLayout-header
+    md-toolbar.Toolbar.Toolbar--clean
+      md-content.md-padding layout="row" layout-align="space-between center"
+        .Button.Button--flat ng-click="toggle()"
+          | Hide
 
-      council-raised-button.Button.Button--secondary ng-click="create(comment)"
-        | Add Comment
+        council-raised-button.Button.Button--secondary ng-click="create(comment)"
+          | Add Comment
 
 .TopBarLayout-content
   md-content.Page.Page--white.md-padding.u-fullSize

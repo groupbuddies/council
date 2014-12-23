@@ -1,4 +1,4 @@
-$top-bar-layout-height: 62px
+$header-height: 62px
 
 .TopBarLayout
   position: relative
@@ -7,21 +7,11 @@ $top-bar-layout-height: 62px
 .TopBarLayout-header
   position: absolute
   z-index: 9000
-  height: $top-bar-layout-height
-  background-color: theme-palette(primary)
-  color: white
-
-  &.TopBarLayout-header--highlight
-    background-color: theme-palette(accent-primary)
-    color: theme-palette(primary, dark)
-
-  &.TopBarLayout-header--clean
-    background-color: white
-    color: theme-palette(accent-secondary)
+  height: $header-height
 
 .TopBarLayout-content
   position: absolute
-  top: $top-bar-layout-height
+  top: $header-height
   overflow: scroll
   width: 100%
-  height: calc(100% - #{$top-bar-layout-height})
+  height: calc(100% - #{$header-height})
