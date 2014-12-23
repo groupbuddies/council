@@ -3,28 +3,28 @@
     md-toolbar.md-whiteframe-z1.Toolbar layout="row" layout-align="center center"
       a.LogInPage-title href="/" Council
 
-  .TopBarLayout-content.LogInPage
-    .LogInPage-form
-      .LogInPage-welcomeText
-        span To enter the Council, please show off your credentials
+.TopBarLayout-content.LogInPage
+  .LogInPage-form
+    .LogInPage-welcomeText
+      span To enter the Council, please show off your credentials
 
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        md-text-float label="Your email" name="user[email]" ng-model="username" type="email"
-        md-text-float label="Your password" name="user[password]" ng-model="password" type="password"
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      md-text-float label="Your email" name="user[email]" ng-model="username" type="email"
+      md-text-float label="Your password" name="user[password]" ng-model="password" type="password"
 
-        .LogInPage-buttons
-          a href="#" Forgot your credentials?
-          council-raised-button Step In
+      .LogInPage-buttons
+        a href="#" Forgot your credentials?
+        council-raised-button Step In
 
-    .LogInPage-about
-      p.LogInPage-featured
-        | We felt the need to bring order to our chaotic internal discussions.
+  .LogInPage-about
+    p.LogInPage-featured
+      | We felt the need to bring order to our chaotic internal discussions.
 
-      p
-        | The council is a place we created that allow us to collaborate and help each other to reach an educated outcome.
+    p
+      | The council is a place we created that allow us to collaborate and help each other to reach an educated outcome.
 
-      p
-        | If you'd like to talk, you can reach me at <a class="LogInPage-link" href="mailto:roberto@groupbuddies.com">roberto@groupbuddies.com</a>
+    p
+      | If you'd like to talk, you can reach me at <a class="LogInPage-link" href="mailto:roberto@groupbuddies.com">roberto@groupbuddies.com</a>
 
-    .LogInPage-footer
-      p Handcrafted by <a class="LogInPage-link" target="new" href="http://www.groupbuddies.com">Group Buddies</a>
+  .LogInPage-footer
+    p Handcrafted by <a class="LogInPage-link" target="new" href="http://www.groupbuddies.com">Group Buddies</a>
