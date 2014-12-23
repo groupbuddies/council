@@ -15,7 +15,7 @@
       .state('discussions', {
         url: '/discussions',
         abstract: true,
-        template: '<div ui-view class="u-fullSize"></div>'
+        template: '<div ui-view></div>'
       })
       .state('discussions.index', {
         url: '',
