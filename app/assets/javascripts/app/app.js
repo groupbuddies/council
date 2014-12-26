@@ -21,6 +21,12 @@
       $rootScope.$on('$stateChangeStart', function(event, toState) {
         console.log('[DEBUG] Route change: ', toState);
       })
+
+      if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body);
+        }, false);
+      }
     });
 
     function csrf($httpProvider) {
