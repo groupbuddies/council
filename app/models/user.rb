@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
     :rememberable,
     :trackable,
     :validatable,
-    :recoverable
+    :recoverable,
+    :omniauthable,
+    omniauth_providers: [:headquarters]
 
   has_many :notifications
 
@@ -11,5 +13,9 @@ class User < ActiveRecord::Base
 
   def display_name
     username.presence || "#{first_name} #{last_name[0]}"
+  end
+
+  def name=(name)
+    self.first_name, self.last_name = name.split(' ', 2)
   end
 end

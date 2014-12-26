@@ -1,13 +1,18 @@
 .TopBarLayout
   .TopBarLayout-header
-    md-toolbar.md-whiteframe-z1 layout="row" layout-align="center center"
-      | Council
+    md-toolbar.md-whiteframe-z1.Toolbar layout="row" layout-align="center center"
+      a.LogInPage-title href="/" Council
 
   .TopBarLayout-content
     .section layout='column' layout-margin=''
       div.u-defaultMargin
+
         .u-center.u-alpha
           span To enter the Council, please show off your credentials
+
+        .u-gamma.u-defaultMarginTop layout='row' layout-align='center'
+          md-button.md-raised.md-warn href="#{user_omniauth_authorize_path(:headquarters)}" flex="40"
+            | Sign in with HQ
 
         = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'u-defaultMarginTop'}) do |f|
           md-input-container.md-accent

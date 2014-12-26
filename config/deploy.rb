@@ -1,6 +1,6 @@
 set :repo_url, 'git@github-gb-council:groupbuddies/council.git'
 set :application, 'gb-council'
-set :state, :production
+set :stage, :production
 set :branch, (ENV['DEPLOY_BRANCH'] || :master)
 set :rails_env, :production
 

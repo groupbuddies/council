@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'sessions', passwords: 'passwords' }
+  devise_for :users, controllers: { sessions: 'sessions', passwords: 'passwords', omniauth_callbacks: 'omniauth_callbacks' }
 
   defaults format: 'json' do
     constraints format: 'json' do
