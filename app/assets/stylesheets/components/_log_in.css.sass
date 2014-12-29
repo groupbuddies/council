@@ -26,34 +26,6 @@ $login-buttons-height: 40px
   color: theme-palette(primary, dark)
   text-align: center
 
-.LogInPage-form
-  @include beta
-
-  label
-    color: theme-palette(primary, light)
-
-  input
-    width: 100%
-    border-color: theme-palette(primary, base)
-    &:-webkit-autofill
-      box-shadow: inset 0 0 0 100px white
-
-  .md-input-focused
-    input
-      border-width: 0 0 2px 0
-      border-color: theme-palette(accent-primary, dark)
-
-  .md-council-theme
-    input
-      padding: 0 0 10px 0
-
-    label
-      color: theme-palette(accent-secondary, dark)
-
-  .md-input-has-value
-    label
-      color: theme-palette(accent-secondary, dark)
-
 .LogInPage-buttons
   @include gamma
   display: flex

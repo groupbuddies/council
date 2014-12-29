@@ -4,17 +4,18 @@
       a.LogInPage-title href="/" Council
 
 .TopBarLayout-content.LogInPage
-  .LogInPage-form
+  div
     .LogInPage-welcomeText
       span To enter the Council, please show off your credentials
 
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      md-text-float label="Your email" name="user[email]" ng-model="username" type="email"
-      md-text-float label="Your password" name="user[password]" ng-model="password" type="password"
+    .Form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        md-text-float label="Your email" name="user[email]" ng-model="username" type="email"
+        md-text-float label="Your password" name="user[password]" ng-model="password" type="password"
 
-      .LogInPage-buttons
-        a href="#" Forgot your credentials?
-        council-raised-button Step In
+        .LogInPage-buttons
+          a href="#" Forgot your credentials?
+          council-raised-button Step In
 
   .LogInPage-about
     p.LogInPage-featured
