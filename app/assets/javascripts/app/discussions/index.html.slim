@@ -5,8 +5,8 @@ div ui-view="sidebar"
     md-toolbar.md-whiteframe-z1.Toolbar
       .md-toolbar-tools layout="row" layout-align="space-between center"
         a.IconNavigation href="" ng-click="ctrl.toggleSidebar()"
-        a href="#/discussions" Council
-        a href="#/members" Members
+        = image_tag("logo.png", class: "IconLogo")
+        a ui-sref="members" Members
 
   .TopBarLayout-content
     .Page

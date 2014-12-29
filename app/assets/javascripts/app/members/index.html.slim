@@ -2,8 +2,8 @@
   .TopBarLayout-header
     md-toolbar.md-whiteframe-z1.Toolbar
       .md-toolbar-tools layout="row" layout-align="space-around center"
-        a href="#/discussions" Council
-        a href="#/members" Members
+        a ui-sref="discussions.index"
+         = image_tag("logo.png", class: "IconLogo")
         a data-method="delete" href="/users/sign_out" Log Out
 
   .TopBarLayout-content
