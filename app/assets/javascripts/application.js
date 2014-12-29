@@ -1,4 +1,3 @@
-//= require fastclick/lib/fastclick
 //= require angular/angular
 //= require angular-material
 //= require angular-animate/angular-animate
