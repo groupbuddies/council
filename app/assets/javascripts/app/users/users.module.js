@@ -12,7 +12,7 @@
       .state('users', {
         url: '/users',
         abstract: true,
-        template: '<div ui-view></div>'
+        template: '<div ui-view class="u-fullSize"></div>'
       })
       .state('users.edit', {
         url: '/:id/edit',
