@@ -5,17 +5,16 @@ $button-icon-font-size: 30px
 .Button
   @include gamma
   position: relative
-  display: inline-block
+  display: flex
+  align-items: center
+  justify-content: center
+
   text-transform: uppercase
   cursor: pointer
   text-decoration: none
 
-.Button-icon
-  position: absolute
-  top: calc(50% + 2px)
-  left: 50%
-  transform: translate(-50%, -50%)
-  pointer-events: none
+  .Button-icon + .Button-label
+    margin-left: $default-spacing / 2
 
 .Button.Button--primary
   background-color: theme-palette(accent-primary)
@@ -43,3 +42,15 @@ $button-icon-font-size: 30px
 
 .Button.Button--dark
   color: theme-palette(primary, dark)
+
+.Button.Button--close
+  .Button-icon:after
+    content: "\f00d"
+    font-family: FontAwesome
+    font-size: $button-icon-font-size
+
+.Button.Button--left
+  .Button-icon:after
+    content: "\f104"
+    font-family: FontAwesome
+    font-size: $button-icon-font-size

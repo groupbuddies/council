@@ -19,8 +19,6 @@
 //= require_tree ./app/components
 //= require ./app/core/core.module
 //= require_tree ./app/core
-//= require ./app/comments/comments.module
-//= require_tree ./app/comments
 //= require ./app/discussions/discussions.module
 //= require_tree ./app/discussions
 //= require ./app/members/members.module

@@ -2,8 +2,9 @@
   .TopBarLayout-header
     md-toolbar.Toolbar.Toolbar--clean
       md-content.md-padding layout="row" layout-align="space-between center"
-        a.Button.Button--flat ui-sref="discussions.index"
-          | < homepage
+        .Button.Button--flat.Button--left ui-sref="discussions.index"
+          .Button-icon
+          .Button-label homepage
         council-raised-button.Button.Button--secondary ng-click="ctrl.toggleNewComment()"
           | pitch in
 

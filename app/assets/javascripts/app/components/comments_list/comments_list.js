@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('council.comments')
+    .module('council.components')
     .directive('commentsList', CommentsList)
     .controller('CommentsListCtrl', CommentsListCtrl);
 
@@ -12,7 +12,7 @@
         comments: '=commentsList'
       },
       controller: 'CommentsListCtrl as ctrl',
-      templateUrl: 'comments/templates/comments-list.html'
+      templateUrl: 'components/comments_list/templates/comments_list.html'
     };
   }
 

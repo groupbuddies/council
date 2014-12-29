@@ -2,8 +2,9 @@
   .TopBarLayout-header
     md-toolbar.Toolbar.Toolbar--clean
       md-content.md-padding layout="row" layout-align="space-between center"
-        .Button.Button--flat ng-click="toggle()"
-          | Hide
+        button.Button.Button--close.Button--flat ng-click="toggle()"
+          .Button-icon
+          .Button-label CANCEL
 
         council-raised-button.Button.Button--secondary ng-click="create(comment)"
           | Add Comment
