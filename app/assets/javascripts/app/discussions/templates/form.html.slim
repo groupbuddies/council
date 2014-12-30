@@ -11,9 +11,9 @@ form.Form name="form" novalidate=""
   md-text-float label="Body" name="body" ng-model="ctrl.discussion.body" multiline="" required="" type="text"
 
   md-text-float label="Tags" ng-model="ctrl.discussion.tags" type="text"
-
-  md-button ng-if="!ctrl.discussion.id" ng-click="ctrl.createDiscussion(ctrl.discussion)" ng-disabled="!form.$valid"
-    | Create new discussion
-
-  md-button ng-if="ctrl.discussion.id" ng-click="ctrl.updateDiscussion(ctrl.discussion)" ng-disabled="!form.$valid"
-    | Update discussion
+  /
+  / md-button ng-if="!ctrl.discussion.id" ng-click="ctrl.createDiscussion(ctrl.discussion)" ng-disabled="!form.$valid"
+  /   | Create new discussion
+  /
+  / md-button ng-if="ctrl.discussion.id" ng-click="ctrl.updateDiscussion(ctrl.discussion)" ng-disabled="!form.$valid"
+  /   | Update discussion
