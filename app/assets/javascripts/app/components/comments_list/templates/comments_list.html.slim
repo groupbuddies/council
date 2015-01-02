@@ -8,7 +8,7 @@ md-card.Comment ng-repeat="comment in comments"
 
   .Comment-body
     div btf-markdown="comment.body" ng-hide="ctrl.editing == comment"
-    input(type="text" ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body")
+    textarea ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body"
 
   .Comment-buttons
     council-flat-button ng-click="ctrl.editComment(comment)" ng-hide="ctrl.editing == comment" ng-if="comment.editable"
