@@ -12,7 +12,7 @@ gem 'dotenv-rails'
 gem 'email_validator'
 gem 'font-awesome-rails'
 gem 'foreman'
-gem 'headquarters', '0.0.5'
+gem 'headquarters', '0.2.0'
 gem 'jquery-rails'
 gem 'newrelic_rpm'
 gem 'ngannotate-rails'
@@ -26,6 +26,7 @@ gem 'puma'
 
 group :development, :test do
   gem 'awesome_print'
+  gem 'letter_opener'
   gem 'quiet_assets'
   gem 'rubocop', require: false
   gem 'sqlite3'
