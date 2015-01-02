@@ -9,6 +9,7 @@
         council-raised-button.Button.Button--secondary ng-click="create(comment)"
           | Add Comment
 
-.TopBarLayout-content
-  md-content.Page.Page--white.md-padding
-    textarea ng-model="comment.body" label="Comment Here"
+  .TopBarLayout-content
+    .Page.Page--white
+      md-content.md-padding
+        textarea.Editor placeholder="State your arguments" ng-model="comment.body" label="Comment Here"
