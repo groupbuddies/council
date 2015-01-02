@@ -38,7 +38,7 @@ Rails.application.configure do
   # a parameter is not explcitly permitted but is passed anyway.
   config.action_controller.action_on_unpermitted_parameters = :raise
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'http://localhost', port: 3000 }
 
   if ENV['NG_FORCE'] == 'true'
     config.assets.compress = true

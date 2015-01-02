@@ -10,6 +10,8 @@ class Subscription < ActiveRecord::Base
   after_create :set_initial_state
 
   state_machine :state do
+    after_transition any => :unread, do: :notify
+
     state :new
     state :unread
     state :read
@@ -50,6 +52,10 @@ class Subscription < ActiveRecord::Base
 
   def last_author
     (discussion.comments.last || discussion).author
+  end
+
+  def notify
+    NotificationsMailer.new_comment(self.id).deliver_later
   end
 
   private
