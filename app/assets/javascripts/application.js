@@ -1,6 +1,7 @@
 //= require angular/angular
 //= require angular-material
 //= require angular-animate/angular-animate
+//= require ng-fastclick/index.js
 //= require moment/moment
 //= require angular-moment/angular-moment
 //= require angular-sanitize/angular-sanitize

@@ -5,6 +5,7 @@
     "angular-data": "latest",
     "angular-moment": "latest",
     "angular-markdown-directive": "latest",
-    "lodash": "latest"
+    "lodash": "latest",
+    "ng-fastclick": "latest"
   }
 }
