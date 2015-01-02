@@ -1,6 +1,6 @@
 .TopBarLayout
   .TopBarLayout-header
-    md-toolbar.Toolbar.Toolbar--clean
+    md-toolbar.Toolbar.Toolbar--clean on-scroll="" on-scroll-anchor="#js-comment-content" scrolling-class="md-whiteframe-z1"
       md-content.md-padding layout="row" layout-align="space-between center"
         button.Button.Button--close.Button--flat ng-click="toggle()"
           .Button-icon
@@ -8,7 +8,6 @@
 
         council-raised-button.Button.Button--secondary ng-click="create(comment)"
           | Add Comment
-
-.TopBarLayout-content
-  md-content.Page.Page--white.md-padding
-    textarea ng-model="comment.body" label="Comment Here"
+  .TopBarLayout-content
+    .Page.Page--white.u-fullSize
+      textarea.Editor placeholder="State your arguments" ng-model="comment.body" id="js-comment-content"
