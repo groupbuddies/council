@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Subscription, type: :model do
-
   context '.for' do
     it 'fetches an existing subscription' do
       subscription = create(:subscription)
