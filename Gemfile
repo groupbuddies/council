@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.0rc1'
+gem 'rails', '4.2'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.9.0'
 gem 'angular-rails-templates'
 gem 'autoprefixer-rails'
 gem 'bower-rails', '~> 0.9.1'
