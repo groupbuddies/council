@@ -116,7 +116,18 @@ body {
     @include delta;
     line-height: 0.55;
   }
+
+  a {
+    color: theme-palette(accent-secondary, dark)
+  }
 }
+
+md-input-group
+  input
+    width: 100%
+
+.md-button
+  white-space: normal
 
 /** Break Points **/
 $theme-breakpoint-desktop: 600px;
