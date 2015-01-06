@@ -1,0 +1,7 @@
+md-card class="Discussion Discussion--{{ discussion.status }}" ng-click="ctrl.show(discussion.id)"
+  .Discussion-title
+    | {{ discussion.title }}
+  .Discussion-subtitle
+    | {{ discussion.subtitle }}
+  .Discussion-commentsCount
+      | {{ discussion.comments_count }}
