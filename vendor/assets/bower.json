@@ -6,6 +6,10 @@
     "angular-moment": "latest",
     "angular-markdown-directive": "latest",
     "lodash": "latest",
-    "ng-fastclick": "latest"
+    "ng-fastclick": "latest",
+    "angular-material": "0.7.0-rc1-master-84842ff"
+  },
+  "resolutions": {
+    "angular-material": "0.7.0-rc1-master-84842ff"
   }
 }
