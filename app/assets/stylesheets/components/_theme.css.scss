@@ -122,12 +122,15 @@ body {
   }
 }
 
-md-input-group
-  input
-    width: 100%
+md-input-group {
+  input {
+    width: 100%;
+  }
+}
 
-.md-button
-  white-space: normal
+.md-button {
+  white-space: normal;
+}
 
 /** Break Points **/
 $theme-breakpoint-desktop: 600px;
