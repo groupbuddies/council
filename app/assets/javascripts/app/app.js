@@ -29,7 +29,9 @@
 
     function theme($mdThemingProvider) {
       $mdThemingProvider.theme('council')
-        .primaryColor('blue-grey')
+        .primaryColor('blue-grey', {
+          'hue-1': 'A700'
+        })
         .accentColor('amber')
         .warnColor('teal');
     }

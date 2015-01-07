@@ -1,14 +1,11 @@
 .TopBarLayout
   .TopBarLayout-header
-    md-toolbar.Toolbar.Toolbar--highlight
-      md-content.md-padding layout="row" layout-align="space-between center"
-        a.Button.Button--dark ui-sref="discussions.index"
-          | < homepage
-        council-raised-button.Button.Button--secondary
-          | create discussion
+    md-toolbar.md-whiteframe-z1.md-accent.u-gamma layout="row" layout-align="space-between center"
+      md-button.md-primary.md-hue-1 ui-sref="discussions.index"
+        i.fa.fa-times.u-alpha
+        |  cancel
+      md-button.md-raised.md-warn  create discussion
 
   .TopBarLayout-content
-    md-content.Page.Page--white.md-padding layout='column'
-      h1 New Discussion
-
-      div(discussion-form)
+    md-content.md-padding layout='column'
+      discussion-form
