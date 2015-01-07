@@ -55,7 +55,7 @@ class Subscription < ActiveRecord::Base
   end
 
   def notify
-    NotificationsMailer.new_comment(self.id).deliver_later
+    NotificationsMailer.new_comment(id).deliver_later
   end
 
   private

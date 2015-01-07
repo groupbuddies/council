@@ -1,5 +1,6 @@
 class NotificationsMailer < ActionMailer::Base
   default 'app_name' => 'Council'
+  default from: 'hq@groupbuddies.com'
 
   def new_comment(subscription_id)
     @subscription = Subscription.find(subscription_id)
