@@ -19,4 +19,4 @@ div ui-view="sidebar"
         md-container.u-upperCase flex='' Closed Discussions
         discussion-card discussion="discussion" ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})"
 
-      council-fa-button.Page-mainAction ui-sref="discussions.new"
+  md-button.md-fab.md-fab-bottom-right.md-accent ui-sref="discussions.new"
