@@ -136,6 +136,10 @@ md-input-group {
   white-space: normal;
 }
 
+md-toolbar {
+  transition: all .1s ease-in-out;
+}
+
 /** Break Points **/
 $theme-breakpoint-desktop: 600px;
 
