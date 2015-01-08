@@ -31,7 +31,28 @@
       })
       .state('discussions.new', {
         url: '/new',
-        templateUrl: 'discussions/new.html'
+        templateUrl: 'discussions/templates/discussion.html',
+        controller: 'NewDiscussionCtrl as ctrl'
+      })
+      .state('discussions.new.step1', {
+        views: {
+          'header@discussions.new': {
+            templateUrl: 'discussions/templates/header_step1.html'
+          },
+          'form@discussions.new': {
+            templateUrl: 'discussions/templates/step1.html'
+          }
+        }
+      })
+      .state('discussions.new.step2', {
+        views: {
+          'header@discussions.new': {
+            templateUrl: 'discussions/templates/header_step2.html'
+          },
+          'form@discussions.new': {
+            templateUrl: 'discussions/templates/step2.html'
+          }
+        }
       })
       .state('discussions.show', {
         url: '/:id',
@@ -45,11 +66,31 @@
       })
       .state('discussions.edit', {
         url: '/:id/edit',
-        templateUrl: 'discussions/edit.html',
-        controller: 'DiscussionCtrl as ctrl',
+        templateUrl: 'discussions/templates/discussion.html',
+        controller: 'EditDiscussionCtrl as ctrl',
         resolve: {
           discussionId: function($stateParams) {
             return $stateParams.id;
+          }
+        }
+      })
+      .state('discussions.edit.step1', {
+        views: {
+          'header@discussions.edit': {
+            templateUrl: 'discussions/templates/edit_header_step1.html'
+          },
+          'form@discussions.edit': {
+            templateUrl: 'discussions/templates/step1.html'
+          }
+        }
+      })
+      .state('discussions.edit.step2', {
+        views: {
+          'header@discussions.edit': {
+            templateUrl: 'discussions/templates/edit_header_step2.html'
+          },
+          'form@discussions.edit': {
+            templateUrl: 'discussions/templates/step2.html'
           }
         }
       });

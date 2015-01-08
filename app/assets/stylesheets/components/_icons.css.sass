@@ -1,4 +1,25 @@
-.IconNavigation:before
+@mixin fontAwesome($icon-unicode)
   font-family: FontAwesome
+  content: $icon-unicode
+
+.IconNavigation,
+.IconClose,
+.IconAdd,
+.IconLeft
+  display: inline-block
+
+.IconNavigation:before
+  @include fontAwesome("\f0c9")
   font-size: 30px
-  content: "\f0c9"
+
+.IconClose:before
+  @include fontAwesome("\f00d")
+  @include alpha
+
+.IconAdd:before
+  @include fontAwesome("\f067")
+  color: theme-palette(neutral, white)
+
+.IconLeft:before
+  @include fontAwesome("\f053")
+  @include alpha

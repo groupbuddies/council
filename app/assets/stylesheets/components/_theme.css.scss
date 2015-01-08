@@ -146,6 +146,7 @@ md-input-group {
 }
 
 md-toolbar {
+  @include gamma;
   transition: all .1s ease-in-out;
 }
 

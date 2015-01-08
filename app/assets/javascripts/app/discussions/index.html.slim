@@ -5,7 +5,7 @@ div ui-view="sidebar"
     md-toolbar.md-whiteframe-z1
       .md-toolbar-tools layout="row" layout-align="space-between center"
         a.IconNavigation href="" ng-click="ctrl.toggleSidebar()"
-        a.u-center href="#/discussions" Council
+        md-button href="#/discussions" Council
         span
 
   .TopBarLayout-content
@@ -20,4 +20,4 @@ div ui-view="sidebar"
         discussion-card discussion="discussion" ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})"
 
   md-button.md-fab.md-fab-bottom-right.md-accent ui-sref="discussions.new"
-    i.fa.fa-plus
+    .IconAdd
