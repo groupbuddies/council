@@ -5,7 +5,7 @@ describe Discussion do
     it 'updates the subscriptions' do
       discussion = create(:discussion)
       subscription = double('subscription', new_comment: true)
-      allow(discussion).to receive(:subscriptions).and_return([subscription])
+      allow(Subscription).to receive(:for).and_return(subscription)
 
       discussion.save
 

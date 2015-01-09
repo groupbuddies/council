@@ -14,9 +14,9 @@ describe Subscription, type: :model do
       user = create(:user)
       discussion = create(:discussion)
 
-      Subscription.for(user_id: user.id, discussion_id: discussion.id)
+      subscription = Subscription.for(user_id: user.id, discussion_id: discussion.id)
 
-      expect(Subscription.count).to be(1)
+      expect(subscription).to be
     end
   end
 
