@@ -15,7 +15,7 @@
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-data/dist/angular-data
 //= require angular-emoji-filter-hd/dist/emoji.min
-//= require lodash/lodash
+//= require lodash/dist/lodash
 //= require jquery
 //= require jquery_ujs
 //= require ./app/app

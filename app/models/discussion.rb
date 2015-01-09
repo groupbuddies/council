@@ -8,12 +8,22 @@ class Discussion < ActiveRecord::Base
 
   default_scope -> { order('updated_at DESC') }
 
+  after_create :subscribe_author, :notify_users
   after_touch :notify_new_comment
 
   private
 
+  def notify_users
+    User.all.each do |user|
+      Notification.new_discussion(user: user, discussion: self)
+    end
+  end
+
+  def subscribe_author
+    Subscriber.for_discussion(self).subscribe([author])
+  end
+
   def notify_new_comment
-    subscriptions = Subscriber.for_discussion(self).subscribe(User.all)
     subscriptions.map(&:new_comment)
   end
 end

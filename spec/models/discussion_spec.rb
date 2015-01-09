@@ -2,16 +2,24 @@ require 'rails_helper'
 
 describe Discussion do
   context '#touch' do
-    it 'updates the subscriptions' do
+    it 'send a new comment notification' do
       discussion = create(:discussion)
       subscription = double('Subscription', new_comment: true)
-      subscriber = double('subscriber', subscribe: [subscription])
-      allow(Subscriber).to receive(:for_discussion).and_return(subscriber)
+      allow(discussion).to receive(:subscriptions).and_return([subscription])
 
       discussion.touch
 
-      expect(subscriber).to have_received(:subscribe)
       expect(subscription).to have_received(:new_comment)
+    end
+  end
+
+  context '#create' do
+    it 'notifies all users' do
+      allow(Notification).to receive(:new_discussion)
+
+      create(:discussion)
+
+      expect(Notification).to have_received(:new_discussion)
     end
   end
 end

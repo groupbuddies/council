@@ -19,6 +19,12 @@ FactoryGirl.define do
     body { Faker::Lorem.paragraphs(1) }
   end
 
+  factory :notification do
+    association :user
+    text { Faker::Lorem.words }
+    url { Faker::Internet.url }
+  end
+
   factory :user, aliases: [:author] do
     first_name { Faker::Name.first_name }
     last_name  { Faker::Name.last_name }

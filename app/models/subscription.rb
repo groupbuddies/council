@@ -1,7 +1,6 @@
 class Subscription < ActiveRecord::Base
   belongs_to :user
   belongs_to :discussion
-  belongs_to :first_unread_comment, class_name: 'Comment'
 
   def self.for(discussion_id: discussion_id, user_id: user_id)
     where(discussion_id: discussion_id, user_id: user_id).first_or_create
@@ -10,61 +9,50 @@ class Subscription < ActiveRecord::Base
   before_create :set_initial_state
 
   state_machine :state do
-    after_transition any => :unread, do: :notify
+    after_transition any => :unread, do: :send_notification
+    after_transition any => :read, do: :destroy_notifications
 
-    state :new
     state :unread
     state :read
-    state :unwatched
 
-    event :make_viewed do
-      transition [:new] => :unwatched
+    event :make_read do
       transition [:unread] => :read
     end
 
-    event :unwatch do
-      transition((any - :unwatched) => :unwatched)
-    end
-
-    event :watch do
-      transition [:unwatched] => :read
-    end
-
     event :new_comment do
-      transition [:unwatched] => :read, if: :new_comment_by_me?
-      transition [:read] => :unread, if: :new_comment_by_someone_else?
+      transition [:read] => :unread, if: :commented_by_someone_else?
     end
   end
 
   def set_initial_state
     return if state
 
-    self.state = initial_state
+    self.state = :read
   end
 
-  def new_comment_by_me?
-    last_author.id == user_id
-  end
-
-  def new_comment_by_someone_else?
-    !new_comment_by_me?
+  def commented_by_someone_else?
+    last_author.id != user_id
   end
 
   def last_author
-    (discussion.comments.last || discussion).author
+    (last_comment || discussion).author
   end
 
-  def notify
-    NotificationsMailer.new_comment(id).deliver_later
+  def last_comment
+    discussion.comments.last
   end
 
-  private
+  def send_notification
+    return unless last_comment
 
-  def initial_state
-    if discussion.author_id == user_id
-      :read
-    else
-      :new
-    end
+    Notification.new_comment(user: user, comment: last_comment)
+  end
+
+  def notifications
+    Notification.where(user_id: user_id, discussion_id: discussion_id)
+  end
+
+  def destroy_notifications
+    notifications.destroy_all
   end
 end

@@ -9,3 +9,7 @@ en:
       default: '%a, %b %-d, %Y at %r'
       date: '%b %-d, %Y'
       short: '%B %d'
+
+  notifications:
+    new_discussion: '%{author} created %{discussion}'
+    new_comment: '%{author} commented on %{discussion}'

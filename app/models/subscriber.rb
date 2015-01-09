@@ -10,7 +10,7 @@ class Subscriber
 
   def subscribe(users)
     users.map do |user|
-      subscription_for_user(user)
+      subscribe_user(user)
     end
   end
 
@@ -18,12 +18,12 @@ class Subscriber
 
   attr_reader :discussion, :subscriptions
 
-  def subscription_for_user(user)
-    existing_subscription_for_user(user) ||
+  def subscribe_user(user)
+    subscription_for_user(user) ||
       Subscription.create(user: user, discussion: discussion)
   end
 
-  def existing_subscription_for_user(user)
+  def subscription_for_user(user)
     subscriptions.find do |subscription|
       subscription.user_id == user.id
     end

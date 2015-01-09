@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     :validatable,
     :recoverable
 
+  has_many :notifications
+
   validates :first_name, :last_name, :email, presence: true
 
   def display_name
