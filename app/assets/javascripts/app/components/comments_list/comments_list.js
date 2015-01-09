@@ -9,7 +9,8 @@
   function CommentsList() {
     return {
       scope: {
-        comments: '=commentsList'
+        comments: '=commentsList',
+        count: '=commentCount'
       },
       controller: 'CommentsListCtrl as ctrl',
       templateUrl: 'components/comments_list/templates/comments_list.html'

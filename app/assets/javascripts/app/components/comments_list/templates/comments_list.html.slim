@@ -1,19 +1,22 @@
-md-card.Comment ng-repeat="comment in comments"
-  .Comment-header
-    .Comment-author
-      | {{ comment.author.display_name }}
+.CardList
+  .CardList-label
+    | {{count}} Comments
+  md-card.Comment ng-repeat="comment in comments"
+    .Comment-header
+      .Comment-author
+        | {{ comment.author.display_name }}
 
-    .Comment-time
-      span am-time-ago="comment.created_at"
+      .Comment-time
+        span am-time-ago="comment.created_at"
 
-  .Comment-body
-    div btf-markdown="comment.body | emoji" ng-hide="ctrl.editing == comment"
-    textarea ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body"
+    .Comment-body
+      div btf-markdown="comment.body | emoji" ng-hide="ctrl.editing == comment"
+      textarea ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body"
 
-  .Comment-buttons
-    council-flat-button ng-click="ctrl.editComment(comment)" ng-hide="ctrl.editing == comment" ng-if="comment.editable"
-      = 'Edit'
-    md-button(ng-show="ctrl.editing == comment" ng-click="ctrl.cancelEdit()")
-      = 'Cancel'
-    md-button.md-primary.md-raised(ng-click="ctrl.updateComment(comment)" ng-show="ctrl.editing == comment" ng-disabled="ctrl.newBody == comment.body")
-      = 'Save'
+    .Comment-buttons
+      a ng-click="ctrl.editComment(comment)" ng-hide="ctrl.editing == comment" ng-if="comment.editable"
+        = 'Edit'
+      md-button(ng-show="ctrl.editing == comment" ng-click="ctrl.cancelEdit()")
+        = 'Cancel'
+      md-button.md-primary.md-raised(ng-click="ctrl.updateComment(comment)" ng-show="ctrl.editing == comment" ng-disabled="ctrl.newBody == comment.body")
+        = 'Save'

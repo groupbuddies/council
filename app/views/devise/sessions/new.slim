@@ -9,15 +9,15 @@
         .u-center.u-alpha
           span To enter the Council, please show off your credentials
 
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'u-defaultMarginTop'}) do |f|
           md-input-container.md-accent
             label Your email
             input name="user[email]" type="email"
-          md-input-container.md-accent
+          md-input-container.md-accent.u-defaultMarginTop
             label Your password
             input name="user[password]" type="password"
 
-          .u-gamma layout="row" layout-align="space-between center"
+          .u-defaultMarginTop.u-gamma layout="row" layout-align="space-between center"
             md-button.md-warn md-no-ink="" flex-sm='45' flex-md='35'
               |Forgot your credentials?
             md-button.md-raised.md-warn flex-sm='30' flex-md='20' flex="20"

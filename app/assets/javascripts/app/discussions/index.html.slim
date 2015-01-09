@@ -10,14 +10,15 @@ div ui-view="sidebar"
 
   .TopBarLayout-content
     .Page
-      section.DiscussionList layout='column' layout-margin=''
-        md-container.u-upperCase flex='' Open Discussions
-        md-container layout='column' layout-margin='' wait-for='ctrl.pageReady'
-        discussion-card discussion="discussion" ng-repeat="discussion in ctrl.discussions | filter:{open: true}"
+      md-content.md-padding md-theme="white"
+        section.CardList layout="column"
+          .CardList-label Open Discussions
+          discussion-card discussion="discussion" ng-repeat="discussion in ctrl.discussions | filter:{open: true}"
+          md-container wait-for='ctrl.pageReady'
 
-      section.DiscussionList layout='column' layout-margin='' ng-show="closedDiscussions.length"
-        md-container.u-upperCase flex='' Closed Discussions
-        discussion-card discussion="discussion" ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})"
+        section.CardList layout="column" ng-show="closedDiscussions.length"
+          .CardList-label Closed Discussions
+          discussion-card discussion="discussion" ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})"
 
   md-button.md-fab.md-fab-bottom-right.md-accent ui-sref="discussions.new"
     .IconAdd

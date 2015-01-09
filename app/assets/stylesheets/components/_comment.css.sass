@@ -11,6 +11,7 @@
   flex-grow: 1
   align-self: center
   color: theme-palette(accent-secondary)
+  text-transform: uppercase
 
 .Comment-time
   @include gamma
@@ -18,10 +19,16 @@
   align-self: center
   color: theme-palette(primary, light)
   text-align: right
+  text-transform: uppercase
 
 .Comment-body
   @include beta
   color: theme-palette(primary, dark)
 
+  p
+    margin-top: $default-spacing / 2
+    margin-bottom: $default-spacing / 2
+
 .Comment-buttons
   @include gamma
+  text-transform: uppercase

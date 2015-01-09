@@ -86,7 +86,6 @@ $theme-font-family: "brandon-grotesque";
 
 /** Spacing **/
 $default-spacing: 1rem;
-
 /**
   Theme styles
 **/
@@ -117,6 +116,10 @@ body {
     line-height: 0.55;
   }
 
+  p {
+    line-height: 1.5;
+  }
+
   a {
     color: theme-palette(accent-secondary, dark)
   }
@@ -127,12 +130,7 @@ body {
 }
 
 md-card {
-  margin: 8px;
-  padding: 8px;
-}
-
-md-content.md-padding {
-  padding: 16px;
+  padding: $default-spacing / 2;
 }
 
 md-input-group {

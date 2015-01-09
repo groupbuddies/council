@@ -1,5 +1,10 @@
-.DiscussionList
+.CardList
   $animated-discussions: 30
+
+  .Discussion,
+  .Comment
+    margin: 0 0 $default-spacing / 2 0
+
   @for $i from 1 through $animated-discussions
     .Discussion:nth-child(#{$i})
       transform: translateX(0)
@@ -16,3 +21,7 @@
 
       &.ng-enter-active
         animation-name: bounceInLeft
+
+  .CardList-label
+    @include gamma
+    text-transform: uppercase
