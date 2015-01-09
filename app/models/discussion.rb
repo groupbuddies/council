@@ -13,6 +13,8 @@ class Discussion < ActiveRecord::Base
   private
 
   def update_subscriptions
-    subscriptions.map(&:new_comment)
+    User.all.each do |user|
+      Subscription.for(discussion_id: id, user_id: user.id).new_comment
+    end
   end
 end
