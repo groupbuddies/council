@@ -5,7 +5,7 @@
     .module('council.core')
     .factory('Discussion', Discussion);
 
-  function Discussion(DS, $http) {
+  function Discussion(DS, $http, $q) {
     var ALLOWED_FIELDS = 'title subtitle body tags'.split(' ');
 
     var Discussion = DS.defineResource({
@@ -13,13 +13,25 @@
       endpoint: 'discussions',
       methods: {
         addComment: function(comment) {
-          return DS.create('discussionComment', comment);
+          var discussion = this;
+
+          var refresh = function() {
+            return $q(function(resolve, reject) {
+              DS.refresh('discussion', discussion.id);
+              resolve();
+            });
+          };
+
+          return DS.create('discussionComment', comment)
+            .then(refresh);
         },
         markAsRead: function() {
           return $http.put('discussions/' + this.id + '/subscription');
         },
         update: function() {
-          return Discussion.save(this, { changesOnly: true });
+          return Discussion.save(this, {
+            changesOnly: true
+          });
         }
       },
       beforeUpdate: function(resoureName, attrs, cb) {
@@ -33,7 +45,12 @@
       endpoint: 'comments',
       methods: {
         update: function(body) {
-          return $http.put('discussions/' + this.discussionId + '/comments/' + this.id, { body: body }).then(function(response) {
+          var url = 'discussions/' + this.discussionId + '/comments/' + this.id;
+          var data = {
+            body: body
+          };
+
+          return $http.put(url, data).then(function(response) {
             return response.data;
           });
         }

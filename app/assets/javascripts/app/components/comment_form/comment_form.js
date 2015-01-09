@@ -16,10 +16,19 @@
       },
       templateUrl: 'components/comment_form/templates/comment_form.html',
       link: function($scope, element, attrs) {
-        $scope.create = function(comment) {
-          $scope.discussion.addComment(comment);
+
+        var clearBody = function() {
+          $scope.comment.body = '';
+        };
+
+        var createComment = function(comment) {
+          $scope.discussion
+            .addComment(comment)
+            .then(clearBody);
           $scope.toggle();
         };
+
+        $scope.create = createComment;
       }
     };
   }
