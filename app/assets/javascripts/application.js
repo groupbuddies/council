@@ -9,6 +9,7 @@
 //= require angular-markdown-directive/markdown
 //= require angular-aria/angular-aria
 //= require hammerjs/hammer
+//= require konami-js/konami
 //= require angular-rails-templates
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-data/dist/angular-data

@@ -7,6 +7,6 @@
     "angular-markdown-directive": "latest",
     "lodash": "latest",
     "ng-fastclick": "latest",
-    "angular-material": "0.7.0-rc1-master-60fcd6f"
+    "konami-js": "latest"
   }
 }
