@@ -1,10 +1,10 @@
 require_relative 'concerns/subscribable'
 
 class DiscussionCompactSerializer < EditableSerializer
-  include Subscribable
+  delegate :subscription_state, to: :object
 
   attributes :id, :title, :subtitle, :body, :open, :url,
-    :comments_count, :updated_at, :status
+    :comments_count, :updated_at, :subscription_state
 
   has_one :author
 
