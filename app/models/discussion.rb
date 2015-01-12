@@ -6,8 +6,6 @@ class Discussion < ActiveRecord::Base
   validates_presence_of :title, :open, :author_id, :body
   validates_inclusion_of :open, in: [true, false]
 
-  default_scope -> { order('updated_at DESC') }
-
   after_save :update_subscriptions
 
   private
