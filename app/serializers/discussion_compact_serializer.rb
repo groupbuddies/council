@@ -1,5 +1,6 @@
 class DiscussionCompactSerializer < EditableSerializer
-  attributes :id, :title, :subtitle, :body, :open, :url, :comments_count, :updated_at, :status
+  attributes :id, :title, :subtitle, :body, :open, :url,
+    :comments_count, :updated_at, :status
 
   has_one :author
 

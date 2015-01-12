@@ -26,7 +26,13 @@
             .then(refresh);
         },
         markAsRead: function() {
-          return $http.put('discussions/' + this.id + '/subscription');
+          var discussion = this;
+
+          $http.put('discussions/' + discussion.id + '/subscription')
+            .success(function() {
+              console.log('success');
+              DS.refresh('discussion', discussion.id);
+            });
         },
         update: function() {
           return Discussion.save(this, {
