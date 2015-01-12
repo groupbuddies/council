@@ -1,4 +1,8 @@
+require_relative 'concerns/subscribable'
+
 class DiscussionCompactSerializer < EditableSerializer
+  include Subscribable
+
   attributes :id, :title, :subtitle, :body, :open, :url,
     :comments_count, :updated_at, :status
 
@@ -8,9 +12,5 @@ class DiscussionCompactSerializer < EditableSerializer
     return '' unless object.persisted?
 
     discussion_path(object)
-  end
-
-  def status
-    Subscription.for(discussion_id: object.id, user_id: scope.id).state
   end
 end
