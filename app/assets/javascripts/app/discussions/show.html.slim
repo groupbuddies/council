@@ -22,7 +22,7 @@
           .Placeholder.Placeholder--small style="width: 80%" ng-show="!ctrl.pageReady"
           .Placeholder.Placeholder--small style="width: 90%" ng-show="!ctrl.pageReady"
           .Placeholder.Placeholder--small style="width: 70%" ng-show="!ctrl.pageReady"
-          .DetailedDiscussion-body btf-markdown="ctrl.discussion.body" ng-show="ctrl.pageReady"
+          .DetailedDiscussion-body btf-markdown="ctrl.discussion.body | emoji" ng-show="ctrl.pageReady"
 
           .DetailedDiscussion-author
             | {{ctrl.discussion.author.display_name}}

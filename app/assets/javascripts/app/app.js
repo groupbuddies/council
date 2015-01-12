@@ -13,7 +13,8 @@
       'council.discussions',
       'council.members',
       'council.users',
-      'btford.markdown'
+      'btford.markdown',
+      'dbaq.emoji'
     ])
     .config(csrf)
     .config(theme)

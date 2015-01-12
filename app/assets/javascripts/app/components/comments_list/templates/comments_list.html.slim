@@ -7,7 +7,7 @@ md-card.Comment ng-repeat="comment in comments"
       span am-time-ago="comment.created_at"
 
   .Comment-body
-    div btf-markdown="comment.body" ng-hide="ctrl.editing == comment"
+    div btf-markdown="comment.body | emoji" ng-hide="ctrl.editing == comment"
     textarea ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body"
 
   .Comment-buttons

@@ -7,6 +7,7 @@
     "angular-markdown-directive": "latest",
     "lodash": "latest",
     "ng-fastclick": "latest",
-    "konami-js": "latest"
+    "konami-js": "latest",
+    "angular-emoji-filter-hd": "latest"
   }
 }
