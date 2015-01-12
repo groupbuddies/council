@@ -1,7 +1,7 @@
 .CardList
   .CardList-label
-    | {{count}} Comments
-  md-card.Comment ng-repeat="comment in comments"
+    | {{ctrl.count}} Comments
+  md-card.Comment ng-repeat="comment in ctrl.comments"
     .Comment-header
       .Comment-author
         | {{ comment.author.display_name }}
@@ -10,13 +10,8 @@
         span am-time-ago="comment.created_at"
 
     .Comment-body
-      div btf-markdown="comment.body | emoji" ng-hide="ctrl.editing == comment"
-      textarea ng-show="ctrl.editing == comment" ng-model="ctrl.editing.body"
+      div btf-markdown="comment.body | emoji"
 
     .Comment-buttons
-      a ng-click="ctrl.editComment(comment)" ng-hide="ctrl.editing == comment" ng-if="comment.editable"
+      a ng-click="ctrl.toggle({comment: comment})" ng-if="comment.editable"
         = 'Edit'
-      md-button(ng-show="ctrl.editing == comment" ng-click="ctrl.cancelEdit()")
-        = 'Cancel'
-      md-button.md-primary.md-raised(ng-click="ctrl.updateComment(comment)" ng-show="ctrl.editing == comment" ng-disabled="ctrl.newBody == comment.body")
-        = 'Save'

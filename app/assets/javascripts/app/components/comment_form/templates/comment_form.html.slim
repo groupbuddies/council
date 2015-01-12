@@ -1,12 +1,16 @@
 .TopBarLayout
   .TopBarLayout-header
-    md-toolbar md-theme="white" on-scroll="" on-scroll-anchor="#js-comment-content" scrolling-class="md-whiteframe-z1" layout="row" layout-align="space-between center"
-        md-button.md-primary.md-warn md-no-ink="" ng-click="toggle()" md-theme="council" layout="row" layout-align="space-between center"
-          .IconClose
-          | hide
+    md-toolbar on-scroll="" md-theme="white" on-scroll-anchor="#js-comment-content" scrolling-class="md-whiteframe-z1" layout="row" layout-align="space-between center"
+      md-button.md-primary.md-warn md-theme="council" md-no-ink="" ng-click="ctrl.toggle()" layout="row" layout-align="center center"
+        .IconClose
+        | hide
 
-        council-raised-button.Button.Button--secondary ng-click="create(comment)"
-          | Add Comment
+      council-raised-button.Button.Button--secondary ng-click="ctrl.create()" ng-hide="ctrl.comment.id"
+        | Add Comment
+
+      council-raised-button.Button.Button--secondary ng-click="ctrl.update()" ng-show="ctrl.comment.id"
+        | Update Comment
+
   .TopBarLayout-content
     .Page.Page--white.u-fullSize
-      textarea.Editor placeholder="State your arguments" ng-model="comment.body" id="js-comment-content"
+      textarea#js-comment-content.Editor placeholder="State your arguments" ng-model="ctrl.comment.body"

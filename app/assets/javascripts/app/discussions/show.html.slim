@@ -1,11 +1,11 @@
 .TopBarLayout
   .TopBarLayout-header
     md-toolbar md-theme="white" on-scroll="" on-scroll-anchor="#js-content" scrolling-class="md-whiteframe-z1" layout="row" layout-align="space-between center"
-        .Button.Button--flat.Button--left ui-sref="discussions.index"
-          .Button-icon
-          .Button-label homepage
-        council-raised-button.Button.Button--secondary ng-click="ctrl.toggleNewComment()"
-          | pitch in
+      .Button.Button--flat.Button--left ui-sref="discussions.index"
+        .Button-icon
+        .Button-label homepage
+      council-raised-button.Button.Button--secondary ng-click="ctrl.toggleCommentForm()"
+        | pitch in
 
   #js-content.TopBarLayout-content
     .Page
@@ -35,7 +35,7 @@
               a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" reopen discussion
 
       md-content.md-padding md-theme="white"
-        div layout="column" comments-list="ctrl.discussion.comments" comment-count="ctrl.discussion.comments_count"
+        div comments-list="ctrl.discussion.comments" comment-count="ctrl.discussion.comments_count" toggle="ctrl.openEditForm(comment)"
 
 sliding-screen show="ctrl.showNewComment" hide-bottom=""
-  comment-form toggle="ctrl.toggleNewComment" comment="ctrl.newComment" discussion="ctrl.discussion"
+  comment-form toggle="ctrl.toggleCommentForm()" discussion="ctrl.discussion" comment="ctrl.comment"

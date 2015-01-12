@@ -64,8 +64,8 @@
         templateUrl: 'discussions/show.html',
         controller: 'DiscussionCtrl as ctrl',
         resolve: {
-          discussionId: function($stateParams) {
-            return $stateParams.id;
+          discussion: function($stateParams, Discussion) {
+            return Discussion.find($stateParams.id, { bypassCache: true });
           }
         }
       })

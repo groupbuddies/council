@@ -5,18 +5,16 @@
     .module('council.discussions')
     .controller('DiscussionCtrl', DiscussionCtrl);
 
-  function DiscussionCtrl(Discussion, discussionId, _) {
+  function DiscussionCtrl(discussion) {
     var ctrl = this;
 
     ctrl.pageReady = false;
-    ctrl.toggleNewComment = toggleNewComment;
-    ctrl.toogleDiscussionState = toogleDiscussionState;
+    ctrl.openEditForm = openEditForm;
+    ctrl.toggleCommentForm = toggleCommentForm;
 
-    Discussion
-      .find(discussionId)
-      .then(setDiscussion);
+    setDiscussion();
 
-    function setDiscussion(discussion) {
+    function setDiscussion() {
       ctrl.discussion = discussion;
       ctrl.discussion.markAsRead();
       ctrl.pageReady = true;
@@ -29,7 +27,12 @@
       discussion.update();
     }
 
-    function toggleNewComment() {
+    function openEditForm(comment) {
+      ctrl.comment = comment;
+      ctrl.toggleCommentForm();
+    }
+
+    function toggleCommentForm() {
       ctrl.showNewComment = !ctrl.showNewComment;
     }
   }
