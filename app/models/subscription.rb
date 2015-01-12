@@ -7,7 +7,7 @@ class Subscription < ActiveRecord::Base
     where(discussion_id: discussion_id, user_id: user_id).first_or_create
   end
 
-  after_create :set_initial_state
+  before_create :set_initial_state
 
   state_machine :state do
     after_transition any => :unread, do: :notify
@@ -39,7 +39,7 @@ class Subscription < ActiveRecord::Base
   def set_initial_state
     return if state
 
-    update state: initial_state
+    self.state = initial_state
   end
 
   def new_comment_by_me?

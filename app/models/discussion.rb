@@ -1,7 +1,7 @@
 class Discussion < ActiveRecord::Base
   has_many :comments
   belongs_to :author, class_name: User
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
 
   validates_presence_of :title, :author_id, :body
   validates_inclusion_of :open, in: [true, false]
@@ -10,9 +10,10 @@ class Discussion < ActiveRecord::Base
 
   after_touch :notify_new_comment
 
+  private
+
   def notify_new_comment
-    User.all.each do |user|
-      Subscription.for(discussion_id: id, user_id: user.id).new_comment
-    end
+    subscriptions = Subscriber.for_discussion(self).subscribe(User.all)
+    subscriptions.map(&:new_comment)
   end
 end

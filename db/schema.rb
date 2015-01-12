@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141215103539) do
 
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.text     "body",          null: false
     t.integer  "author_id",     null: false
     t.integer  "discussion_id", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20141215103539) do
     t.datetime "updated_at"
   end
 
-  create_table "discussions", force: true do |t|
+  create_table "discussions", force: :cascade do |t|
     t.string   "title",                         null: false
     t.string   "subtitle"
     t.integer  "author_id",                     null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20141215103539) do
     t.integer  "comments_count", default: 0,    null: false
   end
 
-  create_table "subscriptions", force: true do |t|
+  create_table "subscriptions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "discussion_id"
     t.string   "state"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20141215103539) do
     t.integer  "first_unread_comment_id"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
