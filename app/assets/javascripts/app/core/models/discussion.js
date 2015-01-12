@@ -30,7 +30,6 @@
 
           $http.put('discussions/' + discussion.id + '/subscription')
             .success(function() {
-              console.log('success');
               DS.refresh('discussion', discussion.id);
             });
         },
