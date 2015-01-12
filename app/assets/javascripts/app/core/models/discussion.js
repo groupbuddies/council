@@ -13,14 +13,7 @@
       endpoint: 'discussions',
       methods: {
         addComment: function(comment) {
-          var discussion = this;
-
-          var refresh = function() {
-            return $q(function(resolve, reject) {
-              DS.refresh('discussion', discussion.id);
-              resolve();
-            });
-          };
+          var refresh = angular.bind(this, this.refresh);
 
           return DS.create('discussionComment', comment)
             .then(refresh);
@@ -31,6 +24,14 @@
         update: function() {
           return Discussion.save(this, {
             changesOnly: true
+          });
+        },
+        refresh: function() {
+          var discussion = this;
+
+          return $q(function(resolve, reject) {
+            DS.refresh('discussion', discussion.id);
+            resolve(discussion);
           });
         }
       },

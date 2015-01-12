@@ -9,17 +9,25 @@
     var ctrl = this;
 
     ctrl.pageReady = false;
+    ctrl.toggleNewComment = toggleNewComment;
+
     ctrl.newComment = {
       discussionId: discussionId
     };
-    ctrl.resetDiscussion = resetDiscussion;
-    ctrl.toggleNewComment = toggleNewComment;
 
-    Discussion.find(discussionId, {
-      bypassCache: true
-    }).then(ctrl.resetDiscussion);
+    Discussion
+      .find(discussionId)
+      .then(updateDiscussion);
 
-    function resetDiscussion(discussion) {
+    function updateDiscussion(discussion) {
+      resetController(discussion)
+
+      discussion
+        .refresh()
+        .then(resetController);
+    }
+
+    function resetController(discussion) {
       ctrl.discussion = discussion;
       User.find(ctrl.discussion.author_id).then(function(user) {
         ctrl.discussion.author = user;
