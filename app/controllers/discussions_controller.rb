@@ -3,7 +3,9 @@ class DiscussionsController < ApplicationController
   skip_authorize_resource only: [:update]
 
   def index
-    discussions = Discussion.all
+    discussions = Discussion.all.map do |discussion|
+      wrap_discussion(discussion)
+    end
 
     render json: discussions, each_serializer: DiscussionCompactSerializer
   end
@@ -11,14 +13,14 @@ class DiscussionsController < ApplicationController
   def show
     discussion = Discussion.find(params[:id])
 
-    render json: discussion
+    render json: wrap_discussion(discussion)
   end
 
   def create
     discussion = Discussion.create(discussion_params)
 
     if discussion.persisted?
-      render json: discussion
+      render json: wrap_discussion(discussion)
     else
       render json: { errors: discussion.errors.full_messages }.to_json, status: 422
     end
@@ -29,7 +31,7 @@ class DiscussionsController < ApplicationController
     authorize! :update, discussion
 
     if discussion.update(discussion_params)
-      render json: discussion
+      render json: wrap_discussion(discussion)
     else
       render json: { errors: discussion.errors.full_messages }.to_json, status: 422
     end
@@ -42,5 +44,9 @@ class DiscussionsController < ApplicationController
       require(:discussion).
       permit(:title, :subtitle, :body, :tags).
       merge(author_id: current_user.id)
+  end
+
+  def wrap_discussion(discussion)
+    SubscribedDiscussion.new(discussion: discussion, user: current_user)
   end
 end
