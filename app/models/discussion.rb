@@ -6,11 +6,11 @@ class Discussion < ActiveRecord::Base
   validates_presence_of :title, :open, :author_id, :body
   validates_inclusion_of :open, in: [true, false]
 
-  after_save :update_subscriptions
+  default_scope -> { order('updated_at DESC') }
 
-  private
+  after_touch :notify_new_comment
 
-  def update_subscriptions
+  def notify_new_comment
     User.all.each do |user|
       Subscription.for(discussion_id: id, user_id: user.id).new_comment
     end
