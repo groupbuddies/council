@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
   def create
     comment = discussion.comments.create(comment_params)
+    discussion.update_subscriptions
 
     render json: comment
   end
