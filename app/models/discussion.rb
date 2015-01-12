@@ -8,7 +8,7 @@ class Discussion < ActiveRecord::Base
 
   default_scope -> { order('updated_at DESC') }
 
-  def update_subscriptions
+  def notify_new_comment
     User.all.each do |user|
       Subscription.for(discussion_id: id, user_id: user.id).new_comment
     end
