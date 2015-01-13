@@ -32,7 +32,12 @@
       .state('discussions.new', {
         url: '/new',
         templateUrl: 'discussions/templates/discussion.html',
-        controller: 'NewDiscussionCtrl as ctrl'
+        controller: 'DiscussionFormCtrl as ctrl',
+        resolve: {
+          discussion: function(Discussion) {
+            return Discussion.createInstance();
+          }
+        }
       })
       .state('discussions.new.step1', {
         views: {
@@ -67,10 +72,10 @@
       .state('discussions.edit', {
         url: '/:id/edit',
         templateUrl: 'discussions/templates/discussion.html',
-        controller: 'EditDiscussionCtrl as ctrl',
+        controller: 'DiscussionFormCtrl as ctrl',
         resolve: {
-          discussionId: function($stateParams) {
-            return $stateParams.id;
+          discussion: function($stateParams, Discussion) {
+            return Discussion.find($stateParams.id, { bypassCache: true });
           }
         }
       })

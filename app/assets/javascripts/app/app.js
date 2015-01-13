@@ -17,12 +17,7 @@
       'dbaq.emoji'
     ])
     .config(csrf)
-    .config(theme)
-    .run(function ($rootScope) {
-      $rootScope.$on('$stateChangeStart', function(event, toState) {
-        console.log('[DEBUG] Route change: ', toState);
-      })
-    });
+    .config(theme);
 
     function csrf($httpProvider) {
       $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
