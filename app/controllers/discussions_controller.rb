@@ -5,7 +5,7 @@ class DiscussionsController < ApplicationController
   def index
     discussions = Discussion.all
 
-    render json: discussions, each_serializer: DiscussionCompactSerializer
+    render json: discussions
   end
 
   def show

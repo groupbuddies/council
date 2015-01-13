@@ -5,63 +5,65 @@
     .module('council.core')
     .factory('Discussion', Discussion);
 
-  function Discussion(DS, $http, $q) {
+  function Discussion(Comment, DS, $http) {
     var ALLOWED_FIELDS = 'title subtitle body open tags'.split(' ');
 
     var Discussion = DS.defineResource({
       name: 'discussion',
       endpoint: 'discussions',
+
       methods: {
         addComment: function(comment) {
-          var refresh = angular.bind(this, this.refresh);
+          var discussion = this;
 
-          return DS.create('discussionComment', comment)
-            .then(refresh);
+          return DS.create('comment', comment, {
+            linkInverse: true,
+            endpoint: 'discussions/' + discussion.id + '/comments'
+          });
         },
+
         markAsRead: function() {
           return $http.put('discussions/' + this.id + '/subscription');
         },
+
         update: function() {
           return Discussion.save(this, {
             changesOnly: true
           });
         },
+
         refresh: function() {
           var discussion = this;
 
-          return $q(function(resolve, reject) {
-            DS.refresh('discussion', discussion.id);
-            resolve(discussion);
-          });
+          return DS.refresh('discussion', discussion.id);
         }
       },
-      beforeUpdate: function(resoureName, attrs, cb) {
+
+      afterInject: function(name, discussion) {
+        return DS.loadRelations('discussion', discussion.id, ['user']);
+      },
+
+      beforeUpdate: function(resourename, attrs, cb) {
         attrs = _.pick(attrs, ALLOWED_FIELDS);
         cb(null, attrs);
-      }
-    });
-
-    var DiscussionComment = DS.defineResource({
-      name: 'discussionComment',
-      endpoint: 'comments',
-      methods: {
-        update: function(body) {
-          var url = 'discussions/' + this.discussionId + '/comments/' + this.id;
-          var data = {
-            body: body
-          };
-
-          return $http.put(url, data).then(function(response) {
-            return response.data;
-          });
-        }
       },
+
+      beforeCreate: function(resourename, attrs, cb) {
+        attrs = _.pick(attrs, ALLOWED_FIELDS);
+        cb(null, attrs);
+      },
+
       relations: {
         belongsTo: {
-          discussion: {
-            parent: true,
-            localField: 'discussions',
-            localKey: 'discussionId'
+          user: {
+            localField: 'author',
+            localKey: 'author_id'
+          }
+        },
+        hasMany: {
+          comment: {
+            localField: 'comments',
+            foreignKey: 'discussion_id'
           }
         }
       }

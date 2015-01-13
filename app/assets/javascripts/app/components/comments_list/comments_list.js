@@ -27,7 +27,7 @@
     ctrl.cancelEdit = cancelEdit;
 
     function updateComment(comment) {
-      var updated = DS.createInstance('discussionComment', comment, { useClass:true });
+      var updated = DS.createInstance('comment', comment, { useClass:true });
 
       updated.update(ctrl.editing.body).then(refreshComment);
 
