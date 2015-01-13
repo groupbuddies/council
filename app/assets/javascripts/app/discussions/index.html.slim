@@ -13,7 +13,7 @@ div ui-view="sidebar"
       md-content.md-padding md-theme="white"
         section.CardList layout="column"
           .CardList-label Open Discussions
-          discussion-card discussion="discussion" ng-repeat="discussion in ctrl.discussions | filter:{open: true}"
+          discussion-card discussion="discussion" ng-repeat="discussion in ctrl.discussions | orderBy:'id':true | filter:{open: true}"
           md-container wait-for='ctrl.pageReady'
 
         section.CardList layout="column" ng-show="closedDiscussions.length"
