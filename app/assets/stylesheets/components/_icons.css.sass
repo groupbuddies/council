@@ -1,5 +1,12 @@
-@mixin fontAwesome($icon-unicode)
-  font-family: FontAwesome
+@font-face
+  font-family: 'Council'
+  src: url('/council.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+
+@mixin fontCouncil($icon-unicode)
+  font-family: 'Council'
   content: $icon-unicode
 
 .IconNavigation,
@@ -9,17 +16,21 @@
   display: inline-block
 
 .IconNavigation:before
-  @include fontAwesome("\f0c9")
+  @include fontCouncil("\e601")
   font-size: 30px
 
 .IconClose:before
-  @include fontAwesome("\f00d")
+  @include fontCouncil("\e602")
   @include alpha
 
 .IconAdd:before
-  @include fontAwesome("\f067")
+  @include fontCouncil("\e600")
   color: theme-palette(neutral, white)
 
 .IconLeft:before
-  @include fontAwesome("\f053")
+  @include fontCouncil("\e604")
   @include alpha
+
+.IconLogo:before
+  @include fontCouncil("\e603")
+  font-size: 50px
