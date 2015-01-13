@@ -4,8 +4,8 @@ div ui-view="sidebar"
   .TopBarLayout-header
     md-toolbar.md-whiteframe-z1
       .md-toolbar-tools layout="row" layout-align="space-between center"
-        a.IconNavigation href="" ng-click="ctrl.toggleSidebar()"
-        .icon-logo style="font-size:55px;"
+        a.icon-burger href="" ng-click="ctrl.toggleSidebar()"
+        .icon-logo
         span
 
   .TopBarLayout-content
@@ -21,4 +21,4 @@ div ui-view="sidebar"
           discussion-card discussion="discussion" ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})"
 
   md-button.md-fab.md-fab-bottom-right.md-accent ui-sref="discussions.new"
-    .IconAdd
+    .icon-new
