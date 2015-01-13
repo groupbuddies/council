@@ -26,8 +26,13 @@
           .DetailedDiscussion-author
             | {{ctrl.discussion.author.display_name}}
 
-          .DetailedDiscussion-time
-            span am-time-ago="ctrl.discussion.created_at"
+          .u-fullSize layout="row" layout-align="space-between center"
+            .DetailedDiscussion-time
+              span am-time-ago="ctrl.discussion.created_at"
+            .Button.Button--flat ng-show="ctrl.pageReady && ctrl.discussion.editable && ctrl.discussion.open"
+              a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" close discussion
+            .Button.Button--flat ng-show="ctrl.pageReady && ctrl.discussion.editable && !ctrl.discussion.open"
+              a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" reopen discussion
 
       md-content.md-padding md-theme="white"
         div layout="column" comments-list="ctrl.discussion.comments" comment-count="ctrl.discussion.comments_count"

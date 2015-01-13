@@ -10,6 +10,7 @@
 
     ctrl.pageReady = false;
     ctrl.toggleNewComment = toggleNewComment;
+    ctrl.toogleDiscussionState = toogleDiscussionState;
 
     ctrl.newComment = {
       discussionId: discussionId
@@ -18,6 +19,11 @@
     Discussion
       .find(discussionId)
       .then(updateDiscussion);
+
+    function toogleDiscussionState(discussion) {
+      discussion.open = !discussion.open;
+      discussion.update();
+    }
 
     function updateDiscussion(discussion) {
       resetController(discussion)

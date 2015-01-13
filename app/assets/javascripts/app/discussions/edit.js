@@ -24,7 +24,7 @@
     }
 
     function updateDiscussion(discussion) {
-      Discussion.create(discussion).then(onDiscussionSave);
+      discussion.update().then(onDiscussionSave);
     }
 
     function onDiscussionSave(discussion) {
