@@ -47,3 +47,11 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.2'
 end
+
+group :deploy do
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-foreman', github: 'groupbuddies/capistrano-foreman', branch: :master
+end

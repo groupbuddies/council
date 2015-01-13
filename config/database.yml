@@ -1,12 +1,20 @@
 common: &common
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
   pool: 5
   timeout: 5000
-  encoding: utf8
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 test:
   <<: *common
+  database: gb-council_test
 
 development:
   <<: *common
+  database: gb-council_development
+
+production:
+  <<: *common
+  database: gb-council
