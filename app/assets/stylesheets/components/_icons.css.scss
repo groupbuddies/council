@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Council';
+  src:url('/council.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin fontCouncil($icon-unicode) {
+  font-family: 'Council';
+  content: $icon-unicode;
+}
+
+.IconNavigation,
+.IconClose,
+.IconAdd,
+.IconLeft {
+  display: inline-block;
+}
+
+.IconNavigation:before {
+  @include fontCouncil("\e601");
+  font-size: 30px;
+}
+
+.IconClose:before {
+  @include fontCouncil("\e602");
+  @include alpha;
+
+}
+
+.IconAdd:before {
+  @include fontCouncil("\e600");
+  color: theme-palette(neutral, white);
+}
+
+.IconLeft:before {
+  @include fontCouncil("\e604");
+  @include alpha;
+}
+
+.IconLogo:before {
+  @include fontCouncil("\e603");
+  font-size: 50px;
+}
