@@ -5,12 +5,15 @@
     .module('council.discussions')
     .controller('DiscussionCtrl', DiscussionCtrl);
 
-  function DiscussionCtrl(Discussion, User, discussionId, _, DS) {
+  function DiscussionCtrl(Discussion, User, discussionId, _, DS, $location, $anchorScroll) {
     var ctrl = this;
 
     ctrl.pageReady = false;
+    ctrl.scrollTo = scrollTo;
     ctrl.toggleNewComment = toggleNewComment;
     ctrl.toogleDiscussionState = toogleDiscussionState;
+
+    ctrl.mobileDetect = new MobileDetect(window.navigator.userAgent);
 
     ctrl.newComment = {
       discussionId: discussionId
@@ -19,6 +22,11 @@
     Discussion
       .find(discussionId)
       .then(updateDiscussion);
+
+    function scrollTo(location) {
+      $location.hash(location);
+      $anchorScroll();
+    }
 
     function toogleDiscussionState(discussion) {
       discussion.open = !discussion.open;
@@ -52,7 +60,10 @@
     }
 
     function toggleNewComment() {
-      ctrl.showNewComment = !ctrl.showNewComment;
+      if(ctrl.mobileDetect.mobile())
+        ctrl.showNewComment = !ctrl.showNewComment;
+      else
+        scrollTo('newComment');
     }
   }
 })();

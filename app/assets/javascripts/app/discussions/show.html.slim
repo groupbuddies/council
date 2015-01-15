@@ -36,6 +36,7 @@
 
       md-content.md-padding md-theme="white"
         div layout="column" comments-list="ctrl.discussion.comments" comment-count="ctrl.discussion.comments_count"
+        comment-form ng-hide="ctrl.mobileDetect.mobile()" toggle="ctrl.toggleNewComment" mobile="ctrl.mobileDetect.mobile()" comment="ctrl.newComment" discussion="ctrl.discussion"
 
-sliding-screen show="ctrl.showNewComment" hide-bottom=""
-  comment-form toggle="ctrl.toggleNewComment" comment="ctrl.newComment" discussion="ctrl.discussion"
+sliding-screen ng-show="ctrl.mobileDetect.mobile()" show="ctrl.showNewComment" hide-bottom=""
+  comment-form toggle="ctrl.toggleNewComment" comment="ctrl.newComment" discussion="ctrl.discussion" mobile="ctrl.mobileDetect.mobile()"
