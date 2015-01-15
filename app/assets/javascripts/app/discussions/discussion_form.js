@@ -5,17 +5,21 @@
     .module('council.discussions')
     .controller('DiscussionFormCtrl', DiscussionFormCtrl);
 
-  function DiscussionFormCtrl(Discussion, $state, $mdToast, $scope, discussion) {
+  function DiscussionFormCtrl($state, $mdToast,Device, Discussion, discussion) {
     var ctrl = this;
 
     ctrl.nextScreen = nextScreen;
     ctrl.discussion = discussion;
     ctrl.saveDiscussion = saveDiscussion;
 
-    $state.go($state.current.name + '.step1');
+    if(Device.isMobile()) {
+      $state.go($state.current.name + '.step1');
+    } else {
+      $state.go($state.current.name + '.desktop');
+    }
 
     function nextScreen(state) {
-      if ($scope.form.$valid)
+      if (ctrl.form.$valid)
         $state.go(state);
       else
         showToast('Please fill the required fields');

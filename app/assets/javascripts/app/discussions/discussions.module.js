@@ -39,6 +39,16 @@
           }
         }
       })
+      .state('discussions.new.desktop', {
+        views: {
+          'header@discussions.new': {
+            templateUrl: 'discussions/templates/header_desktop.html'
+          },
+          'form@discussions.new': {
+            templateUrl: 'discussions/templates/desktop.html'
+          }
+        }
+      })
       .state('discussions.new.step1', {
         views: {
           'header@discussions.new': {
@@ -76,6 +86,16 @@
         resolve: {
           discussion: function($stateParams, Discussion) {
             return Discussion.find($stateParams.id, { bypassCache: true });
+          }
+        }
+      })
+      .state('discussions.edit.desktop', {
+        views: {
+          'header@discussions.edit': {
+            templateUrl: 'discussions/templates/edit_header_desktop.html'
+          },
+          'form@discussions.edit': {
+            templateUrl: 'discussions/templates/desktop.html'
           }
         }
       })

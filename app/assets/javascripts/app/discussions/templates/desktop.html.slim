@@ -1,0 +1,13 @@
+md-input-container.md-accent
+  label Title of the discussion
+  input name="title" ng-model="ctrl.discussion.title" required="" type="text"
+
+md-input-container.md-accent
+  label Short description
+  input name="subtitle" ng-model="ctrl.discussion.subtitle" required="" type="text"
+
+md-input-container.md-accent
+  label Tags
+  input ng-model="ctrl.discussion.tags" type="text"
+
+textarea.Editor placeholder="Write the fundaments of the discussion" ng-model="ctrl.discussion.body" required=""
