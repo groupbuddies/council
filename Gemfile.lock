@@ -85,7 +85,7 @@ GEM
       thor (~> 0.19.1)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
-    headquarters (0.2.0)
+    headquarters (0.2.1)
       dotenv
       httparty (>= 0.13.3)
     hike (1.2.3)
@@ -255,7 +255,7 @@ DEPENDENCIES
   faker
   font-awesome-rails
   foreman
-  headquarters (= 0.2.0)
+  headquarters (= 0.2.1)
   jquery-rails
   letter_opener
   newrelic_rpm
