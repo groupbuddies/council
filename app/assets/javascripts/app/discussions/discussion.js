@@ -5,9 +5,10 @@
     .module('council.discussions')
     .controller('DiscussionCtrl', DiscussionCtrl);
 
-  function DiscussionCtrl(discussion) {
+  function DiscussionCtrl(Device, $location, $anchorScroll, discussion) {
     var ctrl = this;
 
+    ctrl.isMobile = Device.isMobile();
     ctrl.pageReady = false;
     ctrl.openEditForm = openEditForm;
     ctrl.toggleCommentForm = toggleCommentForm;
@@ -22,6 +23,11 @@
       discussion.loadComments();
     }
 
+    function scrollTo(location) {
+      $location.hash(location);
+      $anchorScroll();
+    }
+
     function toogleDiscussionState(discussion) {
       discussion.open = !discussion.open;
       discussion.update();
@@ -33,7 +39,11 @@
     }
 
     function toggleCommentForm() {
-      ctrl.showNewComment = !ctrl.showNewComment;
+      if(Device.isMobile()) {
+        ctrl.showNewComment = !ctrl.showNewComment;
+      } else {
+        scrollTo('newComment');
+      }
     }
   }
 })();

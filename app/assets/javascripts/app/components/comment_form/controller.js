@@ -3,24 +3,7 @@
 
   angular
     .module('council.components')
-    .directive('commentForm', commentForm)
     .controller('CommentFormCtrl', CommentFormCtrl);
-
-  function commentForm() {
-    return {
-      restrict: 'E',
-      transclude: true,
-      scope: {
-        toggle: "&toggle",
-        comment: "=comment",
-        discussion: "=discussion"
-      },
-      controller: 'CommentFormCtrl',
-      controllerAs: 'ctrl',
-      templateUrl: 'components/comment_form/templates/comment_form.html',
-      bindToController: true
-    };
-  }
 
   function CommentFormCtrl(Comment) {
     var ctrl = this;

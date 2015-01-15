@@ -35,7 +35,8 @@
               a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" reopen discussion
 
       md-content.md-padding md-theme="white"
-        div comments-list="ctrl.discussion.comments" comment-count="ctrl.discussion.comments_count" toggle="ctrl.openEditForm(comment)"
+        div layout="column" comments-list="ctrl.discussion.comments" comment-count="ctrl.discussion.comments_count" toggle="ctrl.openEditForm(comment)"
+        comment-form ng-hide="ctrl.isMobile" toggle="ctrl.toggleCommentForm()" comment="ctrl.comment" discussion="ctrl.discussion"
 
-sliding-screen show="ctrl.showNewComment" hide-bottom=""
-  comment-form toggle="ctrl.toggleCommentForm()" discussion="ctrl.discussion" comment="ctrl.comment"
+sliding-screen ng-show="ctrl.isMobile" show="ctrl.showNewComment" hide-bottom=""
+  comment-form-mobile toggle="ctrl.toggleCommentForm()" discussion="ctrl.discussion" comment="ctrl.comment"

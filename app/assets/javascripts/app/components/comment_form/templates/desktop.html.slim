@@ -1,0 +1,10 @@
+.CardList layout="column"
+  md-card.Comment id="newComment"
+    textarea#js-comment-content.Editor placeholder="State your arguments" ng-model="ctrl.comment.body"
+
+    md-toolbar md-theme="white" on-scroll="" on-scroll-anchor="#js-comment-content" scrolling-class="md-whiteframe-z1" layout="row" layout-align="end center"
+      council-raised-button.Button.Button--secondary ng-click="ctrl.create()" ng-hide="ctrl.comment.id"
+        | Add Comment
+
+      council-raised-button.Button.Button--secondary ng-click="ctrl.update()" ng-show="ctrl.comment.id"
+        | Update Comment
