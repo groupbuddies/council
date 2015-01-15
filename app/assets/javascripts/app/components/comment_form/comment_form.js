@@ -12,7 +12,8 @@
       scope: {
         toggle: "=toggle",
         comment: "=comment",
-        discussion: "=discussion"
+        discussion: "=discussion",
+        isMobile: "=mobile"
       },
       templateUrl: 'components/comment_form/templates/comment_form.html',
       link: function($scope, element, attrs) {

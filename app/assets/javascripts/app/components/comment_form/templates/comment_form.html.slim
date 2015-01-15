@@ -1,12 +1,20 @@
-.TopBarLayout
+.TopBarLayout ng-show="isMobile"
   .TopBarLayout-header
     md-toolbar md-theme="white" on-scroll="" on-scroll-anchor="#js-comment-content" scrolling-class="md-whiteframe-z1" layout="row" layout-align="space-between center"
-        md-button.md-primary.md-warn md-no-ink="" ng-click="toggle()" md-theme="council" layout="row" layout-align="space-between center"
-          .IconClose
-          | hide
+      md-button.md-primary.md-warn md-no-ink="" ng-click="toggle()" md-theme="council" layout="row" layout-align="space-between center"
+        .IconClose
+        | hide
 
-        council-raised-button.Button.Button--secondary ng-click="create(comment)"
-          | Add Comment
+      council-raised-button.Button.Button--secondary ng-click="create(comment)"
+        | Add Comment
+
   .TopBarLayout-content
     .Page.Page--white.u-fullSize
       textarea.Editor placeholder="State your arguments" ng-model="comment.body" id="js-comment-content"
+
+.CardList ng-hide="isMobile" layout="column"
+  md-card.Comment id="newComment"
+    textarea.Editor placeholder="State your arguments" ng-model="comment.body" id="js-comment-content"
+    md-toolbar md-theme="white" on-scroll="" on-scroll-anchor="#js-comment-content" scrolling-class="md-whiteframe-z1" layout="row" layout-align="end center"
+      council-raised-button.Button.Button--secondary ng-click="create(comment)"
+        | Add Comment
