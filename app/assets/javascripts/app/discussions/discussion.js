@@ -26,7 +26,7 @@
     }
 
     function updateDiscussion(discussion) {
-      resetController(discussion)
+      resetController(discussion);
 
       discussion
         .refresh()

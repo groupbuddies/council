@@ -40,7 +40,7 @@ class DiscussionsController < ApplicationController
   def discussion_params
     params.
       require(:discussion).
-      permit(:title, :subtitle, :body, :tags).
+      permit(:title, :subtitle, :body, :tags, :open).
       merge(author_id: current_user.id)
   end
 end
