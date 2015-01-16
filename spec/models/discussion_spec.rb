@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Discussion do
   context '#touch' do
     it 'updates the subscriptions' do
-      discussion = build(:discussion)
+      discussion = create(:discussion)
       subscription = double('Subscription', new_comment: true)
       subscriber = double('subscriber', subscribe: [subscription])
       allow(Subscriber).to receive(:for_discussion).and_return(subscriber)
