@@ -17,7 +17,7 @@
     };
   }
 
-  function CommentsListCtrl(DS, $stateParams) {
+  function CommentsListCtrl(Comment, $stateParams) {
     var ctrl = this;
 
     ctrl.editing = null;
@@ -27,9 +27,9 @@
     ctrl.cancelEdit = cancelEdit;
 
     function updateComment(comment) {
-      var updated = DS.createInstance('comment', comment, { useClass:true });
-
-      updated.update(ctrl.editing.body).then(refreshComment);
+      Comment
+        .update(comment.id, comment)
+        .then(refreshComment);
 
       function refreshComment(comment) {
         angular.extend(ctrl.editing, comment);

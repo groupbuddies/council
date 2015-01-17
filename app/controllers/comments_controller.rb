@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
   authorize_resource
   skip_authorize_resource only: [:update]
 
+  def index
+    render json: discussion.comments
+  end
+
   def show
     comment = discussion.comments.find(params[:id])
 

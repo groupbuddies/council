@@ -3,7 +3,6 @@ class DiscussionSerializer < EditableSerializer
     :url, :comments_count, :created_at, :updated_at, :status
 
   has_one :author, embed: :ids
-  has_many :comments, embed: :objects
 
   def url
     return '' unless object.persisted?

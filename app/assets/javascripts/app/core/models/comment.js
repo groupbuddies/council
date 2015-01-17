@@ -5,22 +5,10 @@
     .module('council.core')
     .factory('Comment', Comment);
 
-  function Comment(User, DS, $http) {
+  function Comment(User, DS, $http, _) {
     var Comment = DS.defineResource({
       name: 'comment',
       endpoint: 'comments',
-      methods: {
-        update: function(body) {
-          var url = 'discussions/' + this.discussion_id + '/comments/' + this.id;
-          var data = {
-            body: body
-          };
-
-          return $http.put(url, data).then(function(response) {
-            return response.data;
-          });
-        }
-      },
 
       relations: {
         belongsTo: {
@@ -36,8 +24,14 @@
         }
       },
 
+      beforeUpdate: function(resourename, attrs, cb) {
+        attrs = _.pick(attrs, 'body');
+        cb(null, attrs);
+      },
+
       afterInject: function(name, comment) {
-        DS.loadRelations('comment', comment, ['user'])
+        DS.loadRelations('comment', comment, ['user']);
+        DS.linkInverse('comment', comment.id);
       }
     });
 

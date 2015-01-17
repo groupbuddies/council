@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   defaults format: 'json' do
     constraints format: 'json' do
       resources :discussions, only: [:index, :show, :create, :update] do
-        resources :comments, only: [:show, :create, :update]
+        resources :comments, except: :destroy
         resource :subscription, only: [:update]
       end
       resources :notifications, only: [:index, :destroy]

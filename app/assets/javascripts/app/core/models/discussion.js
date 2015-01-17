@@ -5,7 +5,7 @@
     .module('council.core')
     .factory('Discussion', Discussion);
 
-  function Discussion(Comment, DS, $http) {
+  function Discussion(Comment, DS, $http, _) {
     var ALLOWED_FIELDS = 'title subtitle body open tags'.split(' ');
 
     var Discussion = DS.defineResource({
@@ -16,8 +16,7 @@
         addComment: function(comment) {
           var discussion = this;
 
-          return DS.create('comment', comment, {
-            linkInverse: true,
+          return Comment.create(comment, {
             endpoint: 'discussions/' + discussion.id + '/comments'
           });
         },
@@ -36,6 +35,10 @@
           var discussion = this;
 
           return DS.refresh('discussion', discussion.id);
+        },
+
+        loadComments: function() {
+          return Comment.findAll({ discussion_id: this.id});
         }
       },
 

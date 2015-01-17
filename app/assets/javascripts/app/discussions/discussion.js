@@ -14,25 +14,19 @@
 
     Discussion
       .find(discussionId)
-      .then(updateDiscussion);
+      .then(setDiscussion);
+
+    function setDiscussion(discussion) {
+      ctrl.discussion = discussion;
+      ctrl.discussion.markAsRead();
+      ctrl.pageReady = true;
+
+      discussion.loadComments();
+    }
 
     function toogleDiscussionState(discussion) {
       discussion.open = !discussion.open;
       discussion.update();
-    }
-
-    function updateDiscussion(discussion) {
-      resetController(discussion);
-
-      discussion
-        .refresh()
-        .then(resetController);
-    }
-
-    function resetController(discussion) {
-      ctrl.discussion = discussion;
-      ctrl.discussion.markAsRead();
-      ctrl.pageReady = true;
     }
 
     function toggleNewComment() {
