@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215103539) do
+ActiveRecord::Schema.define(version: 20150120141450) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body",          null: false
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20141215103539) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "comments_count", default: 0,    null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.string  "url"
+    t.string  "text"
+    t.integer "discussion_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -57,6 +64,8 @@ ActiveRecord::Schema.define(version: 20141215103539) do
     t.datetime "updated_at"
     t.string   "first_name",             default: "", null: false
     t.string   "last_name",              default: "", null: false
+    t.string   "access_token"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

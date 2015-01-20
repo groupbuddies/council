@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :email, presence: true
 
   def display_name
-    "#{first_name} #{last_name[0]}"
+  	username.presence || "#{first_name} #{last_name[0]}"
   end
 end

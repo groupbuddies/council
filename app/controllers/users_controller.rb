@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    authorize! :update, user
+    authorize! :show, user
 
     if user.update(user_params)
       render json: user
@@ -20,6 +20,9 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:password, :password_confirmation)
+    all_params = params.require(:user).permit(:username, :password, :password_confirmation)
+    all_params.reject do |_, value|
+      value.blank?
+    end
   end
 end
