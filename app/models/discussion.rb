@@ -2,6 +2,7 @@ class Discussion < ActiveRecord::Base
   has_many :comments
   belongs_to :author, class_name: User
   has_many :subscriptions, dependent: :destroy
+  acts_as_taggable
 
   validates_presence_of :title, :author_id, :body
   validates_inclusion_of :open, in: [true, false]

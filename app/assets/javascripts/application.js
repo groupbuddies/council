@@ -28,3 +28,4 @@
 //= require ./app/users/users.module
 //= require_tree ./app/users
 //= require ./app/error_tracking/error_tracking
+

@@ -20,4 +20,15 @@ describe Discussion do
       expect(Subscription.count).to eq 1
     end
   end
+
+  context '#tag_list=' do
+    it 'add tag list to discussion' do
+      discussion = create(:discussion)
+      new_tags = %w(tag3 tag4)
+
+      discussion.tag_list = new_tags.join(',')
+
+      expect(discussion.tag_list).to match_array new_tags
+    end
+  end
 end

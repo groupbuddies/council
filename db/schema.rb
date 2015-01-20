@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20150225120609) do
     t.string   "subtitle"
     t.integer  "author_id",                     null: false
     t.text     "body",                          null: false
-    t.string   "tags"
     t.boolean  "open",           default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,8 +37,10 @@ ActiveRecord::Schema.define(version: 20150225120609) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "discussion_id"
     t.string  "kind"
+    t.string  "url"
+    t.string  "text"
+    t.integer "discussion_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -49,6 +50,26 @@ ActiveRecord::Schema.define(version: 20150225120609) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -54,6 +54,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.4.3)
+      activerecord (>= 3.2, < 5)
     addressable (2.3.6)
     airbrake (4.1.0)
       builder
@@ -305,7 +307,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.8.0)
-  airbrake
+  acts-as-taggable-on (~> 3.4)
   angular-rails-templates
   appsignal (= 0.11.8.beta.4)
   autoprefixer-rails

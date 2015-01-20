@@ -6,7 +6,7 @@
     .factory('Discussion', Discussion);
 
   function Discussion(Comment, DS, Notification, $http, _) {
-    var ALLOWED_FIELDS = 'title subtitle body open tags'.split(' ');
+    var ALLOWED_FIELDS = 'title subtitle body open tag_list'.split(' ');
 
     var Discussion = DS.defineResource({
       name: 'discussion',

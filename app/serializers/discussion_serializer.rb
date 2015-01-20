@@ -1,6 +1,7 @@
 class DiscussionSerializer < EditableSerializer
   attributes :id, :title, :subtitle, :body, :open,
-    :url, :comments_count, :created_at, :updated_at, :status
+    :url, :comments_count, :created_at, :updated_at, :status,
+    :tag_list
 
   has_one :author, embed: :ids
 

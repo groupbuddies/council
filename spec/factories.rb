@@ -11,6 +11,7 @@ FactoryGirl.define do
     title { Faker::Lorem.words }
     subtitle { Faker::Lorem.sentence }
     body { Faker::Lorem.paragraphs(2) }
+    tag_list { 'tag1,tag2' }
   end
 
   factory :comment do
