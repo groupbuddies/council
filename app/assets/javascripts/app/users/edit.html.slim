@@ -4,6 +4,7 @@ md-toolbar md-theme="council"
 
 md-content.md-padding
   form name="form" novalidate=""
+    md-text-float label="Username" ng-model="ctrl.username" type="text"
     md-text-float label="New password" ng-model="ctrl.password" type="password"
     md-text-float label="Confirm password" ng-model="ctrl.passwordConfirmation" equals="ctrl.password" type="password"
 

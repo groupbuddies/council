@@ -10,12 +10,9 @@
       name: 'user',
       endpoint: 'users',
       methods: {
-        updatePassword: function(password, passwordConfirmation) {
+        update: function(params) {
           return DS.update('user', this.id, {
-            user: {
-              password: password,
-              password_confirmation: passwordConfirmation
-            }
+            user: params
           });
         }
       }

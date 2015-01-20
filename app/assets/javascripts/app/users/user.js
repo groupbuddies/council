@@ -17,7 +17,10 @@
     function changePassword() {
       if (ctrl.password !== ctrl.passwordConfirmation) return;
 
-      ctrl.user.updatePassword(ctrl.password, ctrl.passwordConfirmation)
+      ctrl.user.update({
+        password: ctrl.password,
+        password_confirmation: ctrl.passwordConfirmation,
+        username: ctrl.username })
         .then(passwordUpdated, passwordNotUpdated);
 
       cleanPasswordFields();
@@ -28,11 +31,11 @@
     }
 
     function passwordUpdated() {
-      ctrl.message = 'Password changed with success';
+      ctrl.message = 'User updated with success';
     }
 
     function passwordNotUpdated() {
-      ctrl.message = 'Failed to update password';
+      ctrl.message = 'Failed to update';
     }
 
     function cleanPasswordFields() {
