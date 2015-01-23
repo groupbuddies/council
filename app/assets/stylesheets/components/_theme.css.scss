@@ -90,6 +90,8 @@ $default-spacing: 1rem;
   Theme styles
 **/
 
+$toolbar-height: 60px;
+
 html,
 body {
   line-height:1.5;
@@ -146,6 +148,7 @@ md-input-group {
 md-toolbar {
   @include gamma;
   padding: 16px;
+  height: $toolbar-height;
   transition: all .1s ease-in-out;
   background: theme-palette(neutral, white);
 }
