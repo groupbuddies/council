@@ -1,0 +1,13 @@
+.TopBarLayout
+  .TopBarLayout-header
+    md-toolbar.md-whiteframe-z1.md-accent layout="row" layout-align="space-between center"
+      md-button.md-primary.md-hue-1 md-no-ink="" ui-sref="discussions.edit.step1"
+        .IconLeft
+        |  back
+
+      md-button.md-raised.md-warn md-no-ink="" ng-click="ctrl.saveDiscussion(ctrl.discussion)" ng-disabled="!ctrl.form.$valid"
+        | update discussion
+
+.TopBarLayout-content
+    md-content.md-padding.u-fullSize layout='column' layout-fill=""
+      textarea.Editor placeholder="Write the fundaments of the discussion" ng-model="ctrl.discussion.body" required=""

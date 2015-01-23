@@ -29,6 +29,16 @@
           }
         }
       })
+      .state('discussions.show', {
+        url: '/:id',
+        templateUrl: 'discussions/show.html',
+        controller: 'DiscussionCtrl as ctrl',
+        resolve: {
+          discussion: function($stateParams, Discussion) {
+            return Discussion.find($stateParams.id, { bypassCache: true });
+          }
+        }
+      })
       .state('discussions.new', {
         url: '/new',
         templateUrl: 'discussions/templates/discussion.html',
@@ -40,44 +50,13 @@
         }
       })
       .state('discussions.new.desktop', {
-        views: {
-          'header@discussions.new': {
-            templateUrl: 'discussions/templates/header_desktop.html'
-          },
-          'form@discussions.new': {
-            templateUrl: 'discussions/templates/desktop.html'
-          }
-        }
+        templateUrl: 'discussions/templates/desktop.html'
       })
       .state('discussions.new.step1', {
-        views: {
-          'header@discussions.new': {
-            templateUrl: 'discussions/templates/header_step1.html'
-          },
-          'form@discussions.new': {
-            templateUrl: 'discussions/templates/step1.html'
-          }
-        }
+        templateUrl: 'discussions/templates/mobile_step1.html'
       })
       .state('discussions.new.step2', {
-        views: {
-          'header@discussions.new': {
-            templateUrl: 'discussions/templates/header_step2.html'
-          },
-          'form@discussions.new': {
-            templateUrl: 'discussions/templates/step2.html'
-          }
-        }
-      })
-      .state('discussions.show', {
-        url: '/:id',
-        templateUrl: 'discussions/show.html',
-        controller: 'DiscussionCtrl as ctrl',
-        resolve: {
-          discussion: function($stateParams, Discussion) {
-            return Discussion.find($stateParams.id, { bypassCache: true });
-          }
-        }
+        templateUrl: 'discussions/templates/mobile_step2.html'
       })
       .state('discussions.edit', {
         url: '/:id/edit',
@@ -90,34 +69,13 @@
         }
       })
       .state('discussions.edit.desktop', {
-        views: {
-          'header@discussions.edit': {
-            templateUrl: 'discussions/templates/edit_header_desktop.html'
-          },
-          'form@discussions.edit': {
-            templateUrl: 'discussions/templates/desktop.html'
-          }
-        }
+        templateUrl: 'discussions/templates/desktop_edit.html'
       })
       .state('discussions.edit.step1', {
-        views: {
-          'header@discussions.edit': {
-            templateUrl: 'discussions/templates/edit_header_step1.html'
-          },
-          'form@discussions.edit': {
-            templateUrl: 'discussions/templates/step1.html'
-          }
-        }
+        templateUrl: 'discussions/templates/mobile_edit_step1.html'
       })
       .state('discussions.edit.step2', {
-        views: {
-          'header@discussions.edit': {
-            templateUrl: 'discussions/templates/edit_header_step2.html'
-          },
-          'form@discussions.edit': {
-            templateUrl: 'discussions/templates/step2.html'
-          }
-        }
+        templateUrl: 'discussions/templates/mobile_edit_step2.html'
       });
   }
 })();

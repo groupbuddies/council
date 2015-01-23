@@ -1,12 +1,11 @@
-TopBarLayout
+.TopBarLayout
   .TopBarLayout-header
     md-toolbar.md-whiteframe-z1.md-accent layout="row" layout-align="space-between center"
       md-button.md-primary.md-hue-1 md-no-ink="" ui-sref="discussions.index" layout="row" layout-align="center center"
         .IconClose
         |  cancel
 
-      md-button.md-raised.md-warn md-no-ink="" ng-click="ctrl.saveDiscussion(ctrl.discussion)" ng-disabled="!ctrl.form.$valid"
-        | open discussion
+      md-button.md-raised.md-warn md-no-ink="" ng-click="ctrl.nextScreen('discussions.edit.step2')" next step
 
 .TopBarLayout-content
     md-content.md-padding.u-fullSize layout='column' layout-fill=""
@@ -21,5 +20,3 @@ TopBarLayout
       md-input-container.md-accent
         label Tags
         input ng-model="ctrl.discussion.tags" type="text"
-
-      textarea.Editor placeholder="Write the fundaments of the discussion" ng-model="ctrl.discussion.body" required=""
