@@ -37,6 +37,7 @@ $theme-palettes: (
 
 /** Fonts **/
 $theme-base-font-size: 18px;
+$theme-desktop-base-font-size: 20px;
 
 $theme-alpha-font-size: 1.22rem; // 22px / 18px
 $theme-beta-font-size: 1rem;
@@ -86,6 +87,19 @@ $theme-font-family: "brandon-grotesque";
 
 /** Spacing **/
 $default-spacing: 1rem;
+
+/** Break Points **/
+$theme-breakpoint-desktop: 600px;
+
+/** Layout **/
+$layout-max-width: 640px;
+
+[layout=column] {
+  max-width: $layout-max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /**
   Theme styles
 **/
@@ -97,6 +111,10 @@ body {
   line-height:1.5;
   font-size: $theme-base-font-size;
   font-family: $theme-font-family;
+
+  @media screen and (min-width: $theme-breakpoint-desktop) {
+    font-size: $theme-desktop-base-font-size;
+  }
 
   h1 {
     @include alpha;
@@ -151,16 +169,4 @@ md-toolbar {
   height: $toolbar-height;
   transition: all .1s ease-in-out;
   background: theme-palette(neutral, white);
-}
-
-/** Break Points **/
-$theme-breakpoint-desktop: 600px;
-
-/** Layout **/
-$layout-max-width: 640px;
-
-[layout=column] {
-  max-width: $layout-max-width;
-  margin-left: auto;
-  margin-right: auto;
 }
