@@ -5,7 +5,7 @@ TopBarLayout
         .IconClose
         |  cancel
 
-      md-button.md-raised.md-warn md-no-ink="" ng-click="ctrl.saveDiscussion(ctrl.discussion)" ng-disabled="!ctrl.form.$valid"
+      md-button.md-raised.md-warn md-no-ink="" ng-click="ctrl.saveDiscussion(ctrl.discussion)" ng-disabled="!ctrl.form.$valid || ctrl.submited"
         | open discussion
 
 .TopBarLayout-content

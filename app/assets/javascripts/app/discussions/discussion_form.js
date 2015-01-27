@@ -8,6 +8,7 @@
   function DiscussionFormCtrl($state, $mdToast,Device, Discussion, discussion) {
     var ctrl = this;
 
+    ctrl.submited = false;
     ctrl.nextScreen = nextScreen;
     ctrl.discussion = discussion;
     ctrl.saveDiscussion = saveDiscussion;
@@ -35,10 +36,12 @@
     }
 
     function saveDiscussion(discussion) {
+      ctrl.submited = true;
       Discussion.create(discussion).then(onDiscussionSave);
     }
 
     function onDiscussionSave(discussion) {
+      ctrl.submited = false;
       $state.go('discussions.show', { id: discussion.id });
     }
   }
