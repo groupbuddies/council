@@ -12,6 +12,7 @@
     ctrl.pageReady = false;
     ctrl.openEditForm = openEditForm;
     ctrl.toggleCommentForm = toggleCommentForm;
+    ctrl.toogleDiscussionState = toogleDiscussionState;
 
     setDiscussion();
 
