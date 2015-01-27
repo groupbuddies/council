@@ -10,7 +10,6 @@
       restrict: 'E',
       transclude: true,
       scope: {
-        toggle: "&toggle",
         comment: "=comment",
         discussion: "=discussion"
       },

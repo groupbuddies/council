@@ -5,30 +5,39 @@
     .module('council.components')
     .controller('CommentFormCtrl', CommentFormCtrl);
 
-  function CommentFormCtrl(Comment) {
+  function CommentFormCtrl(Comment, Keyboard, $scope) {
     var ctrl = this;
 
     ctrl.update = update;
     ctrl.create = create;
 
-    reset();
+    ctrl.comment = Comment.createInstance();
+
+    $scope.$on('comment:open', function() {
+      $('.Editor').focus();
+    });
+
+    $scope.$on('comment:close', function() {
+      Keyboard.close();
+    });
 
     function reset() {
       ctrl.comment = Comment.createInstance();
+      if (ctrl.toggle) {
+        ctrl.toggle();
+      }
     }
 
     function create() {
       ctrl.discussion
       .addComment(ctrl.comment)
       .then(reset);
-      ctrl.toggle();
     }
 
     function update() {
       ctrl.comment
       .DSSave()
       .then(reset);
-      ctrl.toggle();
     }
   }
 })();

@@ -5,11 +5,11 @@
     .module('council.discussions')
     .controller('DiscussionCtrl', DiscussionCtrl);
 
-  function DiscussionCtrl(Device, $location, $anchorScroll, discussion) {
+  function DiscussionCtrl(Device, $location, $anchorScroll, discussion, $rootScope) {
     var ctrl = this;
 
-    ctrl.isMobile = Device.isMobile();
     ctrl.pageReady = false;
+    ctrl.isMobile = Device.isMobile();
     ctrl.openEditForm = openEditForm;
     ctrl.toggleCommentForm = toggleCommentForm;
     ctrl.toogleDiscussionState = toogleDiscussionState;
@@ -44,6 +44,15 @@
         ctrl.showNewComment = !ctrl.showNewComment;
       } else {
         scrollTo('newComment');
+      }
+      fireEvents();
+    }
+
+    function fireEvents() {
+      if (ctrl.showNewComment === false) {
+        $rootScope.$broadcast('comment:close');
+      } else {
+        $rootScope.$broadcast('comment:open');
       }
     }
   }
