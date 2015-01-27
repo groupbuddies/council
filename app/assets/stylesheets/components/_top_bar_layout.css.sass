@@ -1,5 +1,3 @@
-$header-height: 62px
-
 .TopBarLayout
   position: relative
   height: 100%
@@ -7,13 +5,13 @@ $header-height: 62px
 .TopBarLayout-header
   position: absolute
   z-index: 9000
-  height: $header-height
+  height: $toolbar-height
   width: 100%
 
 .TopBarLayout-content
   position: absolute
-  top: $header-height
+  top: $toolbar-height
   overflow: scroll
   -webkit-overflow-scrolling: touch
   width: 100%
-  height: calc(100% - #{$header-height})
+  height: calc(100% - #{$toolbar-height})
