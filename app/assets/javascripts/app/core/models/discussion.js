@@ -5,7 +5,7 @@
     .module('council.core')
     .factory('Discussion', Discussion);
 
-  function Discussion(Comment, DS, $http, _) {
+  function Discussion(Comment, DS, Notification, $http, _) {
     var ALLOWED_FIELDS = 'title subtitle body open tags'.split(' ');
 
     var Discussion = DS.defineResource({
@@ -17,12 +17,9 @@
           var discussion = this;
 
           return Comment.create(comment, {
-            endpoint: 'discussions/' + discussion.id + '/comments'
+            endpoint: 'discussions/' + discussion.id +
+              '/comments'
           });
-        },
-
-        markAsRead: function() {
-          return $http.put('discussions/' + this.id + '/subscription');
         },
 
         update: function() {
@@ -38,7 +35,27 @@
         },
 
         loadComments: function() {
-          return Comment.findAll({ discussion_id: this.id});
+          return Comment.findAll({
+            discussion_id: this.id
+          });
+        },
+
+        deleteNotification: function() {
+          var discussion = this;
+
+          var updateDiscussion = function () {
+            return discussion.refresh();
+          };
+
+          var updateNotifications = function () {
+            Notification.ejectAll();
+            return Notification.findAll();
+          };
+
+          return $http
+            .delete('discussions/' + discussion.id + '/notification')
+            .then(updateDiscussion)
+            .then(updateNotifications);
         }
       },
 

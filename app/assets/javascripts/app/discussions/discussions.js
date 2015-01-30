@@ -5,14 +5,25 @@
     .module('council.discussions')
     .controller('DiscussionsCtrl', DiscussionsCtrl);
 
-  function DiscussionsCtrl($state, Discussion) {
+  function DiscussionsCtrl($state, Discussion, Notification) {
     var ctrl = this;
 
     ctrl.pageReady = false;
     ctrl.showSidebar = false;
     ctrl.toggleSidebar = toggleSidebar;
+    ctrl.notifications = function() {
+      return Notification.getAll().length;
+    };
 
-    Discussion.findAll().then(resetDiscussions);
+    Notification.findAll();
+
+    Discussion
+      .findAll()
+      .then(resetDiscussions);
+
+    function setNotifications(notifications) {
+      ctrl.notifications = notifications.length;
+    }
 
     function resetDiscussions(discussions) {
       ctrl.discussions = discussions;

@@ -7,45 +7,48 @@ class Subscription < ActiveRecord::Base
   end
 
   before_create :set_initial_state
+  after_create :notify_discussion
 
   state_machine :state do
-    after_transition any => :unread, do: :send_notification
-    after_transition any => :read, do: :destroy_notifications
+    after_transition any => :unread, do: :notify_comment
+    after_transition any => [:watching, :watched], do: :destroy_notifications
 
     state :unread
-    state :read
+    state :watching
+    state :watched
+    state :unwatched
 
-    event :make_read do
-      transition [:unread] => :read
+    event :watch do
+      transition any => :watching
+    end
+
+    event :make_watched do
+      transition [:unread] => :watching
+      transition [:unwatched] => :watched
     end
 
     event :new_comment do
-      transition [:read] => :unread, if: :commented_by_someone_else?
+      transition [:watching] => :unread, if: :commented_by_someone_else?
+      transition [:unwatched, :watched] => :watching, if: :commented_by_me?
     end
   end
 
   def set_initial_state
     return if state
 
-    self.state = :read
+    self.state = initial_state
   end
 
-  def commented_by_someone_else?
-    last_author.id != user_id
-  end
-
-  def last_author
-    (last_comment || discussion).author
-  end
-
-  def last_comment
-    discussion.comments.last
-  end
-
-  def send_notification
+  def notify_comment
     return unless last_comment
 
     Notification.new_comment(user: user, comment: last_comment)
+  end
+
+  def notify_discussion
+    return if watching?
+
+    Notification.new_discussion(user: user, discussion: discussion)
   end
 
   def notifications
@@ -54,5 +57,35 @@ class Subscription < ActiveRecord::Base
 
   def destroy_notifications
     notifications.destroy_all
+  end
+
+  private
+
+  def initial_state
+    if created_by_me?
+      :watching
+    else
+      :unwatched
+    end
+  end
+
+  def commented_by_someone_else?
+    last_author.id != user_id
+  end
+
+  def commented_by_me?
+    !commented_by_someone_else?
+  end
+
+  def created_by_me?
+    discussion.author_id == user.id
+  end
+
+  def last_author
+    (last_comment || discussion).author
+  end
+
+  def last_comment
+    discussion.comments.last
   end
 end

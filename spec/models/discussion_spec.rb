@@ -14,12 +14,10 @@ describe Discussion do
   end
 
   context '#create' do
-    it 'notifies all users' do
-      allow(Notification).to receive(:new_discussion)
-
+    it 'subscribes all users' do
       create(:discussion)
 
-      expect(Notification).to have_received(:new_discussion)
+      expect(Subscription.count).to eq 1
     end
   end
 end

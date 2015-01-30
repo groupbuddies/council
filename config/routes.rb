@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     constraints format: 'json' do
       resources :discussions, only: [:index, :show, :create, :update] do
         resources :comments, except: :destroy
-        resource :subscription, only: [:update]
+        resource :notification, only: [:destroy]
       end
-      resources :notifications, only: [:index, :destroy]
+      resources :notifications, only: [:index]
       resources :members, only: [:index]
       resources :users, only: [:show, :update]
     end

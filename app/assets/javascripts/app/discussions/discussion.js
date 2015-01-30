@@ -15,13 +15,12 @@
     ctrl.toogleDiscussionState = toogleDiscussionState;
 
     setDiscussion();
+    discussion.loadComments();
+    discussion.deleteNotification();
 
     function setDiscussion() {
       ctrl.discussion = discussion;
-      ctrl.discussion.markAsRead();
       ctrl.pageReady = true;
-
-      discussion.loadComments();
     }
 
     function scrollTo(location) {

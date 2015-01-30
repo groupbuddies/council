@@ -15,9 +15,24 @@
 .IconLeft
   display: inline-block
 
-.IconNavigation:before
-  @include fontCouncil("\e601")
-  font-size: 30px
+.IconNavigation
+  position: relative
+  &:before
+    @include fontCouncil("\e601")
+    font-size: 30px
+
+  .IconNavigation-count
+    @include delta
+    background-color: theme-palette(accent-primary)
+    border-radius: 50%
+    bottom: 0
+    display: block
+    height: 20px
+    line-height: 20px
+    position: absolute
+    right: -35%
+    text-align: center
+    width: 20px
 
 .IconClose:before
   @include fontCouncil("\e602")
