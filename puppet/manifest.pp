@@ -1,6 +1,6 @@
 $data = hiera('gb-council')
 
-gb::ruby { 'ruby-2.1.5': }
+gb::ruby { 'ruby-2.2.0': }
 
 gb::postgresql { 'gb-council':
   password => $data[db_password]
