@@ -35,7 +35,7 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
+  gem 'lograge'
 end
 
 group :development, :test do

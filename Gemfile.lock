@@ -132,6 +132,10 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.3.0)
       launchy (~> 2.2)
+    lograge (0.3.1)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -189,11 +193,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.1)
       loofah (~> 2.0)
-    rails_12factor (0.0.3)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.3)
-    rails_stdout_logging (0.0.3)
     railties (4.2.0)
       actionpack (= 4.2.0)
       activesupport (= 4.2.0)
@@ -301,6 +300,7 @@ DEPENDENCIES
   headquarters (= 0.2.1)
   jquery-rails
   letter_opener
+  lograge
   newrelic_rpm
   ngannotate-rails
   pg
@@ -308,7 +308,6 @@ DEPENDENCIES
   puma
   quiet_assets
   rails (= 4.2)
-  rails_12factor
   recipient_interceptor
   rspec-rails (~> 3.1.0)
   rubocop
