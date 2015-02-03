@@ -54,4 +54,5 @@ group :deploy do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-foreman', github: 'groupbuddies/capistrano-foreman', branch: :master
+  gem 'capistrano-bower', github: 'groupbuddies/capistrano-bower'
 end
