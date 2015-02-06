@@ -8,7 +8,7 @@ class Notification < ActiveRecord::Base
 
   after_create :send_email
 
-  def self.new_comment(user: user, comment: comment)
+  def self.new_comment(user:, comment:)
     discussion = comment.discussion
     create(
       discussion_id: discussion.id,
@@ -18,7 +18,7 @@ class Notification < ActiveRecord::Base
     )
   end
 
-  def self.new_discussion(user: user, discussion: discussion)
+  def self.new_discussion(user:, discussion:)
     create(
       discussion_id: discussion.id,
       user_id: user.id,
