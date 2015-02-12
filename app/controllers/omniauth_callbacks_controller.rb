@@ -13,7 +13,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
 
-  def handle_success
+  def handle_success(user)
     sign_in_and_redirect user, event: :authentication
     set_flash_message(:notice, :success, kind: :headquarters) if is_navigational_format?
   end
