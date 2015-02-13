@@ -22,7 +22,7 @@ class Notification < ActiveRecord::Base
     create(
       discussion_id: discussion.id,
       user_id: user.id,
-      text: I18n.t('notifications.new_discussion', author: discussion.author, discussion: discussion.title),
+      text: I18n.t('notifications.new_discussion', author: discussion.author.display_name, discussion: discussion.title),
       url: root_url(anchor: "#/discussion/#{discussion.id}")
     )
   end

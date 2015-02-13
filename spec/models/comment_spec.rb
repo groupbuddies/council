@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Comment do
   context '#create' do
     it "subscribes the user to the comment's discussion" do
-      discussion = build_stubbed(:discussion)
+      discussion = create(:discussion)
       subscriber = double('subscriber', subscribe: true)
       allow(Subscriber).to receive(:for_discussion).and_return(subscriber)
 
