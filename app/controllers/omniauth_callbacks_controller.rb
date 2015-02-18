@@ -36,9 +36,16 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def find_or_create_from_headquarters(data)
     User.where(email: data['email']).first_or_create do |user|
+      assign_full_name(user, data['name'])
       user.email = data['email']
       user.name = data['name']
       user.password = Devise.friendly_token[0, 20]
     end
+  end
+
+  def assign_full_name(user, name)
+    words = name.split(' ')
+    user.first_name = words[0]
+    user.last_name = words[1] || ''
   end
 end
