@@ -10,6 +10,7 @@
 
     ctrl.update = update;
     ctrl.create = create;
+    ctrl.disabled = false;
 
     ctrl.comment = Comment.createInstance();
 
@@ -22,22 +23,30 @@
     });
 
     function reset() {
+      ctrl.disabled = false;
       ctrl.comment = Comment.createInstance();
-      if (ctrl.toggle) {
+      if (ctrl.toggle)
         ctrl.toggle();
-      }
+    }
+
+    function error() {
+      ctrl.disabled = false;
     }
 
     function create() {
+      ctrl.disabled = true;
       ctrl.discussion
-      .addComment(ctrl.comment)
-      .then(reset);
+        .addComment(ctrl.comment)
+        .then(reset)
+        .catch(error);
     }
 
     function update() {
+      ctrl.disabled = true;
       ctrl.comment
-      .DSSave()
-      .then(reset);
+        .DSSave()
+        .then(reset)
+        .catch(error);
     }
   }
 })();

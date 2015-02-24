@@ -27,7 +27,10 @@
   function councilRaisedButton() {
     return {
       restrict: 'E',
-      scope: {},
+      scope: {
+        disabled: '=',
+        click: '&'
+      },
       transclude: true,
       link: councilRaisedButtonPostLink,
       templateUrl: 'components/button/templates/raised.html'
