@@ -1,0 +1,8 @@
+p Hi #{@notification.user.first_name},
+
+p
+  | There's a new discussion on council: 
+  = link_to @notification.discussion.title, @url
+  | , by #{@discussion.author.display_name}
+
+= link_to 'Read it now', @url, class: 'APIMail-cta--center'

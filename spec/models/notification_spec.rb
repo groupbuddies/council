@@ -14,9 +14,11 @@ RSpec.describe Notification, type: :model do
 
   context '#send_email' do
     it 'sends an email after creation' do
-      create :notification
+      discussion = create :discussion
 
-      expect(ActionMailer::Base.deliveries.count).to eq 1
+      expect do
+        create :notification, discussion: discussion
+      end.to change { ActionMailer::Base.deliveries.count }.by 1
     end
   end
 end

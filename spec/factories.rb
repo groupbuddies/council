@@ -21,8 +21,7 @@ FactoryGirl.define do
 
   factory :notification do
     association :user
-    text { Faker::Lorem.words }
-    url { Faker::Internet.url }
+    kind 'new_discussion'
   end
 
   factory :user, aliases: [:author] do

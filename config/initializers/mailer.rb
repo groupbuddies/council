@@ -6,7 +6,11 @@ ActionMailer::Base.delivery_method = if Rails.env.production?
 
   :headquarters
 elsif Rails.env.development?
-  :letter_opener
+  Headquarters::RailsDeliveryMethod.credentials = {
+    client_id: ENV['HQ_APP_ID'],
+    client_secret: ENV['HQ_APP_SECRET']
+  }
+  :headquarters
 elsif Rails.env.test?
   :test
 end

@@ -1,8 +1,11 @@
 class Notification < ActiveRecord::Base
+  TYPES = %w(new_discussion new_comment)
+
   belongs_to :user
   belongs_to :discussion
 
-  validates :text, :url, :user, presence: true
+  validates :user, presence: true
+  validates :kind, inclusion: { in: TYPES }
 
   delegate :email, to: :user
 
@@ -11,19 +14,17 @@ class Notification < ActiveRecord::Base
   def self.new_comment(user:, comment:)
     discussion = comment.discussion
     create(
+      kind: :new_comment,
       discussion_id: discussion.id,
-      user_id: user.id,
-      text: I18n.t('notifications.new_comment', author: comment.author.display_name, discussion: discussion.title),
-      url: root_url(anchor: "#/discussion/#{discussion.id}/comments/#{comment.id}")
+      user_id: user.id
     )
   end
 
   def self.new_discussion(user:, discussion:)
     create(
+      kind: :new_discussion,
       discussion_id: discussion.id,
-      user_id: user.id,
-      text: I18n.t('notifications.new_discussion', author: discussion.author.display_name, discussion: discussion.title),
-      url: root_url(anchor: "#/discussion/#{discussion.id}")
+      user_id: user.id
     )
   end
 
