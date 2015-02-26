@@ -3,7 +3,7 @@ div ui-view="sidebar"
 .TopBarLayout
   .TopBarLayout-header
     md-toolbar.md-whiteframe-z1 layout="row" layout-align="space-between center"
-      .IconNavigation href="" ng-click="ctrl.toggleSidebar()"
+      a.IconNavigation href="" ng-click="ctrl.toggleSidebar()"
         .IconNavigation-count ng-show="ctrl.notifications()"
           | {{ ctrl.notifications() }}
       .IconLogo
