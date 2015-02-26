@@ -22,16 +22,16 @@
         views: {
           '': {
             controller: 'DiscussionsCtrl as ctrl',
-            templateUrl: 'discussions/index.html'
+            templateUrl: 'discussions/index/index.html'
           },
           'sidebar@discussions.index': {
-            templateUrl: 'discussions/sidebar.html'
+            templateUrl: 'discussions/index/sidebar.html'
           }
         }
       })
       .state('discussions.show', {
         url: '/:id',
-        templateUrl: 'discussions/show.html',
+        templateUrl: 'discussions/show/show.html',
         controller: 'DiscussionCtrl as ctrl',
         resolve: {
           discussion: function($stateParams, Discussion) {
@@ -41,7 +41,7 @@
       })
       .state('discussions.new', {
         url: '/new',
-        templateUrl: 'discussions/templates/discussion.html',
+        templateUrl: 'discussions/new/templates/discussion.html',
         controller: 'DiscussionFormCtrl as ctrl',
         resolve: {
           discussion: function(Discussion) {
@@ -50,17 +50,17 @@
         }
       })
       .state('discussions.new.desktop', {
-        templateUrl: 'discussions/templates/desktop.html'
+        templateUrl: 'discussions/new/templates/desktop.html'
       })
       .state('discussions.new.step1', {
-        templateUrl: 'discussions/templates/mobile_step1.html'
+        templateUrl: 'discussions/new/templates/mobile_step1.html'
       })
       .state('discussions.new.step2', {
-        templateUrl: 'discussions/templates/mobile_step2.html'
+        templateUrl: 'discussions/new/templates/mobile_step2.html'
       })
       .state('discussions.edit', {
         url: '/:id/edit',
-        templateUrl: 'discussions/templates/discussion.html',
+        templateUrl: 'discussions/new/templates/discussion.html',
         controller: 'DiscussionFormCtrl as ctrl',
         resolve: {
           discussion: function($stateParams, Discussion) {
@@ -69,13 +69,13 @@
         }
       })
       .state('discussions.edit.desktop', {
-        templateUrl: 'discussions/templates/desktop_edit.html'
+        templateUrl: 'discussions/new/templates/desktop_edit.html'
       })
       .state('discussions.edit.step1', {
-        templateUrl: 'discussions/templates/mobile_edit_step1.html'
+        templateUrl: 'discussions/new/templates/mobile_edit_step1.html'
       })
       .state('discussions.edit.step2', {
-        templateUrl: 'discussions/templates/mobile_edit_step2.html'
+        templateUrl: 'discussions/new/templates/mobile_edit_step2.html'
       });
   }
 })();
