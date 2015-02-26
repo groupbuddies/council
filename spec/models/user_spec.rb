@@ -21,7 +21,7 @@ describe User do
 
         display_name = user.display_name
 
-        expect(display_name).to eq "#{expected_first_name} #{expected_last_name[0]}"
+        expect(display_name).to eq "#{expected_first_name} #{expected_last_name}"
       end
     end
   end
