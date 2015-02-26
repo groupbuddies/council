@@ -13,3 +13,4 @@
 /tmp/*
 .thrc
 /vendor/assets/bower_components
+.metric_fu
