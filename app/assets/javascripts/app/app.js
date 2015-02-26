@@ -11,7 +11,6 @@
       'council.core',
       'council.components',
       'council.discussions',
-      'council.members',
       'council.users',
       'btford.markdown',
       'dbaq.emoji'
