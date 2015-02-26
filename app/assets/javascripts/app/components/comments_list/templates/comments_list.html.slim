@@ -12,6 +12,5 @@
     .Comment-body
       div btf-markdown="comment.body | emoji"
 
-    .Comment-buttons
-      a ng-click="ctrl.toggle({comment: comment})" ng-if="comment.editable"
-        = 'Edit'
+    .ButtonLink
+      a ng-click="ctrl.toggle({comment: comment})" ng-if="comment.editable" Edit

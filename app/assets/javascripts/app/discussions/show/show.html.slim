@@ -11,7 +11,7 @@
     .Page
       md-content.md-padding.DetailedDiscussion
         div layout='column' layout-align='center start'
-          .Button.Button--flat ng-show="ctrl.pageReady && ctrl.discussion.editable"
+          .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable"
             a ui-sref="discussions.edit({ id: ctrl.discussion.id })" edit discussion
 
           .Placeholder style="width: 50%" ng-show="!ctrl.pageReady"
@@ -29,9 +29,9 @@
           .u-fullSize layout="row" layout-align="space-between center"
             .DetailedDiscussion-time
               span am-time-ago="ctrl.discussion.created_at"
-            .Button.Button--flat ng-show="ctrl.pageReady && ctrl.discussion.editable && ctrl.discussion.open"
+            .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable && ctrl.discussion.open"
               a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" close discussion
-            .Button.Button--flat ng-show="ctrl.pageReady && ctrl.discussion.editable && !ctrl.discussion.open"
+            .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable && !ctrl.discussion.open"
               a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" reopen discussion
 
       md-content.md-padding md-theme="white"
