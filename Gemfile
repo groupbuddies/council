@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2'
 
 gem 'active_model_serializers', '~> 0.8.0'
+gem 'airbrake'
 gem 'angular-rails-templates'
 gem 'autoprefixer-rails'
 gem 'bower'
