@@ -5,5 +5,6 @@ require 'capistrano/bundler'
 require 'capistrano/rails'
 require 'capistrano/foreman'
 require 'capistrano/bower'
+require 'appsignal/capistrano'
 
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

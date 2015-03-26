@@ -4,6 +4,7 @@ gem 'rails', '4.2'
 
 gem 'active_model_serializers', '~> 0.8.0'
 gem 'airbrake'
+gem 'appsignal'
 gem 'angular-rails-templates'
 gem 'autoprefixer-rails'
 gem 'bower'
