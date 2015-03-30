@@ -1,7 +1,7 @@
 .CardList
   .CardList-label
     | {{ctrl.count}} Comments
-  md-card.Comment ng-repeat="comment in ctrl.comments"
+  .Comment ng-repeat="comment in ctrl.comments"
     .Comment-header
       .Comment-author
         | {{ comment.author.display_name }}

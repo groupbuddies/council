@@ -88,6 +88,10 @@ $theme-font-family: "brandon-grotesque";
 /** Spacing **/
 $default-spacing: 1rem;
 
+/** Card style **/
+$card-shadow: 0 2px 5px 0;
+$card-padding: $default-spacing / 2;
+
 /** Break Points **/
 $theme-breakpoint-desktop: 600px;
 
