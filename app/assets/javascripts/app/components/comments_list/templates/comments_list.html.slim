@@ -1,4 +1,4 @@
-.CardList
+.CardList ng-hide="ctrl.edit && !ctrl.isMobile"
   .CardList-label
     | {{ctrl.count}} Comments
   .Comment ng-repeat="comment in ctrl.comments"
@@ -14,3 +14,5 @@
 
     .ButtonLink
       a ng-click="ctrl.toggle({comment: comment})" ng-if="comment.editable" Edit
+
+comment-form comment="comment" discussion="ctrl.discussion" ng-show="ctrl.edit && !ctrl.isMobile"
