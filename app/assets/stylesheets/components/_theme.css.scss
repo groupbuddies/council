@@ -92,6 +92,14 @@ $default-spacing: 1rem;
 $card-shadow: 0 2px 5px 0;
 $card-padding: $default-spacing / 2;
 
+@mixin card {
+  background-color: theme-palette(neutral, white);
+  box-shadow: $card-shadow;
+  box-sizing: border-box;
+  padding: $card-padding;
+
+}
+
 /** Break Points **/
 $theme-breakpoint-desktop: 600px;
 

@@ -1,13 +1,13 @@
 .CardList layout="column"
-  .Comment id="newComment"
-    textarea.Editor.Editor--card msd-elastic="\n" placeholder="State your arguments" ng-model="ctrl.comment.body"
+  .CommentEditor id="newComment"
+    textarea.CommentEditor-editor msd-elastic="\n" placeholder="State your arguments" ng-model="ctrl.comment.body"
 
-    .ActionBar
-      .ActionBar-item
+    .CommentEditor-buttons
+      .CommentEditor-button
 
-      .ActionBar-item
+      .CommentEditor-button
 
-      .ActionBar-itemRight
+      .CommentEditor-buttonRigth
         council-raised-button.Button.Button--secondary disabled="ctrl.disabled" click="ctrl.create()" ng-hide="ctrl.comment.id"
           | Add Comment
 
