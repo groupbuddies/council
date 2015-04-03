@@ -12,6 +12,7 @@
       'council.components',
       'council.discussions',
       'council.users',
+      'error_tracking',
       'btford.markdown',
       'dbaq.emoji'
     ])

@@ -4,12 +4,14 @@ default: &defaults
 
 development:
   <<: *defaults
-  active: true
+  active: false
 
 production:
   <<: *defaults
   active: true
+  enable_frontend_error_catching: true
 
 staging:
   <<: *defaults
   active: true
+  enable_frontend_error_catching: true
