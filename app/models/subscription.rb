@@ -7,7 +7,7 @@ class Subscription < ActiveRecord::Base
   end
 
   before_create :set_initial_state
-  after_create :notify_discussion
+  after_create :notify_discussion, if: :user_is_older_than_discussion?
 
   state_machine :state do
     after_transition any => :unread, do: :notify_comment
@@ -79,6 +79,10 @@ class Subscription < ActiveRecord::Base
 
   def created_by_me?
     discussion.author_id == user.id
+  end
+
+  def user_is_older_than_discussion?
+    user.created_at < discussion.created_at
   end
 
   def last_author
