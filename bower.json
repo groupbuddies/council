@@ -22,6 +22,7 @@
     "konami-js": "*",
     "lodash": "*",
     "ng-fastclick": "*",
-    "mobile-detect": "hgoebl/mobile-detect.js#~0.4.3"
+    "mobile-detect": "hgoebl/mobile-detect.js#~0.4.3",
+    "angular-elastic": "~2.4.2"
   }
 }

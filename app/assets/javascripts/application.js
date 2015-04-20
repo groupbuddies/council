@@ -11,6 +11,7 @@
 //= require hammerjs/hammer
 //= require konami-js/konami
 //= require mobile-detect/mobile-detect
+//= require angular-elastic/elastic
 //= require angular-rails-templates
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-data/dist/angular-data

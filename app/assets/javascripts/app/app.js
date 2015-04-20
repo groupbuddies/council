@@ -14,7 +14,8 @@
       'council.users',
       'error_tracking',
       'btford.markdown',
-      'dbaq.emoji'
+      'dbaq.emoji',
+      'monospaced.elastic'
     ])
     .config(csrf)
     .config(theme);
