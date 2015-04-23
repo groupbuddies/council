@@ -1,6 +1,13 @@
 .TopBarLayout
   .TopBarLayout-header
-    md-toolbar md-theme="white" on-scroll="" on-scroll-anchor="#js-content" scrolling-class="md-whiteframe-z1" layout="row" layout-align="space-between center"
+    md-toolbar(
+      md-theme="white"
+      on-scroll=""
+      on-scroll-anchor="#js-content"
+      scrolling-class="md-whiteframe-z1"
+      layout="row"
+      layout-align="space-between center")
+
       .Button.Button--flat.Button--left ui-sref="discussions.index"
         .Button-icon
         .Button-label homepage
@@ -38,13 +45,8 @@
         div(
           layout="column"
           comments-list="ctrl.discussion.comments"
-          comment-count="ctrl.discussion.comments_count"
-        )
+          comment-count="ctrl.discussion.comments_count")
         comment-form(
           ng-hide="ctrl.isMobile"
           comment="ctrl.comment"
-          discussion="ctrl.discussion"
-        )
-
-sliding-screen ng-show="ctrl.isMobile" show="ctrl.showNewComment" hide-bottom=""
-  comment-form-mobile toggle="ctrl.toggleCommentForm()" discussion="ctrl.discussion" comment="ctrl.comment"
+          discussion="ctrl.discussion")

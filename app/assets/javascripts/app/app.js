@@ -14,7 +14,8 @@
       'council.users',
       'error_tracking',
       'btford.markdown',
-      'dbaq.emoji'
+      'dbaq.emoji',
+      'angular-velocity'
     ])
     .config(csrf)
     .config(theme)

@@ -1,0 +1,41 @@
+div(
+  class="SlidingScreen velocity-opposites-transition-bounceUpIn"
+  data-velocity-opts="{ duration: 500, complete: ctrl.animationCompleted }"
+  ng-show="ctrl.show")
+  .TopBarLayout
+    .TopBarLayout-header
+      md-toolbar(
+        on-scroll=""
+        md-theme="white"
+        on-scroll-anchor="#js-comment-content"
+        scrolling-class="md-whiteframe-z1"
+        layout="row"
+        layout-align="space-between center")
+
+        md-button.md-primary.md-warn(
+          md-theme="council"
+          md-no-ink=""
+          ng-click="ctrl.close()"
+          layout="row"
+          layout-align="center center")
+
+          .IconClose
+          | hide
+
+        council-raised-button.Button.Button--secondary(
+          disabled="ctrl.disabled"
+          click="ctrl.create()"
+          ng-hide="ctrl.comment.id")
+          | Add Comment
+
+        council-raised-button.Button.Button--secondary(
+          disabled="ctrl.disabled"
+          click="ctrl.update()"
+          ng-show="ctrl.comment.id")
+          | Update Comment
+
+    .TopBarLayout-content
+      .Page.Page--white.u-fullSize
+        textarea#js-comment-content.Editor(
+          placeholder="State your arguments"
+          ng-model="ctrl.input")

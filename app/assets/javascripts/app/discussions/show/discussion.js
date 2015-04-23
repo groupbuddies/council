@@ -5,7 +5,7 @@
     .module('council.discussions')
     .controller('DiscussionCtrl', DiscussionCtrl);
 
-  function DiscussionCtrl(Device, $location, $anchorScroll, discussion, $rootScope) {
+  function DiscussionCtrl($slidingCommentForm, Device, $location, $anchorScroll, discussion, $rootScope) {
     var ctrl = this;
 
     ctrl.pageReady = false;
@@ -33,20 +33,10 @@
     }
 
     function toggleCommentForm() {
-      if(Device.isMobile()) {
-        ctrl.showNewComment = !ctrl.showNewComment;
-      } else {
+      if (Device.isMobile())
+        $slidingCommentForm.open(ctrl.discussion);
+      else
         scrollTo('newComment');
-      }
-      fireEvents();
-    }
-
-    function fireEvents() {
-      if (ctrl.showNewComment === false) {
-        $rootScope.$broadcast('comment:close');
-      } else {
-        $rootScope.$broadcast('comment:open');
-      }
     }
   }
 })();

@@ -19,7 +19,7 @@
     };
   }
 
-  function CommentCardCtrl($element, $timeout, Comment, Keyboard) {
+  function CommentCardCtrl(Device, $slidingCommentForm, $element, $timeout, Comment, Keyboard) {
     var ctrl = this;
 
     ctrl.disabled = false;
@@ -39,9 +39,13 @@
     }
 
     function startEditing() {
-      ctrl.input = ctrl.comment.body;
-      $element.addClass('is-editing');
-      $element.find('textarea').focus();
+      if (Device.isMobile()) {
+        $slidingCommentForm.open(null, ctrl.comment);
+      } else {
+        ctrl.input = ctrl.comment.body;
+        $element.addClass('is-editing');
+        $element.find('textarea').focus();
+      }
     }
 
     function stopEditing() {
