@@ -19,13 +19,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require ./app/app
+
 //= require ./app/components/components.module
 //= require_tree ./app/components
+
 //= require ./app/core/core.module
 //= require_tree ./app/core
+
 //= require ./app/discussions/discussions.module
 //= require_tree ./app/discussions
+
 //= require ./app/users/users.module
 //= require_tree ./app/users
+
 //= require ./app/error_tracking/error_tracking
 

@@ -1,0 +1,27 @@
+md-card.CommentCard
+  .CommentCard-header
+    .CommentCard-author
+      | {{ ctrl.comment.author.display_name }}
+
+    .CommentCard-time
+      span am-time-ago="ctrl.comment.created_at"
+
+  .CommentCard-body
+    div btf-markdown="ctrl.comment.body | emoji"
+
+  .CommentCard-editor
+    textarea.Editor ng-model="ctrl.input"
+
+  .CommentCard-actions
+    .ButtonLink ng-show="ctrl.comment.editable"
+      a ng-click="ctrl.startEditing()" Edit
+
+  .CommentCard-editorAction
+    .ButtonLink ng-show="ctrl.input"
+      a ng-click="ctrl.stopEditing()" Cancel
+
+    council-raised-button.Button.Button--secondary(
+      ng-disabled="ctrl.disabled"
+      click="ctrl.update()"
+    )
+      | Update Comment

@@ -10,7 +10,6 @@
 
     ctrl.pageReady = false;
     ctrl.isMobile = Device.isMobile();
-    ctrl.openEditForm = openEditForm;
     ctrl.toggleCommentForm = toggleCommentForm;
     ctrl.toogleDiscussionState = toogleDiscussionState;
 
@@ -31,11 +30,6 @@
     function toogleDiscussionState(discussion) {
       discussion.open = !discussion.open;
       discussion.update();
-    }
-
-    function openEditForm(comment) {
-      ctrl.comment = comment;
-      ctrl.toggleCommentForm();
     }
 
     function toggleCommentForm() {

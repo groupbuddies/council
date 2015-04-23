@@ -1,16 +1,5 @@
 .CardList
   .CardList-label
     | {{ctrl.count}} Comments
-  md-card.Comment ng-repeat="comment in ctrl.comments"
-    .Comment-header
-      .Comment-author
-        | {{ comment.author.display_name }}
-
-      .Comment-time
-        span am-time-ago="comment.created_at"
-
-    .Comment-body
-      div btf-markdown="comment.body | emoji"
-
-    .ButtonLink
-      a ng-click="ctrl.toggle({comment: comment})" ng-if="comment.editable" Edit
+  div ng-repeat="comment in ctrl.comments"
+    comment-card comment="comment"

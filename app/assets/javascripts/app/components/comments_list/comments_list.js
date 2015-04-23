@@ -3,7 +3,8 @@
 
   angular
     .module('council.components')
-    .directive('commentsList', CommentsList);
+    .directive('commentsList', CommentsList)
+    .controller('CommentsListCtrl', CommentsListCtrl);
 
   function CommentsList() {
     return {
@@ -13,9 +14,12 @@
         toggle: '&toggle'
       },
       templateUrl: 'components/comments_list/templates/comments_list.html',
-      controller: function(){},
+      controller: 'CommentsListCtrl',
       controllerAs: 'ctrl',
       bindToController: true
     };
+  }
+
+  function CommentsListCtrl() {
   }
 })();

@@ -1,0 +1,56 @@
+@mixin comment-card-hide()
+  position: absolute
+  transform: translateX(-10000px)
+
+@mixin comment-card-show()
+  transform: translateX(0px)
+  position: inherit
+
+.CommentCard
+  flex-direction: column
+  display: flex
+  background-color: theme-palette(neutral, white)
+
+.CommentCard-header
+  display: flex
+
+.CommentCard-author
+  @include gamma
+  flex-grow: 1
+  align-self: center
+  color: theme-palette(accent-secondary)
+  text-transform: uppercase
+
+.CommentCard-time
+  @include gamma
+  flex-grow: 1
+  align-self: center
+  color: theme-palette(primary, light)
+  text-align: right
+  text-transform: uppercase
+
+.CommentCard-body
+  @include beta
+  color: theme-palette(primary, dark)
+
+  p
+    margin-top: $default-spacing / 2
+    margin-bottom: $default-spacing / 2
+
+.CommentCard-editor
+  @include comment-card-hide
+
+.CommentCard-editorAction
+  @include comment-card-hide
+  padding: 16px
+  display: flex
+  justify-content: space-between
+
+.CommentCard.is-editing
+  .CommentCard-editor,
+  .CommentCard-editorAction
+    @include comment-card-show
+
+  .CommentCard-body,
+  .CommentCard-actions
+    @include comment-card-hide
