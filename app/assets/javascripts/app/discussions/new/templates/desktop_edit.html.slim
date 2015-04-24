@@ -1,11 +1,18 @@
 .TopBarLayout
   .TopBarLayout-header
-    md-toolbar.md-whiteframe-z1.md-accent layout="row" layout-align="space-between center"
-      md-button.md-primary.md-hue-1 md-no-ink="" ui-sref="discussions.index" layout="row" layout-align="center center"
+    toolbar shadow="enabled" style="accent"
+      md-button.md-primary.md-hue-1(
+        md-no-ink=""
+        ui-sref="discussions.show(ctrl.discussion)"
+        layout="row"
+        layout-align="center center")
         .IconClose
         |  cancel
 
-      md-button.md-raised.md-warn md-no-ink="" ng-click="ctrl.saveDiscussion(ctrl.discussion)" ng-disabled="!ctrl.form.$valid || ctrl.submited"
+      md-button.md-raised.md-warn(
+        md-no-ink=""
+        ng-click="ctrl.saveDiscussion(ctrl.discussion)"
+        ng-disabled="!ctrl.form.$valid || ctrl.submited")
         | update discussion
 
 .TopBarLayout-content

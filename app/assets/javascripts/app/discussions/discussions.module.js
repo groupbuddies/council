@@ -29,16 +29,6 @@
           }
         }
       })
-      .state('discussions.show', {
-        url: '/:id',
-        templateUrl: 'discussions/show/show.html',
-        controller: 'DiscussionCtrl as ctrl',
-        resolve: {
-          discussion: function($stateParams, Discussion) {
-            return Discussion.find($stateParams.id, { bypassCache: true });
-          }
-        }
-      })
       .state('discussions.new', {
         url: '/new',
         templateUrl: 'discussions/new/templates/discussion.html',
@@ -46,6 +36,16 @@
         resolve: {
           discussion: function(Discussion) {
             return Discussion.createInstance();
+          }
+        }
+      })
+      .state('discussions.show', {
+        url: '/:id',
+        templateUrl: 'discussions/show/show.html',
+        controller: 'DiscussionCtrl as ctrl',
+        resolve: {
+          discussion: function($stateParams, Discussion) {
+            return Discussion.find($stateParams.id, { bypassCache: true });
           }
         }
       })

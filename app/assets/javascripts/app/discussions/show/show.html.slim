@@ -1,12 +1,10 @@
 .TopBarLayout
   .TopBarLayout-header
-    md-toolbar(
-      md-theme="white"
+    toolbar(
+      style="alternative"
       on-scroll=""
       on-scroll-anchor="#js-content"
-      scrolling-class="md-whiteframe-z1"
-      layout="row"
-      layout-align="space-between center")
+      scrolling-class="Toolbar--withShadow")
 
       .Button.Button--flat.Button--left ui-sref="discussions.index"
         .Button-icon
