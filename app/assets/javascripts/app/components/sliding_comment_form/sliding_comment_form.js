@@ -56,6 +56,8 @@
 
       if (comment)
         ctrl.input = comment.body;
+      else
+        ctrl.input = "";
     }
 
     function close() {
