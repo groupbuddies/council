@@ -1,17 +1,17 @@
 .TopBarLayout
-  position: relative
   height: 100%
 
 .TopBarLayout-header
-  position: absolute
+  position: fixed
+  top: 0
+  left: 0
   z-index: 9000
   height: $toolbar-height
   width: 100%
 
 .TopBarLayout-content
-  position: absolute
-  top: $toolbar-height
+  padding-top: $toolbar-height
+  height: 100%
+  width: 100%
   overflow: scroll
   -webkit-overflow-scrolling: touch
-  width: 100%
-  height: calc(100% - #{$toolbar-height})
