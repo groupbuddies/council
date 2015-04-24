@@ -22,7 +22,7 @@
 
         refreshElement(); // run the first time
         setupAugmentedScrollEvents(scrollableElement);
-        scrollableElement.on('$scroll', $$rAF.debounce(refreshElement));
+        scrollableElement.on('$scroll', $$rAF.throttle(refreshElement));
 
         function refreshElement() {
           var offset = scrollableElement.scrollTop();
