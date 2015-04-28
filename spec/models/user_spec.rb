@@ -23,6 +23,17 @@ describe User do
 
         expect(display_name).to eq "#{expected_first_name} #{expected_last_name}"
       end
+
+      context 'last name does not exist' do
+        it 'shows only the first name' do
+          expected_first_name = 'user'
+          user = User.new(first_name: expected_first_name)
+
+          display_name = user.display_name
+
+          expect(display_name).to eq expected_first_name
+        end
+      end
     end
   end
 end

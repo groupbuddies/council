@@ -9,13 +9,19 @@ class User < ActiveRecord::Base
 
   has_many :notifications
 
-  validates :first_name, :last_name, :email, presence: true
+  validates :first_name, :email, presence: true
 
   def display_name
-    username.presence || [first_name, last_name].join(' ')
+    username.presence || full_name
   end
 
   def name=(name)
     self.first_name, self.last_name = name.split(' ', 2)
+  end
+
+  private
+
+  def full_name
+    [first_name, last_name].join(' ').strip
   end
 end
