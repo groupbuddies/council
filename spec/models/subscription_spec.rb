@@ -48,12 +48,22 @@ describe Subscription, type: :model do
         expect(subscription).to be_unwatched
       end
 
-      it 'sends an email notification' do
+      it 'sends an email notification if the user is older than the discussion' do
         allow(Notification).to receive(:new_discussion)
 
-        create(:subscription)
+        create(:user, created_at: 2.days.ago)
+        create(:discussion)
 
         expect(Notification).to have_received(:new_discussion)
+      end
+
+      it 'does not send an email notification if the user is newer than the discussion' do
+        allow(Notification).to receive(:new_discussion)
+
+        create(:user)
+        create(:discussion, created_at: 2.days.ago)
+
+        expect(Notification).not_to have_received(:new_discussion)
       end
     end
   end
