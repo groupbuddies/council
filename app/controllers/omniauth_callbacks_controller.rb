@@ -28,7 +28,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def headquarters_user(email)
-    data = Headquarters::Client::Members.new.search(email).first
+    data = Headquarters::Client::Members.new(
+      client_id: ENV['HQ_APP_ID'],
+      client_secret: ENV['HQ_APP_SECRET']
+    ).search(email).first
     return if data.nil?
 
     find_or_create_from_headquarters(data)
