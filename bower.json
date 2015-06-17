@@ -18,7 +18,6 @@
     "angular-material": "0.7.0-rc1-master-60fcd6f",
     "angular-moment": "*",
     "angular-ui-router": "*",
-    "fastclick": "~1.0.3",
     "konami-js": "*",
     "lodash": "*",
     "ng-fastclick": "*",
