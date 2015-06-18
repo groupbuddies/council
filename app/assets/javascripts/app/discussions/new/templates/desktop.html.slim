@@ -1,4 +1,4 @@
-TopBarLayout
+.TopBarLayout
   .TopBarLayout-header
     toolbar shadow="enabled" style="accent"
       md-button.md-primary.md-hue-1 md-no-ink="" ui-sref="discussions.index" layout="row" layout-align="center center"
@@ -8,9 +8,8 @@ TopBarLayout
       md-button.md-raised.md-warn md-no-ink="" ng-click="ctrl.saveDiscussion(ctrl.discussion)" ng-disabled="!ctrl.form.$valid || ctrl.submited"
         | open discussion
 
-.TopBarLayout-content
-  md-content.u-fullSize layout="column"
-    div
+  .TopBarLayout-content
+    page padding="true" style="white"
       md-input-container.md-accent
         label Title of the discussion
         input name="title" ng-model="ctrl.discussion.title" required="" type="text"
@@ -23,4 +22,4 @@ TopBarLayout
         label Tags
         input ng-model="ctrl.discussion.tags" type="text"
 
-      textarea.Editor.Editor--large placeholder="Write the fundaments of the discussion" ng-model="ctrl.discussion.body" required=""
+      textarea.Editor.Editor--large msd-elastic="\n" placeholder="Write the fundaments of the discussion" ng-model="ctrl.discussion.body" required=""

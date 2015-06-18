@@ -1,5 +1,6 @@
 .TopBarLayout
   height: 100%
+  overflow: hidden
 
 .TopBarLayout-header
   position: fixed
@@ -10,8 +11,11 @@
   width: 100%
 
 .TopBarLayout-content
-  padding-top: $toolbar-height
-  height: 100%
+  margin-top: $toolbar-height
+  height: calc(100% - #{$toolbar-height})
   width: 100%
-  overflow: scroll
+  overflow-y: auto
   -webkit-overflow-scrolling: touch
+
+.TopBarLayout.TopBarLayout--altBackground
+  background-color: theme-palette(primary, light)

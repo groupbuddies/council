@@ -1,4 +1,4 @@
-.TopBarLayout
+.TopBarLayout.TopBarLayout--altBackground
   .TopBarLayout-header
     toolbar(
       style="alternative"
@@ -13,33 +13,33 @@
         | pitch in
 
   #js-content.TopBarLayout-content
-    .Page
-      md-content.md-padding.DetailedDiscussion
-        div layout='column' layout-align='center start'
-          .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable"
-            a ui-sref="discussions.edit({ id: ctrl.discussion.id })" edit discussion
+    page padding="true" style="white"
+      .DetailedDiscussion
+        .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable"
+          a ui-sref="discussions.edit({ id: ctrl.discussion.id })" edit discussion
 
-          .Placeholder style="width: 50%" ng-show="!ctrl.pageReady"
-          h1.DetailedDiscussion-title ng-show="ctrl.pageReady"
-            | {{ctrl.discussion.title}}
+        .Placeholder style="width: 50%" ng-show="!ctrl.pageReady"
+        h1.DetailedDiscussion-title ng-show="ctrl.pageReady"
+          | {{ctrl.discussion.title}}
 
-          .Placeholder.Placeholder--small style="width: 80%" ng-show="!ctrl.pageReady"
-          .Placeholder.Placeholder--small style="width: 90%" ng-show="!ctrl.pageReady"
-          .Placeholder.Placeholder--small style="width: 70%" ng-show="!ctrl.pageReady"
-          .DetailedDiscussion-body btf-markdown="ctrl.discussion.body | emoji" ng-show="ctrl.pageReady"
+        .Placeholder.Placeholder--small style="width: 80%" ng-show="!ctrl.pageReady"
+        .Placeholder.Placeholder--small style="width: 90%" ng-show="!ctrl.pageReady"
+        .Placeholder.Placeholder--small style="width: 70%" ng-show="!ctrl.pageReady"
+        .DetailedDiscussion-body btf-markdown="ctrl.discussion.body | emoji" ng-show="ctrl.pageReady"
 
-          .DetailedDiscussion-author
-            | {{ctrl.discussion.author.display_name}}
+        .DetailedDiscussion-author
+          | {{ctrl.discussion.author.display_name}}
 
-          .u-fullSize layout="row" layout-align="space-between center"
-            .DetailedDiscussion-time
-              span am-time-ago="ctrl.discussion.created_at"
-            .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable && ctrl.discussion.open"
-              a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" close discussion
+        .u-fullSize layout="row" layout-align="space-between center"
+          .DetailedDiscussion-time
+            span am-time-ago="ctrl.discussion.created_at"
+          .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable && ctrl.discussion.open"
+            a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" close discussion
             .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable && !ctrl.discussion.open"
               a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" reopen discussion
 
-      md-content.md-padding md-theme="white"
+    page padding="true"
+      div md-theme="white"
         div(
           layout="column"
           comments-list="ctrl.discussion.comments"

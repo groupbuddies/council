@@ -1,6 +1,6 @@
 div ui-view="sidebar"
 
-.TopBarLayout
+.TopBarLayout.TopBarLayout--altBackground
   .TopBarLayout-header
     toolbar shadow="enabled"
       toolbar-icon(align="left")
@@ -12,14 +12,14 @@ div ui-view="sidebar"
       toolbar-icon
 
   .TopBarLayout-content
-    .Page
-      md-content.md-padding md-theme="white"
-        section.CardList layout="column"
+    page padding="true"
+      div md-theme="white"
+        section.CardList
           .CardList-label Open Discussions
           discussion-card discussion="discussion" ng-repeat="discussion in ctrl.discussions | orderBy:'id':true | filter:{open: true}"
           md-container wait-for='ctrl.pageReady'
 
-        section.CardList layout="column" ng-show="closedDiscussions.length"
+        section.CardList ng-show="closedDiscussions.length"
           .CardList-label Closed Discussions
           discussion-card discussion="discussion" ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})"
 

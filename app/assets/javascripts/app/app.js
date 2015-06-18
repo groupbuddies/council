@@ -15,7 +15,8 @@
       'error_tracking',
       'btford.markdown',
       'dbaq.emoji',
-      'angular-velocity'
+      'angular-velocity',
+      'monospaced.elastic'
     ])
     .config(csrf)
     .config(theme)

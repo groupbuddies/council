@@ -1,6 +1,5 @@
 .Page
   width: 100%
-  min-height: 100%
   $main-color: theme-palette(primary, light)
   background-color: $main-color
 
@@ -12,6 +11,17 @@
 
 .Page.Page--white
   background-color: theme-palette(neutral, white)
+
+.Page.Page--padding
+  .Page-content
+    padding: 16px
+
+.Page-content
+  display: flex
+  flex-direction: column
+  margin-left: auto
+  margin-right: auto
+  max-width: 640px
 
 .Page-item
   margin: $default-spacing

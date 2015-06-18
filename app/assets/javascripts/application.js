@@ -15,6 +15,7 @@
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-data/dist/angular-data
 //= require angular-emoji-filter-hd/dist/emoji.min
+//= require angular-elastic/elastic
 //= require velocity/velocity
 //= require velocity/velocity.ui
 //= require angular-velocity/angular-velocity
