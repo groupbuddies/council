@@ -8,6 +8,6 @@
       md-button.md-raised.md-warn md-no-ink="" ng-click="ctrl.saveDiscussion(ctrl.discussion)" ng-disabled="!ctrl.form.$valid || ctrl.submited"
         | update discussion
 
-.TopBarLayout-content
-    md-content.md-padding.u-fullSize layout='column' layout-fill=""
+  .TopBarLayout-content
+    page padding="true" style="white"
       textarea.Editor placeholder="Write the fundaments of the discussion" ng-model="ctrl.discussion.body" required=""
