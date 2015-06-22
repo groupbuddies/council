@@ -4,35 +4,64 @@ describe User do
   context '#display_name' do
     context 'username exists' do
       it 'shows username' do
-        expected_username = 'user 1'
-        user = User.new(username: expected_username)
+        user = create(:user)
 
-        display_name = user.display_name
-
-        expect(display_name).to eq expected_username
+        expect(user.display_name).to eq user.username
       end
     end
 
     context 'username does not exist' do
-      it 'does not shows username' do
-        expected_first_name = 'user'
-        expected_last_name = '1'
-        user = User.new(first_name: expected_first_name, last_name: expected_last_name)
+      it 'does not show username' do
+        user = create(:user, username: nil)
+        expected_display_name = "#{user.first_name} #{user.last_name}"
 
-        display_name = user.display_name
-
-        expect(display_name).to eq "#{expected_first_name} #{expected_last_name}"
+        expect(user.display_name).to eq expected_display_name
       end
 
       context 'last name does not exist' do
         it 'shows only the first name' do
-          expected_first_name = 'user'
-          user = User.new(first_name: expected_first_name)
+          user = create(:user,
+            username: nil,
+            last_name: nil)
 
-          display_name = user.display_name
-
-          expect(display_name).to eq expected_first_name
+          expect(user.display_name).to eq user.first_name
         end
+      end
+    end
+  end
+
+  context '#color' do
+    it 'is in RGB format' do
+      user = create(:user)
+
+      expect(user.color).to match(/#[0-9a-f]{6}/i)
+    end
+
+    context 'color exists' do
+      it 'shows color' do
+        user = create(:user, color: '#0000ff')
+
+        expect(user.color).to eq '#0000ff'
+      end
+
+      it 'is valid' do
+        user = create(:user, color: '#0000ff')
+
+        expect(user).to be_valid
+      end
+    end
+
+    context 'color does not exist' do
+      it 'shows some default color' do
+        user = create(:user, color: nil)
+
+        expect(user.color).to match(/#[0-9a-f]{6}/i)
+      end
+
+      it 'is valid' do
+        user = create(:user, color: nil)
+
+        expect(user).to be_valid
       end
     end
   end

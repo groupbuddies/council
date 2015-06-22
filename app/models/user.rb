@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   has_many :notifications
 
   validates :first_name, :email, presence: true
+  validates :color, format: { with: /#[0-9a-f]{6}/i }, if: :color
+  validates :color, uniqueness: true
+
+  before_create :set_default_color
 
   def display_name
     username.presence || full_name
@@ -23,5 +27,13 @@ class User < ActiveRecord::Base
 
   def full_name
     [first_name, last_name].join(' ').strip
+  end
+
+  def set_default_color
+    set_color_from_display_name if color.blank?
+  end
+
+  def set_color_from_display_name
+    self.color = Colorize.rgb(display_name.gsub(/[^0-9a-zA-Z]+/, ''))
   end
 end
