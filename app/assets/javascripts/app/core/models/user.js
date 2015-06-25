@@ -18,6 +18,12 @@
       }
     });
 
+    User.findAllById = function(ids) {
+      return DS.filter('user', {
+        where: { id: { 'in': ids } }
+      });
+    }
+
     return User;
   }
 })();
