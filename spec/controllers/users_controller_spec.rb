@@ -18,9 +18,11 @@ RSpec.describe UsersController, type: :controller do
 
   context 'GET /me' do
     it 'shows the current user' do
-      get '/me'
+      get :me
 
-      expect(response.body[:id]).to eq user.id
+      me = JSON.parse(response.body)
+
+      expect(me['id']).to eq user.id
     end
   end
 

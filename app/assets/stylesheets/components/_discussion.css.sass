@@ -1,4 +1,4 @@
-$discussion-item-triangle-size: 40px
+$discussion-marker-border-width: 3px
 
 .Discussion
   position: relative
@@ -7,7 +7,13 @@ $discussion-item-triangle-size: 40px
   min-height: 62px
   background-color: theme-palette(neutral, white)
   cursor: pointer
-  padding-right: $discussion-item-triangle-size
+
+  &:hover
+    .Discussion-commenterMarker
+      border-width: $discussion-marker-border-width*2
+
+    .Discussion-commenterLabel
+      transform: translateX(0)
 
 .Discussion-link
   text-decoration: none
@@ -23,38 +29,91 @@ $discussion-item-triangle-size: 40px
   flex-grow: 1
   color: theme-palette(primary)
 
+.Discussion-commenters
+  position: absolute
+  top: 0
+  right: 100%
+  bottom: 0
+
+  overflow: hidden
+
+.Discussion-commenter
+  display: flex
+  justify-content: flex-end
+
+  & + &
+    margin-top: 1px
+
+.Discussion-commenterMarker
+  z-index: 2
+
+  border-right: $discussion-marker-border-width solid
+  transition: border-width 0.5s ease-in-out
+
+.Discussion-commenterLabel
+  @include delta
+
+  flex: 1
+
+  padding: 0 $discussion-marker-border-width 0 2*$discussion-marker-border-width
+
+  background-color: theme-palette(neutral, white)
+
+  font-weight: bold
+  text-align: right
+  text-transform: uppercase
+  white-space: nowrap
+
+  transform: translateX(calc(#{$discussion-marker-border-width} + 100%))
+  transition: transform 0.5s ease-in-out
+
+.Discussion-info
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 100%
+
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+
+.Discussion-author
+  @include gamma
+
+  border-left: 2*$discussion-marker-border-width solid
+  padding: 3px 6px
+
+  background-color: theme-palette(neutral, white)
+
+  font-weight: bold
+  text-transform: uppercase
+  white-space: nowrap
+
 .Discussion-commentsCount
   @include delta
-  position: absolute
-  bottom: 0
-  right: 0
-  z-index: 55
-  height: 17px
-  padding-right: 5px
+  padding: 2px 4*$discussion-marker-border-width
   color: theme-palette(neutral, white)
-  text-align: right
+  text-align: left
 
-.Discussion-commentsCount:before
-  content: ''
-  position: absolute
-  right: 0
-  bottom: 0
-  z-index: -1
-  width: 0
-  height: 0
-  border-style: solid
-  border-width: 0 0 $discussion-item-triangle-size $discussion-item-triangle-size
-  border-color: transparent
+.Discussion-afterCommentsCount
+  flex: 1
+  border-left: $discussion-marker-border-width solid
 
 .Discussion.Discussion--watching,
 .Discussion.Discussion--watched
-  .Discussion-commentsCount:before
-    border-bottom-color: theme-palette(primary)
+  .Discussion-commentsCount
+    background-color: theme-palette(primary)
+  .Discussion-afterCommentsCount
+    border-color: theme-palette(primary)
 
 .Discussion.Discussion--unwatched
-  .Discussion-commentsCount:before
-    border-bottom-color: theme-palette(accent-secondary)
+  .Discussion-commentsCount
+    background-color: theme-palette(accent-secondary)
+  .Discussion-afterCommentsCount
+    border-color: theme-palette(accent-secondary)
 
 .Discussion.Discussion--unread
-  .Discussion-commentsCount:before
-    border-bottom-color: theme-palette(accent-primary)
+  .Discussion-commentsCount
+    background-color: theme-palette(accent-primary)
+  .Discussion-afterCommentsCount
+    border-color: theme-palette(accent-primary)

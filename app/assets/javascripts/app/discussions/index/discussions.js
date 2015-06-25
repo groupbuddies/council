@@ -5,7 +5,7 @@
     .module('council.discussions')
     .controller('DiscussionsCtrl', DiscussionsCtrl);
 
-  function DiscussionsCtrl($state, Discussion, Notification) {
+  function DiscussionsCtrl($state, Discussion, Notification, User) {
     var ctrl = this;
 
     ctrl.pageReady = false;
@@ -15,6 +15,7 @@
       return Notification.getAll().length;
     };
 
+    User.findAll();
     Notification.findAll();
 
     Discussion

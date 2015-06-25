@@ -14,17 +14,29 @@
       },
       replace: true,
       templateUrl: 'components/discussion_card/templates/discussion_card.html',
-      controller: 'DiscussionCardCtrl as ctrl'
+      controller: 'DiscussionCardCtrl as ctrl',
+      bindToController: true
     };
   }
 
-  function DiscussionCardCtrl($state) {
+  function DiscussionCardCtrl($state, User) {
     var ctrl = this;
 
     ctrl.show = show;
+    ctrl.commenters = commenters();
+    ctrl.author = author();
 
     function show(id) {
       $state.go('discussions.show', { id: id });
+    }
+
+    function commenters() {
+      var commenterIds = ctrl.discussion.commenter_ids;
+      return User.findAllById(commenterIds);
+    }
+
+    function author() {
+      return User.get(ctrl.discussion.author_id);
     }
   }
 })();

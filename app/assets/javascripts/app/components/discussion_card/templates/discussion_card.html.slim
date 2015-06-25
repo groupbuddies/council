@@ -1,8 +1,19 @@
-md-card class="Discussion Discussion--{{ discussion.status }}"
-  a.Discussion-link ui-sref="discussions.show({id: discussion.id})"
+md-card class="Discussion Discussion--{{ ctrl.discussion.status }}"
+  a.Discussion-link ui-sref="discussions.show({id: ctrl.discussion.id})"
     .Discussion-title
-      | {{ discussion.title }}
+      | {{ ctrl.discussion.title }}
     .Discussion-subtitle
-      | {{ discussion.subtitle }}
+      | {{ ctrl.discussion.subtitle }}
+
+  .Discussion-commenters
+    .Discussion-commenter ng-repeat="commenter in ctrl.commenters"
+      .Discussion-commenterLabel
+        | {{ commenter.display_name }}
+      .Discussion-commenterMarker style="border-color: {{ commenter.color }};"
+
+  .Discussion-info
+    .Discussion-author style="border-color: {{ ctrl.author.color }};"
+      | {{ ctrl.author.display_name }}
     .Discussion-commentsCount
-      | {{ discussion.comments_count }}
+      | {{ ctrl.discussion.comments_count }}
+    .Discussion-afterCommentsCount
