@@ -2,8 +2,16 @@ class UsersController < ApplicationController
   authorize_resource
   skip_authorize_resource only: [:update]
 
+  def index
+    render json: User.all
+  end
+
   def show
     render json: User.find(params[:id])
+  end
+
+  def me
+    render json: User.find(current_user.id)
   end
 
   def update

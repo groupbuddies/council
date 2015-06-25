@@ -16,6 +16,14 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  context 'GET /me' do
+    it 'shows the current user' do
+      get '/me'
+
+      expect(response.body[:id]).to eq user.id
+    end
+  end
+
   context 'PATCH /users/:id' do
     it 'allows to update username' do
       new_username = 'user1'

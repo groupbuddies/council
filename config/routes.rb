@@ -8,11 +8,10 @@ Rails.application.routes.draw do
         resource :notification, only: [:destroy]
       end
       resources :notifications, only: [:index]
-      resources :users, only: [:show, :update]
+      resources :users, only: [:index, :show, :update]
+      get '/me', to: 'users#me'
     end
   end
-
-  resources :users, only: [:edit, :update]
 
   root to: 'pages#index'
 end
