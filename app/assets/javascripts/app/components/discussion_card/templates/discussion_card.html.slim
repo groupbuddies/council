@@ -12,7 +12,9 @@ md-card class="Discussion Discussion--{{ ctrl.discussion.status }}"
       .Discussion-commenterMarker style="border-color: {{ commenter.color }};"
 
   .Discussion-info
-    .Discussion-author style="border-color: {{ ctrl.author.color }};"
+    .Discussion-author.Discussion-author--small style="background-color: {{ ctrl.author.color }};"
+      | {{ ctrl.author.display_name }}
+    .Discussion-author.Discussion-author--big style="border-color: {{ ctrl.author.color }};"
       | {{ ctrl.author.display_name }}
     .Discussion-commentsCount
       | {{ ctrl.discussion.comments_count }}

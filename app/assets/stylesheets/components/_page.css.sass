@@ -12,10 +12,6 @@
 .Page.Page--white
   background-color: theme-palette(neutral, white)
 
-.Page.Page--padding
-  .Page-content
-    padding: 16px
-
 .Page-content
   display: flex
   flex-direction: column
@@ -25,3 +21,8 @@
 
 .Page-item
   margin: $default-spacing
+
+@media only screen and (min-width : 640px)
+  .Page.Page--padding
+    .Page-content
+      padding: 16px
