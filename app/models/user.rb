@@ -19,6 +19,14 @@ class User < ActiveRecord::Base
     username.presence || full_name
   end
 
+  def initials
+    if last_name.blank?
+      first_name.slice(0, 2)
+    else
+      first_name.chr + last_name.chr
+    end
+  end
+
   def name=(name)
     self.first_name, self.last_name = name.split(' ', 2)
   end

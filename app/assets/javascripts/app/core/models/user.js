@@ -18,7 +18,7 @@
       }
     });
 
-    User.findAllById = function(ids) {
+    User.getAllById = function(ids) {
       return DS.filter('user', {
         where: { id: { 'in': ids } }
       });

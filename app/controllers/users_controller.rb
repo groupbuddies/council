@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def me
-    render json: User.find(current_user.id)
+    render json: current_user
   end
 
   def update

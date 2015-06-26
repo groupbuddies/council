@@ -32,7 +32,7 @@
 
     function commenters() {
       var commenterIds = ctrl.discussion.commenter_ids;
-      return User.findAllById(commenterIds);
+      return User.getAllById(commenterIds);
     }
 
     function author() {

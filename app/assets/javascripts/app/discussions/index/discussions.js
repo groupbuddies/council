@@ -15,7 +15,6 @@
       return Notification.getAll().length;
     };
 
-    User.findAll();
     Notification.findAll();
 
     Discussion

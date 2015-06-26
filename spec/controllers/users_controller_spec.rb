@@ -9,10 +9,16 @@ RSpec.describe UsersController, type: :controller do
   end
 
   context 'GET /users/:id' do
-    it 'shows a color' do
+    it 'contains a color' do
       get :show, id: user.id
 
       expect(response.body).to include 'color'
+    end
+
+    it 'contains the initials' do
+      get :show, id: user.id
+
+      expect(response.body).to include 'initials'
     end
   end
 

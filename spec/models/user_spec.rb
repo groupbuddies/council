@@ -30,6 +30,24 @@ describe User do
     end
   end
 
+  context '#initials' do
+    context 'last name exists' do
+      it 'shows the first letters of the first and last names' do
+        user = create(:user, first_name: 'John', last_name: 'Doe')
+
+        expect(user.initials).to eq 'JD'
+      end
+    end
+
+    context 'last name does not exist' do
+      it 'shows the first two letters of the first name' do
+        user = create(:user, first_name: 'John', last_name: nil)
+
+        expect(user.initials).to eq 'Jo'
+      end
+    end
+  end
+
   context '#color' do
     it 'is in RGB format' do
       user = create(:user)

@@ -15,7 +15,10 @@
       .state('discussions', {
         url: '/discussions',
         abstract: true,
-        template: '<div ui-view class="u-fullSize"></div>'
+        template: '<div ui-view class="u-fullSize"></div>',
+        controller: function(User) {
+          User.findAll();
+        }
       })
       .state('discussions.index', {
         url: '',
