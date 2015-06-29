@@ -7,7 +7,6 @@ $discussion-width-info: 30px
   display: flex
   flex-direction: column
   min-height: 62px
-  padding-right: $discussion-width-info * 1.25
 
   background-color: theme-palette(neutral, white)
   cursor: pointer
@@ -77,10 +76,11 @@ $discussion-width-info: 30px
   .Discussion-afterCommentsCount
     border-color: theme-palette(accent-primary)
 
-@media only screen and (min-width : 992px)
+@media only screen and (max-width : 991px)
   .Discussion
-    padding-right: 0.5rem
+    padding-right: $discussion-width-info * 1.25
 
+@media only screen and (min-width : 992px)
   .Discussion:hover
     .Discussion-commenterMarker
       border-width: 2 * $discussion-borderWidth-marker
@@ -137,7 +137,7 @@ $discussion-width-info: 30px
     @include gamma
     display: block
     border-left: 2*$discussion-borderWidth-marker solid
-    padding: 3px 6px
+    padding: $discussion-borderWidth-marker 2*$discussion-borderWidth-marker
 
     background-color: theme-palette(neutral, white)
 
