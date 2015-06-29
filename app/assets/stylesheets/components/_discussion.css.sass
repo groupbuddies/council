@@ -59,22 +59,13 @@ $discussion-width-info: 30px
   .Discussion-commentsCount
     background-color: theme-palette(primary)
 
-  .Discussion-afterCommentsCount
-    border-color: theme-palette(primary)
-
 .Discussion.Discussion--unwatched
   .Discussion-commentsCount
     background-color: theme-palette(accent-secondary)
 
-  .Discussion-afterCommentsCount
-    border-color: theme-palette(accent-secondary)
-
 .Discussion.Discussion--unread
   .Discussion-commentsCount
     background-color: theme-palette(accent-primary)
-
-  .Discussion-afterCommentsCount
-    border-color: theme-palette(accent-primary)
 
 @media only screen and (max-width : 991px)
   .Discussion
@@ -149,6 +140,20 @@ $discussion-width-info: 30px
     width: 40px
     padding: 2px 4*$discussion-borderWidth-marker
 
-  .Discussion-afterCommentsCount
+  .Discussion-info:after
+    content: ""
     flex: 1
     border-left: $discussion-borderWidth-marker solid
+
+  .Discussion.Discussion--watching,
+  .Discussion.Discussion--watched
+    .Discussion-info:after
+      border-color: theme-palette(primary)
+
+  .Discussion.Discussion--unwatched
+    .Discussion-info:after
+      border-color: theme-palette(accent-secondary)
+
+  .Discussion.Discussion--unread
+    .Discussion-info:after
+      border-color: theme-palette(accent-primary)
