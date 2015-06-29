@@ -14,14 +14,16 @@ div ui-view="sidebar"
   .TopBarLayout-content
     page padding="true"
       div md-theme="white"
-        section.CardList
+        section.CardList.CardList--withAnimation
           .CardList-label Open Discussions
-          discussion-card discussion="discussion" ng-repeat="discussion in ctrl.discussions | orderBy:'id':true | filter:{open: true}"
+          .CardList-card ng-repeat="discussion in ctrl.discussions | orderBy:'id':true | filter:{open: true}"
+            discussion-card discussion="discussion"
           md-container wait-for='ctrl.pageReady'
 
-        section.CardList ng-show="closedDiscussions.length"
+        section.CardList.CardList--withAnimation ng-show="closedDiscussions.length"
           .CardList-label Closed Discussions
-          discussion-card discussion="discussion" ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})"
+          .CardList-card ng-repeat="discussion in closedDiscussions = (ctrl.discussions | filter:{open: false})"
+            discussion-card discussion="discussion"
 
   md-button.md-fab.md-fab-bottom-right.md-accent ui-sref="discussions.new"
     .IconAdd

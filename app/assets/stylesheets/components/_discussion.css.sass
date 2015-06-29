@@ -69,7 +69,7 @@ $discussion-width-info: 30px
 
 @media only screen and (max-width : 991px)
   .Discussion
-    padding-right: $discussion-width-info * 1.25
+    padding-right: calc(#{$discussion-width-info} + #{$default-spacing/2})
 
 @media only screen and (min-width : 992px)
   .Discussion:hover

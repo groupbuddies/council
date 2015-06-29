@@ -1,12 +1,16 @@
 .CardList
+
+.CardList-label
+  display: none
+
+.CardList-card
+  margin: 0 0 1px 0
+
+.CardList.CardList--withAnimation
   $animated-discussions: 30
 
-  .Discussion,
-  .CommentCard
-    margin: 0 0 1px 0
-
   @for $i from 1 through $animated-discussions
-    .Discussion:nth-child(#{$i})
+    .CardList-card:nth-child(#{$i})
       transform: translateX(0)
       backface-visibility: hidden
       perspective: 0
@@ -22,16 +26,12 @@
       &.ng-enter-active
         animation-name: bounceInLeft
 
+@media only screen and (min-width : 640px)
   .CardList-label
-    display: none
+    @include gamma
+    display: block
+    margin-bottom: $default-spacing / 2
+    text-transform: uppercase
 
-  @media only screen and (min-width : 640px)
-    .Discussion,
-    .CommentCard
-      margin: 0 0 $default-spacing / 2 0
-
-    .CardList-label
-      @include gamma
-      display: block
-      margin-bottom: $default-spacing / 2
-      text-transform: uppercase
+  .CardList-card
+    margin: 0 0 $default-spacing / 2 0

@@ -1,5 +1,5 @@
 .CardList
   .CardList-label
     | {{ctrl.count}} Comments
-  div ng-repeat="comment in ctrl.comments"
+  .CardList-card ng-repeat="comment in ctrl.comments"
     comment-card comment="comment"
