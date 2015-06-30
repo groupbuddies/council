@@ -5,36 +5,40 @@
     .module('council.users')
     .controller('EditUserCtrl', EditUserController);
 
-  function EditUserController(User, userId, DS) {
+  function EditUserController($state, User, userId) {
     var ctrl = this;
 
     User.find(userId).then(resetUser);
 
-    ctrl.changePassword = changePassword;
+    ctrl.updateUser = updateUser;
     ctrl.message = '';
     cleanPasswordFields();
 
-    function changePassword() {
-      if (ctrl.password !== ctrl.passwordConfirmation) return;
+    function updateUser() {
+      if (ctrl.password !== ctrl.passwordConfirmation)
+        return;
 
       ctrl.user.update({
+        username: ctrl.username,
+        color: ctrl.color,
         password: ctrl.password,
-        password_confirmation: ctrl.passwordConfirmation,
-        username: ctrl.username })
-        .then(passwordUpdated, passwordNotUpdated);
+        password_confirmation: ctrl.passwordConfirmation
+      }).then(userUpdated, userNotUpdated);
 
       cleanPasswordFields();
     }
 
     function resetUser(user) {
       ctrl.user = user;
+      ctrl.username = user.display_name;
+      ctrl.color = user.color;
     }
 
-    function passwordUpdated() {
-      ctrl.message = 'User updated with success';
+    function userUpdated() {
+      $state.go('discussions.index');
     }
 
-    function passwordNotUpdated() {
+    function userNotUpdated() {
       ctrl.message = 'Failed to update';
     }
 
