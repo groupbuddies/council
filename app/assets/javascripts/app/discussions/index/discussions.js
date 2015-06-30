@@ -5,7 +5,7 @@
     .module('council.discussions')
     .controller('DiscussionsCtrl', DiscussionsCtrl);
 
-  function DiscussionsCtrl($state, Discussion, Notification, User) {
+  function DiscussionsCtrl($state, Discussion, Notification, Me) {
     var ctrl = this;
 
     ctrl.pageReady = false;
@@ -14,12 +14,20 @@
     ctrl.notifications = function() {
       return Notification.getAll().length;
     };
+    ctrl.userId = null;
+
+    Me.get()
+      .then(setUserId);
 
     Notification.findAll();
 
     Discussion
       .findAll()
       .then(resetDiscussions);
+
+    function setUserId(me) {
+      ctrl.userId = me.id;
+    }
 
     function setNotifications(notifications) {
       ctrl.notifications = notifications.length;
