@@ -33,6 +33,9 @@
 //= require ./app/discussions/discussions.module
 //= require_tree ./app/discussions
 
+//= require ./app/notifications/notifications.module
+//= require_tree ./app/notifications
+
 //= require ./app/users/users.module
 //= require_tree ./app/users
 

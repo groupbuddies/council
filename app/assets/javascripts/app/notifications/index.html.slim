@@ -1,0 +1,17 @@
+.TopBarLayout.TopBarLayout--altBackground
+  .TopBarLayout-header
+    toolbar style="alternative" shadow="enabled"
+      .Button.Button--flat.Button--left ui-sref="discussions.index"
+        .Button-icon
+        .Button-label homepage
+
+  .TopBarLayout-content
+    page padding="true"
+      div md-theme="white"
+        section.CardList
+          .CardList-label ng-show="ctrl.notifications.length"
+            | Notifications
+          .CardList-label ng-hide="ctrl.notifications.length"
+            | No notifications
+          .CardList-card ng-repeat="notification in ctrl.notifications"
+            notification-card notification="notification"

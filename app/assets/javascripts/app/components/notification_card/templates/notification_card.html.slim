@@ -1,1 +1,6 @@
 md-card.NotificationCard
+  a.NotificationCard-link ui-sref="discussions.show({ id: ctrl.notification.discussion_id })"
+    .NotificationCard-title
+      | {{ ctrl.notification.discussion.title }}
+    .NotificationCard-label ng-show="ctrl.notification.isNewDiscussion()" New discussion
+    .NotificationCard-label ng-show="ctrl.notification.isNewComment()" New comments

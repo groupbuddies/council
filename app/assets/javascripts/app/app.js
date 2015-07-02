@@ -11,6 +11,7 @@
       'council.core',
       'council.components',
       'council.discussions',
+      'council.notifications',
       'council.users',
       'error_tracking',
       'btford.markdown',

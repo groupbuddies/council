@@ -5,9 +5,9 @@ md-sidenav.Sidebar.md-sidenav-left.md-whiteframe-z2 md-component-id="left" md-is
   md-content
     ul.Sidebar-links
       li.Sidebar-item
-        | Notifications
-        .IconNavigation ng-show="ctrl.notifications()"
-          .IconNavigation-count
+        a.Sidebar-itemInside ui-sref="notifications.index"
+          | Notifications
+          .NotificationsCount ng-show="ctrl.notifications()"
             | {{ ctrl.notifications() }}
       li.Sidebar-item Settings
       li.Sidebar-item

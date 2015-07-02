@@ -1,1 +1,23 @@
 .NotificationCard
+  position: relative
+
+  display: flex
+  flex-direction: column
+  min-height: 62px
+
+  background-color: theme-palette(neutral, white)
+  cursor: pointer
+
+.NotificationCard-link
+  text-decoration: none
+
+.NotificationCard-title
+  @include beta
+  flex-grow: 1
+  color: theme-palette(primary, dark)
+  font-weight: bold
+
+.NotificationCard-label
+  @include beta
+  flex-grow: 1
+  color: theme-palette(primary)

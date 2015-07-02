@@ -13,14 +13,14 @@
         notification: '='
       },
       replace: true,
-      templateUrl: 'components/notification_card/template/notification_card.html',
+      templateUrl: 'components/notification_card/templates/notification_card.html',
       controller: 'NotificationCardCtrl',
       controllerAs: 'ctrl',
       bindToController: true
     };
   }
 
-  function NotificationCardCtrl($state) {
+  function NotificationCardCtrl($state, Notification) {
     var ctrl = this;
   }
 })();

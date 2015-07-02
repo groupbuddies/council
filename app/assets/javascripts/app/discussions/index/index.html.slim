@@ -6,7 +6,8 @@ div ui-view="sidebar"
       toolbar-icon(align="left")
         a.IconNavigation href="" ng-click="ctrl.toggleSidebar()"
           .IconNavigation-count ng-show="ctrl.notifications()"
-            | {{ ctrl.notifications() }}
+            .NotificationsCount
+              | {{ ctrl.notifications() }}
       toolbar-icon
         .IconLogo.u-topBarCenterLogo
       toolbar-icon
