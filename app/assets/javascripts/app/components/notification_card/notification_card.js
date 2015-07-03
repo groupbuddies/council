@@ -3,8 +3,7 @@
 
   angular
     .module('council.components')
-    .directive('notificationCard', notificationCard)
-    .controller('NotificationCardCtrl', NotificationCardCtrl);
+    .directive('notificationCard', notificationCard);
 
   function notificationCard() {
     return {
@@ -14,13 +13,9 @@
       },
       replace: true,
       templateUrl: 'components/notification_card/templates/notification_card.html',
-      controller: 'NotificationCardCtrl',
+      controller: function() { },
       controllerAs: 'ctrl',
       bindToController: true
     };
-  }
-
-  function NotificationCardCtrl($state, Notification) {
-    var ctrl = this;
   }
 })();
