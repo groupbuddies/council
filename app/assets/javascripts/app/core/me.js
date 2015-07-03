@@ -6,27 +6,19 @@
     .service('Me', Me);
 
   function Me($http, $q) {
-    var me;
-    var mePromise;
+    var me = {};
 
     function find() {
-      mePromise = $http.get('/me')
+      return $http.get('/me')
         .then(set);
-      return mePromise;
     }
 
     function set(response) {
       me = response.data;
-      return me;
     }
 
     function get() {
-      if(me) {
-        return $q.when(me);
-      }
-      else {
-        return mePromise;
-      }
+      return me;
     }
 
     return {

@@ -16,7 +16,7 @@
     };
     ctrl.userId = null;
 
-    Me.get()
+    Me.find()
       .then(setUserId);
 
     Notification.findAll();
@@ -25,8 +25,8 @@
       .findAll()
       .then(resetDiscussions);
 
-    function setUserId(me) {
-      ctrl.userId = me.id;
+    function setUserId() {
+      ctrl.userId = Me.get().id;
     }
 
     function setNotifications(notifications) {
