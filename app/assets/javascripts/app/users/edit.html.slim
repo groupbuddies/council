@@ -9,18 +9,19 @@
 
   .TopBarLayout-content
     page padding="true" style="white"
-      md-input-container.md-accent
-        label Username
-        input ng-model="ctrl.username" type="text"
-      md-input-container.md-accent
-        label Color
-        input ng-model="ctrl.color" type="color"
-      md-input-container.md-accent
-        label New password
-        input ng-model="ctrl.password" type="password"
-      md-input-container.md-accent
-        label Confirm password
-        input ng-model="ctrl.passwordConfirmation" type="password"
+      form name="form" novalidate=""
+        md-input-container.md-accent
+          label Username
+          input ng-model="ctrl.username" type="text"
+        md-input-container.md-accent
+          label Color
+          input ng-model="ctrl.color" type="color"
+        md-input-container.md-accent
+          label New password
+          input ng-model="ctrl.password" type="password"
+        md-input-container.md-accent
+          label Confirm password
+          input ng-model="ctrl.passwordConfirmation" type="password"
 
       p
         | {{ ctrl.message }}
