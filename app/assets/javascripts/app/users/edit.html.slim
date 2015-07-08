@@ -1,27 +1,27 @@
 .TopBarLayout
-  .TopBarLayout-header
-    toolbar shadow="enabled" style="accent"
-      md-button.md-primary.md-hue-1 md-no-ink="" ui-sref="discussions.index"
-        .IconClose
-        |  cancel
-      md-button.md-raised.md-warn md-no-ink="" ng-click="ctrl.updateUser()"
-        | update user
+  form name="ctrl.form" novalidate="" ng-controller="UserFormCtrl as formCtrl" ng-submit="formCtrl.submit(ctrl.user, ctrl.form.$valid, ctrl.data, ctrl.userUpdated, ctrl.userNotUpdated)"
+    .TopBarLayout-header
+      toolbar shadow="enabled" style="accent"
+        md-button.md-primary.md-hue-1 md-no-ink="" ui-sref="discussions.index"
+          .IconClose
+          |  cancel
+        md-button.md-raised.md-warn md-no-ink="" type="submit"
+          | update user
 
-  .TopBarLayout-content
-    page padding="true" style="white"
-      form name="form" novalidate=""
+    .TopBarLayout-content
+      page padding="true" style="white"
         md-input-container.md-accent
           label Username
-          input ng-model="ctrl.username" type="text"
+          input type="text" name="username" ng-model="ctrl.data.username"
         md-input-container.md-accent
           label Color
-          input ng-model="ctrl.color" type="color"
+          input type="color" name="color" ng-model="ctrl.data.color"
         md-input-container.md-accent
           label New password
-          input ng-model="ctrl.password" type="password"
+          input type="password" name="password" ng-model="ctrl.data.password"
         md-input-container.md-accent
           label Confirm password
-          input ng-model="ctrl.passwordConfirmation" type="password"
+          input type="password" name="passwordConfirmation" ng-model="ctrl.data.password_confirmation"
 
-      p
-        | {{ ctrl.message }}
+        p
+          | {{ ctrl.message }}

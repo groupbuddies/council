@@ -7,31 +7,17 @@
 
   function EditUserController($state, User, userId) {
     var ctrl = this;
+    ctrl.message = '';
+    ctrl.data = {};
+    ctrl.userUpdated = userUpdated;
+    ctrl.userNotUpdated = userNotUpdated;
 
     User.find(userId).then(resetUser);
 
-    ctrl.updateUser = updateUser;
-    ctrl.message = '';
-    cleanPasswordFields();
-
-    function updateUser() {
-      if (ctrl.password !== ctrl.passwordConfirmation)
-        return;
-
-      ctrl.user.update({
-        username: ctrl.username,
-        color: ctrl.color,
-        password: ctrl.password,
-        password_confirmation: ctrl.passwordConfirmation
-      }).then(userUpdated, userNotUpdated);
-
-      cleanPasswordFields();
-    }
-
-    function resetUser(user) {
-      ctrl.user = user;
-      ctrl.username = user.display_name;
-      ctrl.color = user.color;
+    function resetUser() {
+      ctrl.user = User.get(userId);
+      ctrl.data.username = ctrl.user.display_name;
+      ctrl.data.color = ctrl.user.color;
     }
 
     function userUpdated() {
@@ -40,11 +26,6 @@
 
     function userNotUpdated() {
       ctrl.message = 'Failed to update';
-    }
-
-    function cleanPasswordFields() {
-      ctrl.password = '';
-      ctrl.passwordConfirmation = '';
     }
   }
 })();
