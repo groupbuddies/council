@@ -1,0 +1,166 @@
+$discussion-card-borderWidth-marker: 3px
+$discussion-card-width-info: 30px
+
+.DiscussionCard
+  position: relative
+
+  display: flex
+  flex-direction: column
+  min-height: 62px
+
+  background-color: theme-palette(neutral, white)
+  cursor: pointer
+
+.DiscussionCard.DiscussionCard--closed
+  opacity: 0.5
+  transition: opacity 0.25s ease-in-out
+  &:hover
+    opacity: 1
+
+
+.DiscussionCard-link
+  text-decoration: none
+
+.DiscussionCard-title
+  @include beta
+  flex-grow: 1
+  color: theme-palette(primary, dark)
+  font-weight: bold
+
+.DiscussionCard-subtitle
+  @include gamma
+  flex-grow: 1
+  color: theme-palette(primary)
+
+.DiscussionCard-commenters
+  display: none
+
+.DiscussionCard-info
+  position: absolute
+  top: 0
+  bottom: 0
+  right: 0
+
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+
+.DiscussionCard-authorSmall
+  @include gamma
+  width: $discussion-card-width-info
+  color: theme-palette(neutral, white)
+  text-align: center
+
+.DiscussionCard-authorBig
+  display: none
+
+.DiscussionCard-commentsCount
+  @include delta
+  width: $discussion-card-width-info
+  margin-top: 1px
+  color: theme-palette(neutral, white)
+  text-align: center
+
+.DiscussionCard.DiscussionCard--watching,
+.DiscussionCard.DiscussionCard--watched
+  .Discussion-commentsCount
+    background-color: theme-palette(primary)
+
+.DiscussionCard.Discussion--unwatched
+  .DiscussionCard-commentsCount
+    background-color: theme-palette(accent-secondary)
+
+.DiscussionCard.Discussion--unread
+  .DiscussionCard-commentsCount
+    background-color: theme-palette(accent-primary)
+
+@media only screen and (max-width : 991px)
+  .DiscussionCard
+    padding-right: calc(#{$discussion-card-width-info} + #{$default-spacing/2})
+
+@media only screen and (min-width : 992px)
+  .DiscussionCard:hover
+    .DiscussionCard-commenterMarker
+      border-width: 2 * $discussion-card-borderWidth-marker
+
+    .DiscussionCard-commenterLabel
+      transform: translateX(0)
+
+  .DiscussionCard-commenters
+    position: absolute
+    top: 0
+    right: 100%
+    bottom: 0
+
+    display: block
+    overflow: hidden
+
+  .DiscussionCard-commenter
+    display: flex
+    justify-content: flex-end
+
+    & + &
+      margin-top: 1px
+
+  .DiscussionCard-commenterMarker
+    z-index: 2
+    border-right: $discussion-card-borderWidth-marker solid
+    transition: border-width 0.5s ease-in-out
+
+  .DiscussionCard-commenterLabel
+    @include delta
+
+    flex: 1
+    padding: 0 $discussion-card-borderWidth-marker 0 2*$discussion-card-borderWidth-marker
+
+    background-color: theme-palette(neutral, white)
+
+    font-weight: bold
+    text-align: right
+    text-transform: uppercase
+    white-space: nowrap
+
+    transform: translateX(calc(#{$discussion-card-borderWidth-marker} + 100%))
+    transition: transform 0.5s ease-in-out
+
+  .DiscussionCard-info
+    left: 100%
+
+    align-items: flex-start
+
+  .DiscussionCard-authorSmall
+    display: none
+
+  .DiscussionCard-authorBig
+    @include gamma
+    display: block
+    border-left: 2*$discussion-card-borderWidth-marker solid
+    padding: $discussion-card-borderWidth-marker 2*$discussion-card-borderWidth-marker
+
+    background-color: theme-palette(neutral, white)
+
+    font-weight: bold
+    text-transform: uppercase
+    white-space: nowrap
+
+  .DiscussionCard-commentsCount
+    width: 40px
+    padding: 2px 4*$discussion-card-borderWidth-marker
+
+  .DiscussionCard-info:after
+    content: ""
+    flex: 1
+    border-left: $discussion-card-borderWidth-marker solid
+
+  .DiscussionCard.Discussion--watching,
+  .DiscussionCard.Discussion--watched
+    .DiscussionCard-info:after
+      border-color: theme-palette(primary)
+
+  .DiscussionCard.Discussion--unwatched
+    .DiscussionCard-info:after
+      border-color: theme-palette(accent-secondary)
+
+  .DiscussionCard.Discussion--unread
+    .DiscussionCard-info:after
+      border-color: theme-palette(accent-primary)

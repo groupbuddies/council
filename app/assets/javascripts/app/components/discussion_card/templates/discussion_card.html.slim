@@ -1,20 +1,24 @@
-md-card class="Discussion Discussion--{{ ctrl.discussion.status }}"
-  a.Discussion-link ui-sref="discussions.show({id: ctrl.discussion.id})"
-    .Discussion-title
+md-card(
+  class="DiscussionCard DiscussionCard--{{ ctrl.discussion.status }}"
+  ng-class="{ 'DiscussionCard--closed': !ctrl.discussion.open }"
+)
+
+  a.DiscussionCard-link ui-sref="discussions.show({id: ctrl.discussion.id})"
+    .DiscussionCard-title
       | {{ ctrl.discussion.title }}
-    .Discussion-subtitle
+    .DiscussionCard-subtitle
       | {{ ctrl.discussion.subtitle }}
 
-  .Discussion-commenters
-    .Discussion-commenter ng-repeat="commenter in ctrl.commenters"
-      .Discussion-commenterLabel
+  .DiscussionCard-commenters
+    .DiscussionCard-commenter ng-repeat="commenter in ctrl.commenters"
+      .DiscussionCard-commenterLabel
         | {{ commenter.display_name }}
-      .Discussion-commenterMarker style="border-color: {{ commenter.color }};"
+      .DiscussionCard-commenterMarker style="border-color: {{ commenter.color }};"
 
-  .Discussion-info
-    .Discussion-authorSmall style="background-color: {{ ctrl.author.color }};"
+  .DiscussionCard-info
+    .DiscussionCard-authorSmall style="background-color: {{ ctrl.author.color }};"
       | {{ ctrl.author.initials }}
-    .Discussion-authorBig style="border-color: {{ ctrl.author.color }};"
+    .DiscussionCard-authorBig style="border-color: {{ ctrl.author.color }};"
       | {{ ctrl.author.display_name }}
-    .Discussion-commentsCount
+    .DiscussionCard-commentsCount
       | {{ ctrl.discussion.comments_count }}
