@@ -7,10 +7,8 @@
 
   function EditUserController($state, User, userId) {
     var ctrl = this;
-    ctrl.message = '';
     ctrl.data = {};
     ctrl.userUpdated = userUpdated;
-    ctrl.userNotUpdated = userNotUpdated;
 
     User.find(userId).then(resetUser);
 
@@ -22,10 +20,6 @@
 
     function userUpdated() {
       $state.go('discussions.index');
-    }
-
-    function userNotUpdated() {
-      ctrl.message = 'Failed to update';
     }
   }
 })();

@@ -7,23 +7,27 @@
 
   function UserFormCtrl() {
     var form = this;
+    form.message = '';
     form.submit = submit;
 
     function submit(user, isValid, data,
-        onSuccess, onFailure) {
-      console.log('inside form ctrl');
+        onSuccess) {
       if(!isValid || !isValidPassword(data)) {
         return;
       }
 
       user.update(data)
-        .then(onSuccess, onFailure);
+        .then(onSuccess, userNotUpdated);
 
       cleanPasswordFields(data);
     }
 
     function isValidPassword(data) {
       return data.password === data.password_confirmation;
+    }
+
+    function userNotUpdated() {
+      form.message = 'Failed to update';
     }
 
     function cleanPasswordFields(data) {
