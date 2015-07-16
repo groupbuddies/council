@@ -1,153 +1,24 @@
-$discussion-borderWidth-marker: 3px
-$discussion-width-info: 30px
-
 .Discussion
-  position: relative
-  cursor: pointer
-
-.Discussion-link
-  text-decoration: none
+ background: theme-palette(neutral, white)
+  // necessary to override md-content
+  overflow: hidden
 
 .Discussion-title
+  @include alpha
+
+.Discussion-body
   @include beta
-  flex-grow: 1
-  color: theme-palette(primary, dark)
-  font-weight: bold
 
-.Discussion-subtitle
+.Discussion-author
+  @include beta
+  color: theme-palette(accent-secondary)
+  text-transform: uppercase
+
+.Discussion-time
   @include gamma
-  flex-grow: 1
-  color: theme-palette(primary)
+  color: theme-palette(primary, light)
+  text-transform: uppercase
 
-.Discussion-commenters
-  display: none
-
-.Discussion-info
-  position: absolute
-  top: 0
-  bottom: 0
-  right: 0
-
-  display: flex
-  flex-direction: column
-  align-items: flex-end
-
-.Discussion-authorSmall
+.Discussion-commentCount
   @include gamma
-  width: $discussion-width-info
-  color: theme-palette(neutral, white)
-  text-align: center
-  
-.Discussion-authorBig
-  display: none
-
-.Discussion-commentsCount
-  @include delta
-  width: $discussion-width-info
-  margin-top: 1px
-  color: theme-palette(neutral, white)
-  text-align: center
-
-.Discussion.Discussion--watching,
-.Discussion.Discussion--watched
-  .Discussion-commentsCount
-    background-color: theme-palette(primary)
-
-.Discussion.Discussion--unwatched
-  .Discussion-commentsCount
-    background-color: theme-palette(accent-secondary)
-
-.Discussion.Discussion--unread
-  .Discussion-commentsCount
-    background-color: theme-palette(accent-primary)
-
-@media only screen and (max-width : 991px)
-  .Discussion
-    padding-right: calc(#{$discussion-width-info} + #{$default-spacing/2})
-
-@media only screen and (min-width : 992px)
-  .Discussion:hover
-    .Discussion-commenterMarker
-      border-width: 2 * $discussion-borderWidth-marker
-
-    .Discussion-commenterLabel
-      transform: translateX(0)
-
-  .Discussion-commenters
-    position: absolute
-    top: 0
-    right: 100%
-    bottom: 0
-
-    display: block
-    overflow: hidden
-
-  .Discussion-commenter
-    display: flex
-    justify-content: flex-end
-
-    & + &
-      margin-top: 1px
-
-  .Discussion-commenterMarker
-    z-index: 2
-    border-right: $discussion-borderWidth-marker solid
-    transition: border-width 0.5s ease-in-out
-
-  .Discussion-commenterLabel
-    @include delta
-
-    flex: 1
-    padding: 0 $discussion-borderWidth-marker 0 2*$discussion-borderWidth-marker
-
-    background-color: theme-palette(neutral, white)
-
-    font-weight: bold
-    text-align: right
-    text-transform: uppercase
-    white-space: nowrap
-
-    transform: translateX(calc(#{$discussion-borderWidth-marker} + 100%))
-    transition: transform 0.5s ease-in-out
-
-  .Discussion-info
-    left: 100%
-
-    align-items: flex-start
-
-  .Discussion-authorSmall
-    display: none
-
-  .Discussion-authorBig
-    @include gamma
-    display: block
-    border-left: 2*$discussion-borderWidth-marker solid
-    padding: $discussion-borderWidth-marker 2*$discussion-borderWidth-marker
-
-    background-color: theme-palette(neutral, white)
-
-    font-weight: bold
-    text-transform: uppercase
-    white-space: nowrap
-
-  .Discussion-commentsCount
-    width: 40px
-    padding: 2px 4*$discussion-borderWidth-marker
-
-  .Discussion-info:after
-    content: ""
-    flex: 1
-    border-left: $discussion-borderWidth-marker solid
-
-  .Discussion.Discussion--watching,
-  .Discussion.Discussion--watched
-    .Discussion-info:after
-      border-color: theme-palette(primary)
-
-  .Discussion.Discussion--unwatched
-    .Discussion-info:after
-      border-color: theme-palette(accent-secondary)
-
-  .Discussion.Discussion--unread
-    .Discussion-info:after
-      border-color: theme-palette(accent-primary)
+  text-transform: uppercase

@@ -14,24 +14,24 @@
 
   #js-content.TopBarLayout-content
     page padding="true" style="white"
-      .DetailedDiscussion
+      .Discussion
         .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable"
           a ui-sref="discussions.edit({ id: ctrl.discussion.id })" edit discussion
 
         .Placeholder style="width: 50%" ng-show="!ctrl.pageReady"
-        h1.DetailedDiscussion-title ng-show="ctrl.pageReady"
+        h1.Discussion-title ng-show="ctrl.pageReady"
           | {{ctrl.discussion.title}}
 
         .Placeholder.Placeholder--small style="width: 80%" ng-show="!ctrl.pageReady"
         .Placeholder.Placeholder--small style="width: 90%" ng-show="!ctrl.pageReady"
         .Placeholder.Placeholder--small style="width: 70%" ng-show="!ctrl.pageReady"
-        .DetailedDiscussion-body btf-markdown="ctrl.discussion.body | emoji" ng-show="ctrl.pageReady"
+        .Discussion-body btf-markdown="ctrl.discussion.body | emoji" ng-show="ctrl.pageReady"
 
-        .DetailedDiscussion-author
+        .Discussion-author
           | {{ctrl.discussion.author.display_name}}
 
         .u-fullSize layout="row" layout-align="space-between center"
-          .DetailedDiscussion-time
+          .Discussion-time
             span am-time-ago="ctrl.discussion.created_at"
           .ButtonLink ng-show="ctrl.pageReady && ctrl.discussion.editable && ctrl.discussion.open"
             a ng-click="ctrl.toogleDiscussionState(ctrl.discussion)" close discussion
