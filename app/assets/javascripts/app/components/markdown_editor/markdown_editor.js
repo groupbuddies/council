@@ -47,7 +47,7 @@
   function councilMarkdownEditorLink($scope, $element, attrs, ctrl, $rootScope) {
     var editor = new MediumEditor(".MarkdownEditor", editor_opts);
     console.log($element);
-    //$element.on('input', updateModel);
+    $element.on('input', updateModel);
     $scope.$on('comment:submitted', clearEditor);
 
     //$scope.$watch(function() {
@@ -63,8 +63,10 @@
     //});
 
     function clearEditor() {
-      var target = $element;
-      debugger;
+      var target = angular.element(
+        $element[0].querySelector('.MarkdownEditor') );
+
+      target.html('').addClass('medium-editor-placeholder');
     }
 
     function trimHtml(html) {
