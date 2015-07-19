@@ -23,6 +23,7 @@
     "ng-fastclick": "*",
     "mobile-detect": "hgoebl/mobile-detect.js#~0.4.3",
     "angular-velocity": "~0.3.1",
-    "angular-elastic": "~2.4.2"
+    "angular-elastic": "~2.4.2",
+    "medium-editor": "*"
   }
 }

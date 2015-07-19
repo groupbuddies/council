@@ -20,6 +20,7 @@
 //= require velocity/velocity.ui
 //= require angular-velocity/angular-velocity
 //= require lodash/lodash
+//= require medium-editor/dist/js/medium-editor.min
 //= require jquery
 //= require jquery_ujs
 //= require ./app/app
