@@ -5,6 +5,14 @@
       placeholder="State your arguments"
     )
 
-    toolbar style="alternative"
+    md-toolbar(
+      md-theme="white"
+      on-scroll=""
+      on-scroll-anchor="#js-comment-content"
+      scrolling-class="md-whiteframe-z1"
+      layout="row"
+      layout-align="end center"
+    )
+
       council-raised-button.Button.Button--secondary disabled="ctrl.isDisabled()" click="ctrl.create()" ng-hide="ctrl.comment.id"
         | Add Comment

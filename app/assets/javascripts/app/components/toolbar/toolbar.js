@@ -14,8 +14,7 @@
       templateUrl: 'components/toolbar/toolbar_tpl.html',
       scope: {
         shadow: '@', // send value 'enabled' to enable shadows
-        style: '@', // supported values: 'alternative' and 'accent'
-        float: '@' // supported values: 'right' and 'left'
+        style: '@' // supported values: 'alternative' and 'accent'
       }
     };
   }
