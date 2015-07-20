@@ -12,10 +12,10 @@
       restrict: 'E',
       scope: {
           modelValue: '=',
-          placeholder: '=',
-          buttons: '=',
-          large: '=',
-          required: '='
+          placeholder: '@',
+          buttons: '@',
+          large: '@',
+          required: '@'
       },
       controller: markdownEditorCtrl,
       controllerAs: 'ctrl',
