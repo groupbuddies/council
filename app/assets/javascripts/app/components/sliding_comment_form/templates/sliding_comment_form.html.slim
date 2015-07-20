@@ -23,19 +23,19 @@ div(
           | hide
 
         council-raised-button.Button.Button--secondary(
-          disabled="ctrl.disabled"
+          disabled="ctrl.isDisabled()"
           click="ctrl.create()"
           ng-hide="ctrl.comment.id")
           | Add Comment
 
         council-raised-button.Button.Button--secondary(
-          disabled="ctrl.disabled"
+          disabled="ctrl.isDisabled()"
           click="ctrl.update()"
           ng-show="ctrl.comment.id")
           | Update Comment
 
     .TopBarLayout-content
       .Page.Page--white.u-fullSize
-        textarea#js-comment-content.Editor(
-          placeholder="State your arguments"
-          ng-model="ctrl.input")
+        markdown-editor(
+          placeholder='"State your arguments"'
+          model-value="ctrl.input")

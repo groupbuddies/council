@@ -1,7 +1,10 @@
 .CardList layout="column"
   md-card.CommentCard id="newComment"
-    markdown-editor model-value="ctrl.comment.body"
+    markdown-editor(
+      model-value="ctrl.comment.body"
+      placeholder='"State your arguments"'
+    )
 
     toolbar style="alternative"
-      council-raised-button.Button.Button--secondary disabled="ctrl.disabled" click="ctrl.create()" ng-hide="ctrl.comment.id"
+      council-raised-button.Button.Button--secondary disabled="ctrl.isDisabled()" click="ctrl.create()" ng-hide="ctrl.comment.id"
         | Add Comment

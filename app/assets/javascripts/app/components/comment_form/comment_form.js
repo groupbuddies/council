@@ -25,7 +25,8 @@
     var ctrl = this;
 
     ctrl.create = create;
-    ctrl.disabled = false;
+    ctrl.disabled = true;
+    ctrl.isDisabled = isDisabled;
 
     ctrl.comment = Comment.createInstance();
 
@@ -46,13 +47,17 @@
     }
 
     function reset() {
-      ctrl.disabled = false;
       ctrl.comment = Comment.createInstance();
+      ctrl.disabled = true;
       $rootScope.$broadcast('md_editor:submitted');
     }
 
     function error() {
       ctrl.disabled = false;
+    }
+
+    function isDisabled() {
+      return ctrl.disabled && !ctrl.comment.body;
     }
   }
 })();

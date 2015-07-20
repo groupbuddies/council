@@ -22,4 +22,9 @@
         label Tags
         input ng-model="ctrl.discussion.tags" type="text"
 
-      textarea.Editor.Editor--large msd-elastic="\n" placeholder="Write the fundaments of the discussion" ng-model="ctrl.discussion.body" required=""
+      markdown-editor(
+        large="true"
+        required="true"
+        placeholder='"Write the fundaments of the discussion"'
+        model-value="ctrl.discussion.body"
+      )

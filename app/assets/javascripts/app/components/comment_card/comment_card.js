@@ -22,12 +22,13 @@
   function CommentCardCtrl(Device, $slidingCommentForm, $element, $timeout, Comment, Keyboard) {
     var ctrl = this;
 
-    ctrl.disabled = false;
+    ctrl.disabled = true;
     ctrl.input = ctrl.comment.body;
 
     ctrl.startEditing = startEditing;
     ctrl.stopEditing = stopEditing;
     ctrl.update = update;
+    ctrl.isDisabled = isDisabled;
 
     function update() {
       ctrl.disabled = true;
@@ -61,6 +62,10 @@
     function onUpdateError(err) {
       ctrl.disabled = true;
       console.log(err);
+    }
+
+    function isDisabled() {
+      return ctrl.disabled && !ctrl.input;
     }
   }
 })();

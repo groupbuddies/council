@@ -39,12 +39,13 @@
     ctrl.show = false;
     ctrl.comment = {};
     ctrl.input = '';
-    ctrl.disabled = false;
+    ctrl.disabled = true;
 
     ctrl.update = update;
     ctrl.create = create;
     ctrl.close = close;
     ctrl.animationCompleted = animationCompleted;
+    ctrl.isDisabled = isDisabled;
 
     $rootScope.$on('comment_form:open', open);
     $rootScope.$on('comment_form:close', close);
@@ -88,8 +89,9 @@
     }
 
     function reset() {
-      ctrl.disabled = false;
+      ctrl.disabled = true;
       ctrl.input = "";
+      $rootScope.$broadcast('md_editor:submitted');
     }
 
     function focus() {
@@ -100,6 +102,10 @@
       console.log(err);
       ctrl.disabled = false;
       focus();
+    }
+
+    function isDisabled() {
+      return ctrl.disabled && !ctrl.input;
     }
   }
 })();

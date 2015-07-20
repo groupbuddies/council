@@ -1,2 +1,2 @@
-.Editor
-  textarea.MarkdownEditor#js-comment-content ng-model="ctrl.modelValue" ng-change="ctrl.updateModel"
+.Editor ng-class="{'Editor--large': ctrl.large}"
+  textarea.MarkdownEditor#js-comment-content ng-model="ctrl.modelValue" ng-required="ctrl.required"

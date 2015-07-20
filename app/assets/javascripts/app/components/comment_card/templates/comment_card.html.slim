@@ -9,8 +9,10 @@ md-card.CommentCard
   .CommentCard-body
     div btf-markdown="ctrl.comment.body | emoji"
 
-  .CommentCard-editor
-    textarea.Editor ng-model="ctrl.input"
+  markdown-editor.CommentCard-editor(
+    model-value="ctrl.input"
+    placeholder='"State your arguments"'
+  )
 
   .CommentCard-actions
     .ButtonLink ng-show="ctrl.comment.editable"
@@ -21,7 +23,7 @@ md-card.CommentCard
       a ng-click="ctrl.stopEditing()" Cancel
 
     council-raised-button.Button.Button--secondary(
-      ng-disabled="ctrl.disabled"
+      disabled="ctrl.isDisabled()"
       click="ctrl.update()"
     )
       | Update Comment
