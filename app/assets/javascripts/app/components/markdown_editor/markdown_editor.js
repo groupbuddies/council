@@ -36,31 +36,13 @@
 
   function markdownEditorCtrl($scope) {
     var ctrl = this;
-
-    //ctrl.getModelValue = getModelValue;
-
-    //function getModelValue() {
-    //  return ctrl.modelValue;
-    //}
   }
 
   function councilMarkdownEditorLink($scope, $element, attrs, ctrl, $rootScope) {
     var editor = new MediumEditor(".MarkdownEditor", editor_opts);
     console.log($element);
     $element.on('input', updateModel);
-    $scope.$on('comment:submitted', clearEditor);
-
-    //$scope.$watch(function() {
-    //  return '$element[0].querySelector("textarea.MarkdownEditor")';
-    //}, function(newValue, oldValue) {
-    //  console.log("test");
-    //  debugger;
-    //});
-
-    //$scope.$watch(function() { return ctrl.modelValue; }, function(newValue, oldValue) {
-    //  ctrl.modelValue = trimHtml(newValue);
-    //  debugger;
-    //});
+    $scope.$on('md_editor:submitted', clearEditor);
 
     function clearEditor() {
       var target = angular.element(

@@ -48,7 +48,7 @@
     function reset() {
       ctrl.disabled = false;
       ctrl.comment = Comment.createInstance();
-      $rootScope.$broadcast('comment:submitted');
+      $rootScope.$broadcast('md_editor:submitted');
     }
 
     function error() {
