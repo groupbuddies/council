@@ -1,14 +1,27 @@
-md-toolbar md-theme="council"
-  .md-toolbar-tools
-    span.md-flex Change your password
+.TopBarLayout
+  form name="ctrl.form" novalidate="" ng-controller="UserFormCtrl as formCtrl" ng-submit="formCtrl.submit(ctrl.user, ctrl.form.$valid, ctrl.data, ctrl.userUpdated)"
+    .TopBarLayout-header
+      toolbar shadow="enabled" style="accent"
+        md-button.md-primary.md-hue-1 md-no-ink="" ui-sref="discussions.index"
+          .IconClose
+          |  cancel
+        md-button.md-raised.md-warn md-no-ink="" type="submit"
+          | update user
 
-md-content.md-padding
-  form name="form" novalidate=""
-    md-text-float label="Username" ng-model="ctrl.username" type="text"
-    md-text-float label="New password" ng-model="ctrl.password" type="password"
-    md-text-float label="Confirm password" ng-model="ctrl.passwordConfirmation" equals="ctrl.password" type="password"
+    .TopBarLayout-content
+      page padding="true" style="white"
+        md-input-container.md-accent
+          label Username
+          input type="text" name="username" ng-model="ctrl.data.username"
+        md-input-container.md-accent
+          label Color
+          input type="color" name="color" ng-model="ctrl.data.color"
+        md-input-container.md-accent
+          label New password
+          input type="password" name="password" ng-model="ctrl.data.password"
+        md-input-container.md-accent
+          label Confirm password
+          input type="password" name="passwordConfirmation" ng-model="ctrl.data.password_confirmation"
 
-    md-button.md-raised.md-primary ng-click="ctrl.changePassword()" ng-disabled="!form.$valid" Update
-
-p
-  | {{ctrl.message}}
+        p
+          | {{ formCtrl.message }}

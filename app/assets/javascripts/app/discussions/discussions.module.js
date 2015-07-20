@@ -16,7 +16,8 @@
         url: '/discussions',
         abstract: true,
         template: '<div ui-view class="u-fullSize"></div>',
-        controller: function(User) {
+        controller: function(User, Me) {
+          Me.find();
           User.findAll();
         }
       })

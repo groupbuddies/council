@@ -1,5 +1,5 @@
 md-sidenav.Sidebar.md-sidenav-left.md-whiteframe-z2 md-component-id="left" md-is-open="ctrl.showSidebar"
-  md-toolbar.md-warn.md-whiteframe-z1 ng-click="ctrl.toggleSidebar()"
+  md-toolbar.Button.md-warn.md-whiteframe-z1 ng-click="ctrl.toggleSidebar()"
     .md-toolbar-tools layout="row" layout-align="space-around center"
       p Close menu
   md-content
@@ -9,6 +9,7 @@ md-sidenav.Sidebar.md-sidenav-left.md-whiteframe-z2 md-component-id="left" md-is
           | Notifications
           .NotificationsCount ng-show="ctrl.notifications()"
             | {{ ctrl.notifications() }}
-      li.Sidebar-item Settings
+      li.Sidebar-item
+        a.Sidebar-itemInside ui-sref="users.edit({ id: ctrl.userId })" Settings
       li.Sidebar-item
         a.Sidebar-itemInside data-method="delete" href="/users/sign_out" Sign Out
