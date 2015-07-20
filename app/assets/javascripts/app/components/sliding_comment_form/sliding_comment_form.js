@@ -39,7 +39,6 @@
     ctrl.show = false;
     ctrl.comment = {};
     ctrl.input = '';
-    ctrl.disabled = true;
 
     ctrl.update = update;
     ctrl.create = create;
@@ -72,7 +71,6 @@
     }
 
     function update() {
-      ctrl.disabled = true;
       ctrl.comment.DSUpdate({ body: ctrl.input })
         .then(reset)
         .then(close)
@@ -80,7 +78,6 @@
     }
 
     function create() {
-      ctrl.disabled = true;
       ctrl.discussion
         .addComment({ body: ctrl.input })
         .then(reset)
@@ -89,7 +86,6 @@
     }
 
     function reset() {
-      ctrl.disabled = true;
       ctrl.input = "";
       $rootScope.$broadcast('md_editor:submitted');
     }
@@ -100,12 +96,11 @@
 
     function onError(err) {
       console.log(err);
-      ctrl.disabled = false;
       focus();
     }
 
     function isDisabled() {
-      return ctrl.disabled && !ctrl.input;
+      return !ctrl.input;
     }
   }
 })();

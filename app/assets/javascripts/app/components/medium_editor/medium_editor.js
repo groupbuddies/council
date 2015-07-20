@@ -3,11 +3,11 @@
 
   angular
       .module('council.components')
-      .controller('markdownEditorCtrl', markdownEditorCtrl)
-      .directive('markdownEditor', markdownEditor);
+      .controller('mediumEditorCtrl', mediumEditorCtrl)
+      .directive('mediumEditor', mediumEditor);
 
 
-  function markdownEditor($sce) {
+  function mediumEditor($sce) {
     return {
       restrict: 'E',
       scope: {
@@ -17,15 +17,15 @@
           large: '@',
           required: '@'
       },
-      controller: markdownEditorCtrl,
+      controller: mediumEditorCtrl,
       controllerAs: 'ctrl',
       bindToController: true,
-      templateUrl: 'components/markdown_editor/templates/markdown_editor.html',
-      link: councilMarkdownEditorLink
+      templateUrl: 'components/medium_editor/templates/medium_editor.html',
+      link: councilMediumEditorLink
     };
   }
 
-  function markdownEditorCtrl($scope) {
+  function mediumEditorCtrl($scope) {
     var ctrl = this;
 
     var toolbar_buttons = ctrl.buttons ?
@@ -45,10 +45,10 @@
     };
   }
 
-  function councilMarkdownEditorLink($scope, $element, attrs, ctrl, $rootScope) {
-    var editor = new MediumEditor(".MarkdownEditor", ctrl.opts);
+  function councilMediumEditorLink($scope, $element, attrs, ctrl, $rootScope) {
+    var editor = new MediumEditor(".MediumEditor", ctrl.opts);
     var target = angular.element(
-      $element[0].querySelector('.MarkdownEditor') );
+      $element[0].querySelector('.MediumEditor') );
 
     $element.on('input', updateModel);
     $scope.$on('md_editor:submitted', clearEditor);

@@ -22,7 +22,6 @@
   function CommentCardCtrl(Device, $slidingCommentForm, $element, $timeout, Comment, Keyboard) {
     var ctrl = this;
 
-    ctrl.disabled = true;
     ctrl.input = ctrl.comment.body;
 
     ctrl.startEditing = startEditing;
@@ -31,7 +30,6 @@
     ctrl.isDisabled = isDisabled;
 
     function update() {
-      ctrl.disabled = true;
 
       Comment.update(ctrl.comment.id, {body: ctrl.input})
         .then(updateComment)
@@ -51,7 +49,6 @@
 
     function stopEditing() {
       $element.removeClass('is-editing');
-      ctrl.disabled = true;
       Keyboard.close();
     }
 
@@ -60,12 +57,11 @@
     }
 
     function onUpdateError(err) {
-      ctrl.disabled = true;
       console.log(err);
     }
 
     function isDisabled() {
-      return ctrl.disabled && !ctrl.input;
+      return !ctrl.input;
     }
   }
 })();
