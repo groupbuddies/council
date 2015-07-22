@@ -33,7 +33,7 @@
     }
   }
 
-  function SlidingCommentFormCtrl($rootScope, Keyboard, $element, Comment) {
+  function SlidingCommentFormCtrl($scope, Keyboard, $element, Comment) {
     var ctrl = this;
 
     ctrl.show = false;
@@ -53,7 +53,6 @@
       ctrl.show = true;
       ctrl.discussion = discussion;
       ctrl.comment = comment;
-
       if (comment)
         ctrl.input = comment.body;
       else
@@ -87,7 +86,6 @@
 
     function reset() {
       ctrl.input = "";
-      $rootScope.$broadcast('md_editor:submitted');
     }
 
     function focus() {

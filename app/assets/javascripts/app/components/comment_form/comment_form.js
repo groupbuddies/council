@@ -21,7 +21,7 @@
     };
   }
 
-  function CommentFormCtrl($element, Comment, Keyboard, $scope, $rootScope) {
+  function CommentFormCtrl($element, Comment, Keyboard, $scope) {
     var ctrl = this;
 
     ctrl.create = create;
@@ -46,7 +46,6 @@
 
     function reset() {
       ctrl.comment = Comment.createInstance();
-      $rootScope.$broadcast('md_editor:submitted');
     }
 
     function error(err) {
